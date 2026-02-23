@@ -1,8 +1,62 @@
 ---
-import "../styles/global.css";
-import Layout from '../layouts/Layout.astro'
+import Layout from '../layouts/Layout.astro';
 ---
-<Layout>
-    <h1>Inicio</h1>
-    <a href="/nosotros">Ir a Nosotros</a>
+
+<Layout title="ETSAATOURS - Catálogo de Tours">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 w-full border-b border-slate-200 bg-white px-6 py-4">
+    <div class="mx-auto flex max-w-[1280px] items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="text-primary">
+          <span class="material-symbols-outlined text-[32px]">travel_explore</span>
+        </div>
+        <h2 class="text-xl font-extrabold text-slate-900">ETSAATOURS</h2>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a class="text-sm font-semibold text-primary" href="#">Tours</a>
+        <a class="text-sm font-semibold text-slate-600 hover:text-primary" href="#">Nosotros</a>
+        <a class="text-sm font-semibold text-slate-600 hover:text-primary" href="#">Contacto</a>
+      </nav>
+
+      <button class="rounded-xl bg-primary px-5 py-2.5 text-sm font-bold text-[#0d1b12] hover:bg-primary-dark">
+        Reservar
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 w-full max-w-[1280px] mx-auto p-8">
+    <div class="text-center py-20">
+      <h1 class="text-5xl font-black text-slate-900 mb-4">
+        ¡Bienvenido a ETSAATOURS! 🎉
+      </h1>
+      <p class="text-xl text-slate-600">
+        El sitio está funcionando correctamente con Tailwind CSS.
+      </p>
+      <p class="text-lg text-primary font-bold mt-4">
+        Verde primario (#11d452)
+      </p>
+    </div>
+
+    <!-- Test de Tailwind -->
+    <div class="grid grid-cols-3 gap-4 mt-8">
+      <div class="p-6 bg-primary rounded-lg text-white font-bold">
+        Color Primario
+      </div>
+      <div class="p-6 bg-background-light rounded-lg border border-slate-200">
+        Background Light
+      </div>
+      <div class="p-6 bg-surface-light rounded-lg shadow-lg">
+        Surface Light
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-20 border-t border-slate-200 py-8">
+    <div class="mx-auto max-w-[1280px] px-6 text-center">
+      <p class="text-sm text-slate-500">© 2024 ETSAATOURS. Todos los derechos reservados.</p>
+    </div>
+  </footer>
 </Layout>

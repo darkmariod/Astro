@@ -1,0 +1,5 @@
+{
+  "name": "ETSAATOURS - Turismo Responsable en Ecuador",
+  "description": "Operadora de turismo comprometida con la preservación del patrimonio natural y cultural del Ecuador. Experiencias auténticas en la Amazonía, Andes, Costa y Galápagos.",
+  "requestFramePermissions": ["geolocation"]
+}

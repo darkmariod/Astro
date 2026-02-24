@@ -1,0 +1,27 @@
+import { LucideIcon } from 'lucide-react';
+
+export const Landscape = ({ className }: { className?: string }) => <span className={`material-symbols-outlined ${className}`}>landscape</span>;
+export const Search = ({ className }: { className?: string }) => <span className={`material-symbols-outlined ${className}`}>search</span>;
+export const LocationOn = ({ className }: { className?: string }) => <span className={`material-symbols-outlined ${className}`}>location_on</span>;
+export const CalendarMonth = ({ className }: { className?: string }) => <span className={`material-symbols-outlined ${className}`}>calendar_month</span>;
+export const Schedule = ({ className }: { className?: string }) => <span className={`material-symbols-outlined ${className}`}>schedule</span>;
+export const Star = ({ className }: { className?: string }) => <span className={`material-symbols-outlined ${className}`}>star</span>;
+export const Groups = ({ className }: { className?: string }) => <span className={`material-symbols-outlined ${className}`}>groups</span>;
+export const NaturePeople = ({ className }: { className?: string }) => <span className={`material-symbols-outlined ${className}`}>nature_people</span>;
+export const Public = ({ className }: { className?: string }) => <span className={`material-symbols-outlined ${className}`}>public</span>;
+export const Verified = ({ className }: { className?: string }) => <span className={`material-symbols-outlined ${className}`}>verified</span>;
+export const Savings = ({ className }: { className?: string }) => <span className={`material-symbols-outlined ${className}`}>savings</span>;
+export const Forest = ({ className }: { className?: string }) => <span className={`material-symbols-outlined ${className}`}>forest</span>;
+export const Visibility = ({ className }: { className?: string }) => <span className={`material-symbols-outlined ${className}`}>visibility</span>;
+export const Chat = ({ className }: { className?: string }) => <span className={`material-symbols-outlined ${className}`}>chat</span>;
+export const EditNote = ({ className }: { className?: string }) => <span className={`material-symbols-outlined ${className}`}>edit_note</span>;
+export const Explore = ({ className }: { className?: string }) => <span className={`material-symbols-outlined ${className}`}>explore</span>;
+export const Mail = ({ className }: { className?: string }) => <span className={`material-symbols-outlined ${className}`}>mail</span>;
+export const Call = ({ className }: { className?: string }) => <span className={`material-symbols-outlined ${className}`}>call</span>;
+export const Camera = ({ className }: { className?: string }) => <span className={`material-symbols-outlined ${className}`}>camera</span>;
+export const Share = ({ className }: { className?: string }) => <span className={`material-symbols-outlined ${className}`}>share</span>;
+export const Language = ({ className }: { className?: string }) => <span className={`material-symbols-outlined ${className}`}>language</span>;
+export const ArrowForward = ({ className }: { className?: string }) => <span className={`material-symbols-outlined ${className}`}>arrow_forward</span>;
+export const ExpandMore = ({ className }: { className?: string }) => <span className={`material-symbols-outlined ${className}`}>expand_more</span>;
+export const TravelExplore = ({ className }: { className?: string }) => <span className={`material-symbols-outlined ${className}`}>travel_explore</span>;
+export const YoutubeActivity = ({ className }: { className?: string }) => <span className={`material-symbols-outlined ${className}`}>youtube_activity</span>;

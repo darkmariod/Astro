@@ -17,4 +17,4 @@ export interface Tour {
   isLuxury?: boolean;
 }
 
-export type Page = 'home' | 'about' | 'tours' | 'tour-detail';
+export type Page = "contact" | 'home' | 'about' | 'tours' | 'tour-detail';

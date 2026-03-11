@@ -1,3 +1,3 @@
 import tour from './tour'
-
-export const schemaTypes = [tour]
+import nosotros from './nosotros'
+export const schemaTypes = [tour, nosotros]

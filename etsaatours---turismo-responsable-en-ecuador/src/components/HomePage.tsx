@@ -1,17 +1,26 @@
-import React from "react";
-import { ArrowRight } from "lucide-react";
-import { Tour, Page } from "../types";
-import { TOURS } from "../constants";
+import React, { useEffect, useState } from "react";
 import { Hero } from "./Hero";
 import { TourCard } from "./TourCard";
 import { ValuesStrip } from "./ValuesStrip";
+import { client } from "../sanityClient";
+import { Tour, Page } from "../types";
 
 export const HomePage = ({ setPage, onTourSelect }: { setPage: (p: Page) => void, onTourSelect: (t: Tour) => void }) => {
+  const [tours, setTours] = useState<Tour[]>([]);
+
+  useEffect(() => {
+    client.fetch(`*[_type == "tour"] | order(_createdAt asc)[0..2] {
+      "id": _id,
+      title, region, location, duration, price, tag, description,
+      operation, groupSize, priceNote, isLuxury, whatsapp,
+      included, notIncluded, itinerary,
+      "image": image.asset->url
+    }`).then(setTours);
+  }, []);
+
   return (
     <div className="relative">
       <Hero setPage={setPage} />
-
-      {/* Featured Tours */}
       <section className="py-32 max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
@@ -20,21 +29,19 @@ export const HomePage = ({ setPage, onTourSelect }: { setPage: (p: Page) => void
               Nuestros tours más populares
             </h2>
           </div>
-          <button 
+          <button
             onClick={() => setPage("tours")}
             className="flex items-center gap-2 text-primary font-black hover:gap-4 transition-all"
           >
-            VER TODOS LOS TOURS <ArrowRight size={20} />
+            VER TODOS LOS TOURS →
           </button>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {TOURS.slice(0, 3).map((tour) => (
+          {tours.map((tour) => (
             <TourCard key={tour.id} tour={tour} onSelect={onTourSelect} />
           ))}
         </div>
       </section>
-
       <ValuesStrip />
     </div>
   );

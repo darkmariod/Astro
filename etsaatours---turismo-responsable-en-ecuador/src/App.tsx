@@ -7,8 +7,7 @@ import { HomePage } from "./components/HomePage";
 import { ToursPage } from "./components/ToursPage";
 import { AboutPage } from "./components/AboutPage";
 import { TourDetailPage } from "./components/TourDetailPage";
-
-// --- Main App ---
+import { ContactPage } from "./components/ContactPage";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>("home");
@@ -26,16 +25,15 @@ export default function App() {
   return (
     <div className="min-h-screen">
       <Navbar currentPage={currentPage} setPage={setCurrentPage} />
-      
       <main>
         {currentPage === "home" && <HomePage setPage={setCurrentPage} onTourSelect={handleTourSelect} />}
         {currentPage === "tours" && <ToursPage onTourSelect={handleTourSelect} />}
         {currentPage === "about" && <AboutPage />}
+        {currentPage === "contact" && <ContactPage />}
         {currentPage === "tour-detail" && selectedTour && (
           <TourDetailPage tour={selectedTour} setPage={setCurrentPage} />
         )}
       </main>
-
       <Footer />
       <WhatsAppButton />
     </div>

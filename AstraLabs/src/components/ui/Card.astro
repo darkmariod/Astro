@@ -1,0 +1,65 @@
+---
+interface Props {
+    title: string;
+    description: string;
+    image: string;
+    date?: string;
+    link?: string;
+    category?: string;
+    index?: number;
+}
+
+const { title, description, image, date, link = "#", category, index = 0 } = Astro.props;
+---
+
+<a 
+    href={link} 
+    class="group block bg-soil-raised rounded overflow-hidden hover:ring-2 hover:ring-clay-600 transition-all duration-300 animate-card"
+    data-animate-card
+    data-index={index}
+>
+    <div class="relative h-48 md:h-56 overflow-hidden">
+        <img 
+            src={image} 
+            alt={title}
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
+        {category && (
+            <span class="absolute top-3 left-3 bg-clay-600 text-white text-xs font-bold uppercase px-2 py-1 rounded">
+                {category}
+            </span>
+        )}
+        <div class="absolute inset-0 bg-gradient-to-t from-soil-void/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    </div>
+    <div class="p-4 md:p-6">
+        {date && (
+            <p class="text-stone-400 text-sm mb-2">{date}</p>
+        )}
+        <h3 class="text-xl md:text-2xl font-display font-bold text-white mb-2 group-hover:text-clay-400 transition-colors">
+            {title}
+        </h3>
+        <p class="text-stone-300 text-sm md:text-base line-clamp-2">
+            {description}
+        </p>
+        <span class="inline-block mt-4 text-clay-400 text-sm font-semibold group-hover:translate-x-2 transition-transform">
+            Ver más →
+        </span>
+    </div>
+</a>
+
+<style>
+    .animate-card {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow 0.3s ease;
+    }
+
+    .animate-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .animate-card:hover {
+        box-shadow: 0 10px 40px rgba(184, 48, 38, 0.2);
+    }
+</style>

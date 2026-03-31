@@ -1,11 +1,30 @@
 ---
-import "../styles/global.css";
-import Header from "../components/ui/Header.astro";
-import Footer from "../components/ui/Footer.astro";
+import "@/styles/global.css";
+import Header from "@/components/ui/Header.astro";
+import Footer from "@/components/ui/Footer.astro";
+
+interface Props {
+    title?: string;
+    description?: string;
+    bgImage: string;
+    canonical?: string;
+}
+
+const { title, bgImage } = Astro.props;
 ---
 
-<Header />
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-<slot />
-
-<Footer />
+        <title>Astra Lab:{title}</title>
+    </head>
+    <body class="bg-soil-deep text-stone-100 font-body antialiased">
+        <Header bgImage={bgImage} />
+        <slot />
+        <Footer />
+    </body>
+</html>

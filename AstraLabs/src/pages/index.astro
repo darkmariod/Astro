@@ -1,11 +1,10 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import image from "../assets/bg_home.jpg";
+import { Image } from "astro:assets";
+import Layout from "@/layouts/Layout.astro";
+import bg from "@/assets/bg_home.jpg";
 ---
 
-<Layout>
+<Layout title="Incio" bgImage={bg.src}>
     <h1>Inicio</h1>
     <a href="/nosotros">Nosotros</a>
-
-    <img src={image.src} />
 </Layout>

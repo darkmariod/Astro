@@ -1,7 +1,22 @@
 ---
+import Logo from "@/assets/logo.svg";
+import Nav from "./Nav.jsx";
 
+interface Props {
+    bgImage: string;
+}
+const { bgImage } = Astro.props;
 ---
 
-<header>
-    <h1>Header</h1>
+<header class="min-h-72 relative pb-72">
+    <div
+        class="absolute inset-0 bg-center bg-cover"
+        style={{ backgroundImage: `url(${bgImage})` }}
+    >
+    </div>
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="relative max-w-7xl mx-auto py-3">
+        <Logo class="w-72" />
+    </div>
+    <Nav client:load />
 </header>

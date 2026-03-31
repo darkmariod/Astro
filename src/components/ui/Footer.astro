@@ -1,3 +1,25 @@
-<footer>
-    <h2>Footer</h2>
+---
+import FooterBox from "./FooterBox.astro";
+---
+
+<footer class="bg-soil-void pt-12 pb-6">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        <FooterBox heading="Ubicación">
+            <p>Av. Principal 123 y Calle Secundaria</p>
+            <p>Quito, Ecuador</p>
+            <p>Latacunga, Ecuador</p>
+        </FooterBox>
+        <FooterBox heading="Contacto">
+            <p>+593 99 123 4567</p>
+            <p>info@astralab.com</p>
+            <p>Lun - Vie: 8:00 - 18:00</p>
+        </FooterBox>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 mt-10 pt-6 border-t border-soil-raised">
+        <p class="text-center text-stone-400 text-sm">
+            Todos los derechos reservados Monkey Computer, &copy; {
+                new Date().getFullYear()
+            }
+        </p>
+    </div>
 </footer>

@@ -1,0 +1,203 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import bg from "@/assets/bg_home.jpg";
+---
+
+<Layout title="Contact" subtitle="Contact" bgImage={bg.src}>
+    
+    <section class="py-8 sm:py-12 md:py-16">
+        <div class="grid md:grid-cols-2 gap-8 sm:gap-12">
+            
+            <!-- Formulario -->
+            <div data-animate>
+                <h2 class="text-2xl sm:text-3xl font-display font-bold text-white mb-4 sm:mb-6">
+                    Let's Start a <span class="text-clay-400">Dialogue</span>
+                </h2>
+                <p class="text-stone-300 mb-6 sm:mb-8 text-sm sm:text-base">
+                    Do you have a cultural project in mind? Want to explore co-creation possibilities from the territory? Write to us and we'll respond from listening.
+                </p>
+                
+                <form class="space-y-4 sm:space-y-6">
+                    <div class="grid sm:grid-cols-2 gap-4 sm:gap-6">
+                        <div>
+                            <label class="block text-stone-300 text-sm font-semibold mb-2" for="name">
+                                Name
+                            </label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name"
+                                class="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-soil-raised border border-soil-raised focus:border-clay-600 rounded text-white placeholder-stone-500 focus:outline-none focus:ring-1 focus:ring-clay-600 transition-colors text-sm sm:text-base"
+                                placeholder="Your name"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label class="block text-stone-300 text-sm font-semibold mb-2" for="email">
+                                Email
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email"
+                                class="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-soil-raised border border-soil-raised focus:border-clay-600 rounded text-white placeholder-stone-500 focus:outline-none focus:ring-1 focus:ring-clay-600 transition-colors text-sm sm:text-base"
+                                placeholder="your@email.com"
+                                required
+                            />
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-stone-300 text-sm font-semibold mb-2" for="organization">
+                            Organization or Community (optional)
+                        </label>
+                        <input 
+                            type="text" 
+                            id="organization" 
+                            name="organization"
+                            class="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-soil-raised border border-soil-raised focus:border-clay-600 rounded text-white placeholder-stone-500 focus:outline-none focus:ring-1 focus:ring-clay-600 transition-colors text-sm sm:text-base"
+                            placeholder="Name of your organization"
+                        />
+                    </div>
+                    
+                    <div>
+                        <label class="block text-stone-300 text-sm font-semibold mb-2" for="subject">
+                            Type of inquiry
+                        </label>
+                        <select 
+                            id="subject" 
+                            name="subject"
+                            class="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-soil-raised border border-soil-raised focus:border-clay-600 rounded text-white focus:outline-none focus:ring-1 focus:ring-clay-600 transition-colors text-sm sm:text-base"
+                            required
+                        >
+                            <option value="">Select an option</option>
+                            <option value="laboratorio">Cultural Laboratory</option>
+                            <option value="taller">Workshop or Mediation</option>
+                            <option value="documentacion">Ethical Documentation</option>
+                            <option value="proyecto">Project Design</option>
+                            <option value="colaboracion">Collaboration Proposal</option>
+                            <option value="otro">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-stone-300 text-sm font-semibold mb-2" for="message">
+                            Tell us about your project or inquiry
+                        </label>
+                        <textarea 
+                            id="message" 
+                            name="message"
+                            rows="4"
+                            class="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-soil-raised border border-soil-raised focus:border-clay-600 rounded text-white placeholder-stone-500 focus:outline-none focus:ring-1 focus:ring-clay-600 transition-colors resize-none text-sm sm:text-base"
+                            placeholder="Describe your project or inquiry..."
+                            required
+                        ></textarea>
+                    </div>
+                    
+                    <button 
+                        type="submit"
+                        class="w-full bg-clay-600 hover:bg-clay-700 text-white font-bold uppercase text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded transition-colors"
+                    >
+                        Send Message
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Info -->
+            <div data-animate class="mt-8 md:mt-0">
+                <h2 class="text-2xl sm:text-3xl font-display font-bold text-white mb-4 sm:mb-6">
+                    Contact <span class="text-clay-400">Information</span>
+                </h2>
+                
+                <p class="text-stone-300 mb-6 sm:mb-8 text-sm sm:text-base">
+                    We respond to each message with the attention it deserves. Time is a value in our processes.
+                </p>
+                
+                <div class="space-y-4 sm:space-y-6 mb-8 sm:mb-10">
+                    <div class="flex items-start gap-3 sm:gap-4">
+                        <div class="w-10 sm:w-12 h-10 sm:h-12 bg-clay-600/20 rounded flex items-center justify-center shrink-0">
+                            <span class="text-lg sm:text-xl">📧</span>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-semibold mb-1 text-sm sm:text-base">Email</h3>
+                            <a href="mailto:contacto@ancestrallab.com" class="text-clay-400 hover:text-clay-300 transition-colors text-sm sm:text-base">
+                                contacto@ancestrallab.com
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-3 sm:gap-4">
+                        <div class="w-10 sm:w-12 h-10 sm:h-12 bg-clay-600/20 rounded flex items-center justify-center shrink-0">
+                            <span class="text-lg sm:text-xl">👤</span>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-semibold mb-1 text-sm sm:text-base">Promoter</h3>
+                            <p class="text-stone-300 text-sm sm:text-base">Yaku Heredia</p>
+                            <p class="text-stone-400 text-xs sm:text-sm">Cultural Mediator and Visual Narrator</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-3 sm:gap-4">
+                        <div class="w-10 sm:w-12 h-10 sm:h-12 bg-clay-600/20 rounded flex items-center justify-center shrink-0">
+                            <span class="text-lg sm:text-xl">🌐</span>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-semibold mb-1 text-sm sm:text-base">Territory</h3>
+                            <p class="text-stone-300 text-sm sm:text-base">Ecuador</p>
+                            <p class="text-stone-400 text-xs sm:text-sm">Work throughout Latin America</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Redes -->
+                <div class="mb-6 sm:mb-8 sm:mb-10">
+                    <h3 class="text-white font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Follow Us</h3>
+                    <div class="flex gap-3 sm:gap-4">
+                        <a href="#" class="w-10 sm:w-12 h-10 sm:h-12 bg-soil-raised hover:bg-clay-600 rounded flex items-center justify-center transition-colors" title="Instagram">
+                            <span class="text-lg sm:text-xl">📸</span>
+                        </a>
+                        <a href="#" class="w-10 sm:w-12 h-10 sm:h-12 bg-soil-raised hover:bg-clay-600 rounded flex items-center justify-center transition-colors" title="YouTube">
+                            <span class="text-lg sm:text-xl">▶️</span>
+                        </a>
+                        <a href="#" class="w-10 sm:w-12 h-10 sm:h-12 bg-soil-raised hover:bg-clay-600 rounded flex items-center justify-center transition-colors" title="Facebook">
+                            <span class="text-lg sm:text-xl">📘</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Lema -->
+                <div class="bg-soil-raised p-4 sm:p-6 rounded">
+                    <p class="text-clay-400 font-display italic text-base sm:text-lg">
+                        "Nothing is published without return.<br />Nothing is created without listening."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<script>
+    const animateOnScroll = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('[data-animate]').forEach((el) => {
+        animateOnScroll.observe(el);
+    });
+</script>
+
+<style>
+    [data-animate] {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    [data-animate].visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>

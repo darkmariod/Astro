@@ -7,14 +7,6 @@ import {
 import { useEffect, useState } from "react";
 import styles from "./nav.module.css";
 
-const links = [
-  { href: "/", text: "Inicio" },
-  { href: "/nosotros/", text: "Nosotros" },
-  { href: "/blog/", text: "Blog" },
-  { href: "/galeria/", text: "Galería" },
-  { href: "/contacto/", text: "Contacto" },
-];
-
 export default function Nav() {
   const { scrollYProgress } = useScroll({
     offset: ["0% 0%", "10% 0%"],
@@ -23,6 +15,7 @@ export default function Nav() {
   const [isHidden, setIsHidden] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [currentLang, setCurrentLang] = useState("es");
 
   useEffect(() => {
     const checkMobile = () => {
@@ -31,6 +24,16 @@ export default function Nav() {
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    // Get current language from URL
+    const pathParts = window.location.pathname.split("/");
+    if (pathParts[1] === "en") {
+      setCurrentLang("en");
+    } else {
+      setCurrentLang("es");
+    }
   }, []);
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
@@ -45,6 +48,58 @@ export default function Nav() {
     }
   }, [isMobile, scrollYProgress]);
 
+  const getLocalizedPath = (path) => {
+    const pathParts = window.location.pathname.split("/");
+    const currentPathLang = pathParts[1];
+    
+    if (currentLang === "en") {
+      // Remove existing lang prefix
+      const cleanPath = pathParts.slice(2).join("/") || "/";
+      return path === "/" ? `/en` : `/en/${path.replace(/^\/|\/$/g, "")}`;
+    }
+    return path;
+  };
+
+  const links = {
+    es: [
+      { href: "/", text: "Inicio" },
+      { href: "/nosotros/", text: "Nosotros" },
+      { href: "/servicios/", text: "Servicios" },
+      { href: "/blog/", text: "Blog" },
+      { href: "/galeria/", text: "Galería" },
+      { href: "/contacto/", text: "Contacto" },
+    ],
+    en: [
+      { href: "/", text: "Home" },
+      { href: "/nosotros/", text: "About Us" },
+      { href: "/servicios/", text: "Services" },
+      { href: "/blog/", text: "Blog" },
+      { href: "/galeria/", text: "Gallery" },
+      { href: "/contacto/", text: "Contact" },
+    ]
+  };
+
+  const currentLinks = links[currentLang] || links.es;
+
+  const toggleLanguage = () => {
+    const currentPath = window.location.pathname;
+    let newPath;
+    
+    if (currentLang === "es") {
+      // Switch to English
+      if (currentPath === "/") {
+        newPath = "/en";
+      } else {
+        newPath = `/en${currentPath}`;
+      }
+    } else {
+      // Switch to Spanish
+      newPath = currentPath.replace("/en", "") || "/";
+    }
+    
+    window.location.href = newPath;
+  };
+
   // Mobile Menu
   if (isMobile) {
     return (
@@ -52,7 +107,7 @@ export default function Nav() {
         <button 
           className={styles.menu_button}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Menú"
+          aria-label="Menu"
         >
           <span className={`${styles.hamburger} ${isMenuOpen ? styles.hamburger_open : ""}`}>
             <span></span>
@@ -71,7 +126,7 @@ export default function Nav() {
               transition={{ duration: 0.2 }}
             >
               <ul className={styles.mobile_links}>
-                {links.map((link) => (
+                {currentLinks.map((link) => (
                   <li key={link.href}>
                     <a 
                       href={link.href} 
@@ -83,6 +138,16 @@ export default function Nav() {
                   </li>
                 ))}
               </ul>
+              
+              {/* Language Toggle in Mobile */}
+              <div className={styles.mobile_lang_toggle}>
+                <button 
+                  onClick={toggleLanguage}
+                  className={styles.mobile_lang_btn}
+                >
+                  {currentLang === "es" ? "🇪🇸 Español" : "🇬🇧 English"}
+                </button>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -114,7 +179,7 @@ export default function Nav() {
         )}
 
         <motion.ul layout className={styles.nav_links}>
-          {links.map((link) => (
+          {currentLinks.map((link) => (
             <motion.li layout key={link.href} className={styles.nav_item}>
               <a href={link.href} className={styles.nav_link}>
                 {link.text}
@@ -122,6 +187,15 @@ export default function Nav() {
             </motion.li>
           ))}
         </motion.ul>
+
+        {/* Language Toggle */}
+        <button 
+          onClick={toggleLanguage}
+          className={styles.lang_toggle}
+          aria-label="Toggle language"
+        >
+          {currentLang === "es" ? "🇪🇸 ES" : "🇬🇧 EN"}
+        </button>
       </motion.nav>
     </AnimatePresence>
   );

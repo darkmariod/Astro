@@ -1,0 +1,239 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import bg from "@/assets/bg_home.jpg";
+import SectionTitle from "@/components/ui/SectionTitle.astro";
+
+const posts = [
+    {
+        title: "The importance of territorial listening in cultural projects",
+        excerpt: "Before any documentation or creation process, it's essential to establish genuine bonds with the territory and its communities.",
+        image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80",
+        author: "Yaku Heredia",
+        date: "March 20, 2026",
+        readTime: "10 min",
+        category: "Methodology"
+    },
+    {
+        title: "Ethical documentation: beyond photography",
+        excerpt: "When we document ancestral knowledge, we're not just taking photos. We're building archives that must respect communities' sovereignty.",
+        image: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800&q=80",
+        author: "Ancestral Lab",
+        date: "March 15, 2026",
+        readTime: "8 min",
+        category: "Reflection"
+    },
+    {
+        title: "Visual narrative: telling stories from the territory",
+        excerpt: "How to create visual narratives that honor the voice of communities and don't impose an external viewpoint.",
+        image: "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?w=800&q=80",
+        author: "Yaku Heredia",
+        date: "March 10, 2026",
+        readTime: "12 min",
+        category: "Tools"
+    },
+    {
+        title: "Time as a value in cultural processes",
+        excerpt: "Why heritage activation projects cannot be accelerated. The importance of building from trust, not urgency.",
+        image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80",
+        author: "Ancestral Lab",
+        date: "March 5, 2026",
+        readTime: "6 min",
+        category: "Reflection"
+    },
+    {
+        title: "Co-creation: communities as subjects, not objects",
+        excerpt: "Reflection on how to avoid cultural extractivism and build processes where communities are protagonists.",
+        image: "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=800&q=80",
+        author: "Yaku Heredia",
+        date: "February 28, 2026",
+        readTime: "9 min",
+        category: "Methodology"
+    },
+    {
+        title: "Community archive: returning memory to its builders",
+        excerpt: "How we design archive processes where generated materials return to communities in accessible formats.",
+        image: "https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?w=800&q=80",
+        author: "Ancestral Lab",
+        date: "February 20, 2026",
+        readTime: "7 min",
+        category: "Practice"
+    }
+];
+
+const categories = ["All", "Methodology", "Reflection", "Tools", "Practice"];
+---
+
+<Layout title="Blog" subtitle="Reflections and Tools" bgImage={bg.src}>
+    
+    <!-- Intro -->
+    <section class="text-center px-4 py-8 sm:py-12" data-animate>
+        <p class="text-stone-300 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
+            Reflections, tools, and experiences on living heritage activation, cultural mediation, and ethical work with communities.
+        </p>
+    </section>
+
+    <!-- Filtros -->
+    <section class="mb-8 sm:mb-12 px-4" data-animate>
+        <div class="flex flex-wrap justify-center gap-2 sm:gap-3">
+            {categories.map((cat) => (
+                <button 
+                    class={`filter-btn px-3 sm:px-4 py-1.5 sm:py-2 rounded text-xs sm:text-sm font-semibold uppercase transition-all ${
+                        cat === "All" 
+                            ? "bg-clay-600 text-white" 
+                            : "bg-soil-raised text-stone-300 hover:bg-clay-600/50 hover:text-white"
+                    }`}
+                    data-category={cat}
+                >
+                    {cat}
+                </button>
+            ))}
+        </div>
+    </section>
+
+    <!-- Posts Grid -->
+    <section class="mb-12 sm:mb-16 px-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8" id="blog-grid">
+            {posts.map((post, index) => (
+                <article 
+                    class="blog-card bg-soil-raised rounded overflow-hidden group hover:ring-2 hover:ring-clay-600 transition-all animate-blog"
+                    data-category={post.category}
+                    data-index={index}
+                >
+                    <a href={`/en/blog/${post.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                        <div class="relative h-40 sm:h-48 md:h-56 overflow-hidden">
+                            <img 
+                                src={post.image}
+                                alt={post.title}
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                loading="lazy"
+                            />
+                            <span class="absolute top-2 left-2 sm:top-3 sm:left-3 bg-clay-600 text-white text-xs font-bold uppercase px-2 py-1 rounded">
+                                {post.category}
+                            </span>
+                        </div>
+                        <div class="p-4 sm:p-5 md:p-6">
+                            <div class="flex items-center gap-2 text-xs sm:text-sm text-stone-400 mb-2 sm:mb-3">
+                                <span>{post.date}</span>
+                                <span>•</span>
+                                <span>{post.readTime}</span>
+                            </div>
+                            <h2 class="text-sm sm:text-base md:text-lg font-display font-bold text-white mb-2 sm:mb-3 group-hover:text-clay-400 transition-colors line-clamp-2">
+                                {post.title}
+                            </h2>
+                            <p class="text-stone-300 text-xs sm:text-sm line-clamp-2 sm:line-clamp-3 mb-3 sm:mb-4">
+                                {post.excerpt}
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-stone-400 text-xs sm:text-sm">By {post.author}</span>
+                                <span class="text-clay-400 text-xs sm:text-sm font-semibold group-hover:translate-x-1 transition-transform">
+                                    Read →
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+            ))}
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-10 sm:py-12 md:py-16 bg-clay-600 rounded mx-4" data-animate>
+        <div class="max-w-2xl mx-auto px-4 text-center">
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-display font-bold text-white mb-3 sm:mb-4">
+                Ancestral Lab Newsletter
+            </h2>
+            <p class="text-white/80 mb-4 sm:mb-6 text-sm sm:text-base">
+                Reflections, tools, and experiences on living heritage and cultural mediation.
+            </p>
+            <form class="flex flex-col sm:flex-row gap-2 sm:gap-3 max-w-md mx-auto">
+                <input 
+                    type="email" 
+                    placeholder="Your email"
+                    class="flex-1 px-3 sm:px-4 py-2 sm:py-3 bg-white/10 border border-white/20 rounded text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50 text-sm sm:text-base"
+                />
+                <button 
+                    type="submit"
+                    class="px-4 py-3 bg-soil-void hover:bg-soil-deep text-white font-bold uppercase rounded transition-colors text-xs sm:text-sm"
+                >
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+</Layout>
+
+<script>
+    const animateOnScroll = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('[data-animate]').forEach((el) => {
+        animateOnScroll.observe(el);
+    });
+
+    document.querySelectorAll('.animate-blog').forEach((el, index) => {
+        (el as HTMLElement).style.transitionDelay = `${index * 100}ms`;
+        animateOnScroll.observe(el);
+    });
+
+    // Filtro de categorías
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const blogCards = document.querySelectorAll('.blog-card');
+
+    filterBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach((b) => {
+                b.classList.remove('bg-clay-600', 'text-white');
+                b.classList.add('bg-soil-raised', 'text-stone-300');
+            });
+            btn.classList.remove('bg-soil-raised', 'text-stone-300');
+            btn.classList.add('bg-clay-600', 'text-white');
+
+            const category = btn.getAttribute('data-category');
+            blogCards.forEach((item) => {
+                const itemCategory = item.getAttribute('data-category');
+                if (category === 'All' || itemCategory === category) {
+                    (item as HTMLElement).style.display = 'block';
+                    (item as HTMLElement).style.animation = 'fadeIn 0.4s ease-out';
+                } else {
+                    (item as HTMLElement).style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+
+<style>
+    [data-animate] {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    [data-animate].visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .animate-blog {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow 0.3s ease;
+    }
+    .animate-blog.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .animate-blog:hover {
+        box-shadow: 0 10px 40px rgba(184, 48, 38, 0.15);
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>

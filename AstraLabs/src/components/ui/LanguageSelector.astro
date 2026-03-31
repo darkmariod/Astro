@@ -1,0 +1,61 @@
+---
+import { translations, getLocaleFromUrl, useTranslations } from "@/i18n/translations";
+
+const { pathname } = Astro.url;
+const currentLocale = getLocaleFromUrl(Astro.url);
+
+const t = useTranslations(currentLocale);
+---
+
+<div class="relative inline-block">
+    <button 
+        id="lang-toggle"
+        class="flex items-center gap-2 px-3 py-2 text-stone-200 hover:text-clay-400 transition-colors text-sm font-semibold uppercase tracking-wide"
+        aria-label="Cambiar idioma"
+    >
+        <span>{currentLocale.toUpperCase()}</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+    </button>
+    
+    <div 
+        id="lang-menu"
+        class="absolute right-0 mt-2 py-2 bg-soil-raised rounded shadow-lg opacity-0 invisible transition-all duration-200 z-50 min-w-[120px]"
+    >
+        <a 
+            href={pathname.replace(`/${currentLocale}`, "") || "/"} 
+            class={`block px-4 py-2 text-sm hover:bg-clay-600 hover:text-white transition-colors ${currentLocale === "es" ? "bg-clay-600/30 text-white" : "text-stone-300"}`}
+        >
+            🇪🇸 Español
+        </a>
+        <a 
+            href={`/en${pathname.replace(`/${currentLocale}`, "") || "/"}`}
+            class={`block px-4 py-2 text-sm hover:bg-clay-600 hover:text-white transition-colors ${currentLocale === "en" ? "bg-clay-600/30 text-white" : "text-stone-300"}`}
+        >
+            🇬🇧 English
+        </a>
+    </div>
+</div>
+
+<script>
+    const toggle = document.getElementById('lang-toggle');
+    const menu = document.getElementById('lang-menu');
+
+    if (toggle && menu) {
+        toggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menu.classList.toggle('opacity-0');
+            menu.classList.toggle('invisible');
+            menu.classList.toggle('opacity-100');
+            menu.classList.toggle('visible');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!toggle.contains(e.target as Node) && !menu.contains(e.target as Node)) {
+                menu.classList.add('opacity-0', 'invisible');
+                menu.classList.remove('opacity-100', 'visible');
+            }
+        });
+    }
+</script>

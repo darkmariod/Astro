@@ -1,0 +1,234 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import bg from "@/assets/bg_home.jpg";
+---
+
+<Layout title="Contacto" subtitle="Contacto" bgImage={bg.src}>
+    
+    <section class="py-8 sm:py-12 md:py-16">
+        <div class="grid md:grid-cols-2 gap-8 sm:gap-12">
+            
+            <!-- Formulario -->
+            <div data-animate>
+                <h2 class="text-2xl sm:text-3xl font-display font-bold text-white mb-4 sm:mb-6">
+                    Iniciemos un <span class="text-clay-400">diálogo</span>
+                </h2>
+                <p class="text-stone-300 mb-6 sm:mb-8 text-sm sm:text-base">
+                    ¿Tienes un proyecto cultural en mente? ¿Quieres explorar posibilidades de co-creación desde el territorio? Escríbenos y respondemos desde la escucha.
+                </p>
+                
+                <form class="space-y-4 sm:space-y-6">
+                    <div class="grid sm:grid-cols-2 gap-4 sm:gap-6">
+                        <div>
+                            <label class="block text-stone-300 text-sm font-semibold mb-2" for="name">
+                                Nombre
+                            </label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name"
+                                class="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-soil-raised border border-soil-raised focus:border-clay-600 rounded text-white placeholder-stone-500 focus:outline-none focus:ring-1 focus:ring-clay-600 transition-colors text-sm sm:text-base"
+                                placeholder="Tu nombre"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label class="block text-stone-300 text-sm font-semibold mb-2" for="email">
+                                Email
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email"
+                                class="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-soil-raised border border-soil-raised focus:border-clay-600 rounded text-white placeholder-stone-500 focus:outline-none focus:ring-1 focus:ring-clay-600 transition-colors text-sm sm:text-base"
+                                placeholder="tu@email.com"
+                                required
+                            />
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-stone-300 text-sm font-semibold mb-2" for="organization">
+                            Organización o Comunidad (opcional)
+                        </label>
+                        <input 
+                            type="text" 
+                            id="organization" 
+                            name="organization"
+                            class="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-soil-raised border border-soil-raised focus:border-clay-600 rounded text-white placeholder-stone-500 focus:outline-none focus:ring-1 focus:ring-clay-600 transition-colors text-sm sm:text-base"
+                            placeholder="Nombre de tu organización"
+                        />
+                    </div>
+                    
+                    <div>
+                        <label class="block text-stone-300 text-sm font-semibold mb-2" for="phone">
+                            Teléfono (opcional)
+                        </label>
+                        <input 
+                            type="tel" 
+                            id="phone" 
+                            name="phone"
+                            class="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-soil-raised border border-soil-raised focus:border-clay-600 rounded text-white placeholder-stone-500 focus:outline-none focus:ring-1 focus:ring-clay-600 transition-colors text-sm sm:text-base"
+                            placeholder="0991234567"
+                        />
+                    </div>
+                    
+                    <div>
+                        <label class="block text-stone-300 text-sm font-semibold mb-2" for="subject">
+                            Tipo de consulta
+                        </label>
+                        <select 
+                            id="subject" 
+                            name="subject"
+                            class="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-soil-raised border border-soil-raised focus:border-clay-600 rounded text-white focus:outline-none focus:ring-1 focus:ring-clay-600 transition-colors text-sm sm:text-base"
+                            required
+                        >
+                            <option value="">Selecciona una opción</option>
+                            <option value="laboratorio">Laboratorio Cultural</option>
+                            <option value="taller">Taller o Mediación</option>
+                            <option value="documentacion">Documentación Ética</option>
+                            <option value="proyecto">Diseño de Proyecto</option>
+                            <option value="colaboracion">Propuesta de Colaboración</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-stone-300 text-sm font-semibold mb-2" for="message">
+                            Cuéntanos tu proyecto o consulta
+                        </label>
+                        <textarea 
+                            id="message" 
+                            name="message"
+                            rows="4"
+                            class="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-soil-raised border border-soil-raised focus:border-clay-600 rounded text-white placeholder-stone-500 focus:outline-none focus:ring-1 focus:ring-clay-600 transition-colors resize-none text-sm sm:text-base"
+                            placeholder="Describe tu proyecto o consulta..."
+                            required
+                        ></textarea>
+                    </div>
+                    
+                    <button 
+                        type="submit"
+                        class="w-full bg-clay-600 hover:bg-clay-700 text-white font-bold uppercase text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded transition-colors"
+                    >
+                        Enviar Mensaje
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Info de contacto -->
+            <div data-animate class="mt-8 md:mt-0">
+                <h2 class="text-2xl sm:text-3xl font-display font-bold text-white mb-4 sm:mb-6">
+                    Información de <span class="text-clay-400">contacto</span>
+                </h2>
+                
+                <p class="text-stone-300 mb-6 sm:mb-8 text-sm sm:text-base">
+                    Respondemos a cada mensaje con la atención que merece. El tiempo es un valor en nuestros procesos.
+                </p>
+                
+                <div class="space-y-4 sm:space-y-6 mb-8 sm:mb-10">
+                    <div class="flex items-start gap-3 sm:gap-4">
+                        <div class="w-10 sm:w-12 h-10 sm:h-12 bg-clay-600/20 rounded flex items-center justify-center shrink-0">
+                            <span class="text-lg sm:text-xl">📧</span>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-semibold mb-1 text-sm sm:text-base">Email</h3>
+                            <a href="mailto:contacto@ancestrallab.com" class="text-clay-400 hover:text-clay-300 transition-colors text-sm sm:text-base">
+                                contacto@ancestrallab.com
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-3 sm:gap-4">
+                        <div class="w-10 sm:w-12 h-10 sm:h-12 bg-clay-600/20 rounded flex items-center justify-center shrink-0">
+                            <span class="text-lg sm:text-xl">👤</span>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-semibold mb-1 text-sm sm:text-base">Impulsor</h3>
+                            <p class="text-stone-300 text-sm sm:text-base">Yaku Heredia</p>
+                            <p class="text-stone-400 text-xs sm:text-sm">Mediador Cultural y Narrador Visual</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-3 sm:gap-4">
+                        <div class="w-10 sm:w-12 h-10 sm:h-12 bg-clay-600/20 rounded flex items-center justify-center shrink-0">
+                            <span class="text-lg sm:text-xl">🌐</span>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-semibold mb-1 text-sm sm:text-base">Territorio</h3>
+                            <p class="text-stone-300 text-sm sm:text-base">Ecuador</p>
+                            <p class="text-stone-400 text-xs sm:text-sm">Trabajos en toda América Latina</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Redes sociales -->
+                <div class="mb-6 sm:mb-8 sm:mb-10">
+                    <h3 class="text-white font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Síguenos</h3>
+                    <div class="flex gap-3 sm:gap-4">
+                        <a href="#" class="w-10 sm:w-12 h-10 sm:h-12 bg-soil-raised hover:bg-clay-600 rounded flex items-center justify-center transition-colors" title="Instagram">
+                            <span class="text-lg sm:text-xl">📸</span>
+                        </a>
+                        <a href="#" class="w-10 sm:w-12 h-10 sm:h-12 bg-soil-raised hover:bg-clay-600 rounded flex items-center justify-center transition-colors" title="YouTube">
+                            <span class="text-lg sm:text-xl">▶️</span>
+                        </a>
+                        <a href="#" class="w-10 sm:w-12 h-10 sm:h-12 bg-soil-raised hover:bg-clay-600 rounded flex items-center justify-center transition-colors" title="Facebook">
+                            <span class="text-lg sm:text-xl">📘</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Lema -->
+                <div class="bg-soil-raised p-4 sm:p-6 rounded">
+                    <p class="text-clay-400 font-display italic text-base sm:text-lg">
+                        "Nada se publica sin devolución.<br />Nada se crea sin escucha."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<script>
+    const animateOnScroll = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('[data-animate]').forEach((el) => {
+        animateOnScroll.observe(el);
+    });
+
+    const form = document.querySelector('form');
+    form?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+        
+        const message = encodeURIComponent(
+            `Nuevo mensaje de contacto:\n\n` +
+            `Nombre: ${data.name}\n` +
+            `Email: ${data.email}\n` +
+            `Organización: ${data.organization || 'No especificada'}\n` +
+            `Tipo de consulta: ${data.subject}\n` +
+            `Mensaje: ${data.message}`
+        );
+        
+        window.location.href = `https://wa.me/593991234567?text=${message}`;
+    });
+</script>
+
+<style>
+    [data-animate] {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    [data-animate].visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>

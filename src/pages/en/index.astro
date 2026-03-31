@@ -4,68 +4,67 @@ import bg from "@/assets/bg_home.jpg";
 import Card from "@/components/ui/Card.astro";
 import SectionTitle from "@/components/ui/SectionTitle.astro";
 
-// Datos reales basados en el brief de Ancestral Lab
 const servicios = [
     {
-        title: "Laboratorios Culturales",
-        description: "Espacios de creación y experimentación donde el patrimonio vivo se encuentra con propuestas contemporáneas.",
+        title: "Cultural Laboratories",
+        description: "Spaces for creation and experimentation where living heritage meets contemporary proposals.",
         image: "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=800&q=80",
-        category: "Servicio",
-        link: "/servicios/laboratorios"
+        category: "Service",
+        link: "/en/servicios/"
     },
     {
-        title: "Mediación y Narrativa Visual",
-        description: "Talleres para aprender a documentar y contar historias desde una mirada ética y comunitaria.",
+        title: "Mediation and Visual Narrative",
+        description: "Workshops to learn how to document and tell stories from an ethical and community perspective.",
         image: "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?w=800&q=80",
-        category: "Taller",
-        link: "/servicios/talleres"
+        category: "Workshop",
+        link: "/en/servicios/"
     },
     {
-        title: "Documentación Ética",
-        description: "Procesos de registro y archivo que respetan la soberanía de las comunidades sobre sus saberes.",
+        title: "Ethical Documentation",
+        description: "Processes of registration and archiving that respect communities' sovereignty over their knowledge.",
         image: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800&q=80",
-        category: "Servicio",
-        link: "/servicios/documentacion"
+        category: "Service",
+        link: "/en/servicios/"
     }
 ];
 
 const metodology = [
     {
         moment: "01",
-        title: "Escucha Territorial",
-        description: "Reconocimiento, diálogo y construcción de vínculos con las comunidades y el territorio."
+        title: "Territorial Listening",
+        description: "Recognition, dialogue, and building bonds with communities and the territory."
     },
     {
         moment: "02",
-        title: "Investigación Sensible",
-        description: "Aprendizaje desde la experiencia, el cuerpo y la palabra."
+        title: "Sensitive Research",
+        description: "Learning from experience, the body, and words."
     },
     {
         moment: "03",
-        title: "Creación y Mediación",
-        description: "Procesos visuales, escritos y laboratorios culturales."
+        title: "Creation and Mediation",
+        description: "Visual, written processes, and cultural laboratories."
     },
     {
         moment: "04",
-        title: "Devolución y Circulación",
-        description: "Socialización comunitaria y archivo consciente."
+        title: "Return and Circulation",
+        description: "Community socialization and conscious archiving."
     }
 ];
 ---
 
-<Layout title="Inicio" subtitle="Ancestral Lab" bgImage={bg.src}>
+<Layout title="Home" subtitle="Ancestral Lab" bgImage={bg.src}>
     
     <!-- Hero Section -->
     <section class="text-center px-4 py-12 sm:py-16 md:py-20" data-animate>
         <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4 sm:mb-6 leading-tight">
-            Activación del<br />
-            <span class="text-clay-400">Patrimonio Vivo</span>
+            Living Heritage<br />
+            <span class="text-clay-400">Activation</span>
         </h1>
         <p class="text-stone-300 text-base sm:text-lg md:text-xl max-w-3xl mx-auto mb-6 sm:mb-8 px-2">
-            Plataforma cultural y metodológica dedicada a la activación del patrimonio vivo y los saberes ancestrales desde el territorio.
+            Cultural and methodological platform dedicated to the activation of living heritage and ancestral knowledge from the territory.
         </p>
-        <a href="/nosotros/" class="inline-block bg-clay-600 hover:bg-clay-700 text-white font-bold uppercase text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded transition-colors">
-            Conoce Nuestra Metodología
+        <a href="/en/nosotros/" class="inline-block bg-clay-600 hover:bg-clay-700 text-white font-bold uppercase text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded transition-colors">
+            Learn Our Methodology
         </a>
     </section>
 
@@ -73,31 +72,31 @@ const metodology = [
     <section class="py-12 sm:py-16 md:py-20 border-t border-soil-raised">
         <div class="max-w-7xl mx-auto px-4">
             <SectionTitle 
-                title="Nuestra Mirada"
-                subtitle="La cultura es un cuerpo vivo en constante transformación, no algo estático para museos."
+                title="Our Perspective"
+                subtitle="Culture is a living body in constant transformation, not something static for museums."
                 align="center"
             />
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12">
                 <div class="bg-soil-raised p-4 sm:p-6 md:p-8 rounded text-center" data-animate>
                     <div class="text-3xl sm:text-4xl mb-3 sm:mb-4">🌱</div>
-                    <h3 class="text-lg sm:text-xl font-display font-bold text-white mb-2 sm:mb-3">Patrimonio en la Práctica</h3>
+                    <h3 class="text-lg sm:text-xl font-display font-bold text-white mb-2 sm:mb-3">Heritage in Practice</h3>
                     <p class="text-stone-300 text-sm sm:text-base">
-                        Se conserva en lo cotidiano: oficios, palabra, imagen y relación con el territorio.
+                        It's preserved in everyday life: trades, words, images, and relationship with the territory.
                     </p>
                 </div>
                 <div class="bg-soil-raised p-4 sm:p-6 md:p-8 rounded text-center" data-animate>
                     <div class="text-3xl sm:text-4xl mb-3 sm:mb-4">🤝</div>
-                    <h3 class="text-lg sm:text-xl font-display font-bold text-white mb-2 sm:mb-3">Diálogo Contemporáneo</h3>
+                    <h3 class="text-lg sm:text-xl font-display font-bold text-white mb-2 sm:mb-3">Contemporary Dialogue</h3>
                     <p class="text-stone-300 text-sm sm:text-base">
-                        Trabajamos con saberes ancestrales sin folklorizarlos, reconociendo a las comunidades como sujetos activos.
+                        We work with ancestral knowledge without folklorizing it, recognizing communities as active subjects.
                     </p>
                 </div>
                 <div class="bg-soil-raised p-4 sm:p-6 md:p-8 rounded text-center sm:col-span-2 lg:col-span-1" data-animate>
                     <div class="text-3xl sm:text-4xl mb-3 sm:mb-4">🛡️</div>
-                    <h3 class="text-lg sm:text-xl font-display font-bold text-white mb-2 sm:mb-3">No Extractivismo</h3>
+                    <h3 class="text-lg sm:text-xl font-display font-bold text-white mb-2 sm:mb-3">Non-Extraction</h3>
                     <p class="text-stone-300 text-sm sm:text-base">
-                        No somos un proyecto extractivo ni superficial. El conocimiento se comparte, no se extrae.
+                        We're not an extractive or superficial project. Knowledge is shared, not extracted.
                     </p>
                 </div>
             </div>
@@ -108,8 +107,8 @@ const metodology = [
     <section class="py-12 sm:py-16 md:py-20 bg-soil-mid">
         <div class="max-w-7xl mx-auto px-4">
             <SectionTitle 
-                title="Metodología Ancestral Lab"
-                subtitle="Cuatro momentos para activar el patrimonio vivo de manera ética y comunitaria."
+                title="Ancestral Lab Methodology"
+                subtitle="Four moments to activate living heritage in an ethical and community-based way."
             />
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-8 sm:mt-12">
@@ -132,7 +131,7 @@ const metodology = [
             </div>
             
             <p class="text-center text-clay-400 mt-6 sm:mt-8 md:mt-10 italic font-display text-sm sm:text-base px-4">
-                "Nada se publica sin devolución. Nada se crea sin escucha."
+                "Nothing is published without return. Nothing is created without listening."
             </p>
         </div>
     </section>
@@ -141,8 +140,8 @@ const metodology = [
     <section class="py-12 sm:py-16 md:py-20">
         <div class="max-w-7xl mx-auto px-4">
             <SectionTitle 
-                title="Nuestras Líneas de Trabajo"
-                subtitle="Procesos de creación, mediación cultural, educación y comunicación ética."
+                title="Our Lines of Work"
+                subtitle="Processes of creation, cultural mediation, education, and ethical communication."
             />
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-12">
@@ -164,30 +163,30 @@ const metodology = [
     <section class="py-12 sm:py-16 md:py-20 bg-soil-mid">
         <div class="max-w-7xl mx-auto px-4">
             <SectionTitle 
-                title="Con Quiénes Trabajamos"
-                subtitle="Alianzas y procesos con comunidades, instituciones y proyectos que comparten nuestra mirada."
+                title="Who We Work With"
+                subtitle="Alliances and processes with communities, institutions, and projects that share our vision."
             />
             
             <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mt-8 sm:mt-12">
                 <div class="bg-soil-raised p-4 sm:p-6 rounded text-center" data-animate>
                     <div class="text-2xl sm:text-3xl mb-2 sm:mb-3">🏘️</div>
-                    <h3 class="text-white font-semibold text-sm sm:text-base">Comunidades</h3>
-                    <p class="text-stone-400 text-xs sm:text-sm mt-1">Portadores de saber</p>
+                    <h3 class="text-white font-semibold text-sm sm:text-base">Communities</h3>
+                    <p class="text-stone-400 text-xs sm:text-sm mt-1">Knowledge bearers</p>
                 </div>
                 <div class="bg-soil-raised p-4 sm:p-6 rounded text-center" data-animate>
                     <div class="text-2xl sm:text-3xl mb-2 sm:mb-3">🎓</div>
-                    <h3 class="text-white font-semibold text-sm sm:text-base">Educación</h3>
-                    <p class="text-stone-400 text-xs sm:text-sm mt-1">Jóvenes y procesos</p>
+                    <h3 class="text-white font-semibold text-sm sm:text-base">Education</h3>
+                    <p class="text-stone-400 text-xs sm:text-sm mt-1">Youth and processes</p>
                 </div>
                 <div class="bg-soil-raised p-4 sm:p-6 rounded text-center" data-animate>
                     <div class="text-2xl sm:text-3xl mb-2 sm:mb-3">🏛️</div>
-                    <h3 class="text-white font-semibold text-sm sm:text-base">Instituciones</h3>
-                    <p class="text-stone-400 text-xs sm:text-sm mt-1">Espacios culturales</p>
+                    <h3 class="text-white font-semibold text-sm sm:text-base">Institutions</h3>
+                    <p class="text-stone-400 text-xs sm:text-sm mt-1">Cultural spaces</p>
                 </div>
                 <div class="bg-soil-raised p-4 sm:p-6 rounded text-center" data-animate>
                     <div class="text-2xl sm:text-3xl mb-2 sm:mb-3">🤝</div>
-                    <h3 class="text-white font-semibold text-sm sm:text-base">Cooperación</h3>
-                    <p class="text-stone-400 text-xs sm:text-sm mt-1">Proyectos sostenibles</p>
+                    <h3 class="text-white font-semibold text-sm sm:text-base">Cooperation</h3>
+                    <p class="text-stone-400 text-xs sm:text-sm mt-1">Sustainable projects</p>
                 </div>
             </div>
         </div>
@@ -197,13 +196,13 @@ const metodology = [
     <section class="py-12 sm:py-16 md:py-20 bg-clay-600" data-animate>
         <div class="max-w-4xl mx-auto px-4 text-center">
             <h2 class="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white mb-3 sm:mb-4">
-                ¿Quieres activar patrimonio vivo en tu territorio?
+                Want to activate living heritage in your territory?
             </h2>
             <p class="text-white/80 text-base sm:text-lg mb-6 sm:mb-8 px-2">
-                Contáctanos para explorar posibilidades de co-creación.
+                Contact us to explore co-creation possibilities.
             </p>
-            <a href="/contacto/" class="inline-block bg-soil-void hover:bg-soil-deep text-white font-bold uppercase text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded transition-colors">
-                Escríbenos
+            <a href="/en/contacto/" class="inline-block bg-soil-void hover:bg-soil-deep text-white font-bold uppercase text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded transition-colors">
+                Write to Us
             </a>
         </div>
     </section>

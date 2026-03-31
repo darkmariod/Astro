@@ -1,0 +1,230 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import bg from "@/assets/bg_home.jpg";
+import SectionTitle from "@/components/ui/SectionTitle.astro";
+
+const values = [
+    {
+        title: "Living Heritage",
+        icon: "🌱",
+        description: "We don't museify culture. We preserve it in everyday practice."
+    },
+    {
+        title: "Territory",
+        icon: "🗺️",
+        description: "The territory is a source of knowledge, not an extraction scenario."
+    },
+    {
+        title: "Non-Extraction",
+        icon: "🛡️",
+        description: "We're not an extractive or superficial project. Knowledge is shared."
+    },
+    {
+        title: "Co-creation",
+        icon: "🤝",
+        description: "Active listening and co-creation with communities as subjects, not objects."
+    },
+    {
+        title: "Time",
+        icon: "⏳",
+        description: "Time is a value. Processes cannot be accelerated or improvised."
+    },
+    {
+        title: "Ethical Education",
+        icon: "🎓",
+        description: "Cultural education is an ethical and political act, not a product."
+    }
+];
+
+const principles = [
+    "Living heritage, not museumified.",
+    "Territory as a source of knowledge.",
+    "No cultural extractivism.",
+    "Co-creation and active listening.",
+    "Time as a value.",
+    "Cultural education as an ethical and political act."
+];
+---
+
+<Layout title="About Us" subtitle="About Us" bgImage={bg.src}>
+    
+    <!-- Identidad -->
+    <section class="py-8 sm:py-12 md:py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
+            <div data-animate>
+                <img 
+                    src="https://images.unsplash.com/photo-1531058020387-3be344556be6?w=800&q=80" 
+                    alt="Ancestral Lab"
+                    class="rounded w-full h-48 sm:h-64 md:h-80 lg:h-96 object-cover"
+                />
+            </div>
+            <div data-animate class="mt-6 md:mt-0">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white mb-4 sm:mb-6">
+                    Ancestral <span class="text-clay-400">Lab</span>
+                </h1>
+                <p class="text-stone-300 text-sm sm:text-base mb-3">
+                    Ancestral Lab is a cultural and methodological platform dedicated to <strong class="text-white">activating living heritage</strong> and ancestral knowledge from the territory.
+                </p>
+                <p class="text-stone-300 text-sm sm:text-base mb-3">
+                    Focus: <strong class="text-white">Processes of creation, cultural mediation, education, and ethical communication.</strong>
+                </p>
+                <p class="text-stone-300 text-sm sm:text-base">
+                    It's not an extractive or superficial project. It's a <strong class="text-clay-400">living laboratory</strong> where memory is practiced and knowledge is shared to project culture toward the future.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Principios Fundamentales -->
+    <section class="py-8 sm:py-12 md:py-16 bg-soil-mid">
+        <div class="max-w-7xl mx-auto px-4">
+            <SectionTitle 
+                title="Core Principles"
+                subtitle="The pillars that guide every process."
+            />
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+                {principles.map((principle) => (
+                    <div class="flex items-start gap-3 bg-soil-raised p-3 sm:p-4 rounded">
+                        <span class="w-2 h-2 bg-clay-600 rounded-full mt-2 shrink-0"></span>
+                        <p class="text-stone-200 text-sm sm:text-base">{principle}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Visión y Misión -->
+    <section class="py-8 sm:py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                <div class="bg-soil-raised p-5 sm:p-6 md:p-8 rounded" data-animate>
+                    <h3 class="text-xl sm:text-2xl font-display font-bold text-clay-400 mb-3 sm:mb-4">Vision</h3>
+                    <p class="text-stone-200 text-sm sm:text-base">
+                        To be a cultural reference in Latin America for its ethical, community-based, and contemporary practice in living heritage activation.
+                    </p>
+                </div>
+                <div class="bg-soil-raised p-5 sm:p-6 md:p-8 rounded" data-animate>
+                    <h3 class="text-xl sm:text-2xl font-display font-bold text-clay-400 mb-3 sm:mb-4">Mission</h3>
+                    <p class="text-stone-200 text-sm sm:text-base">
+                        To activate and strengthen ancestral knowledge through a cultural mediation methodology that integrates creation, writing, and education from the territory.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Valores -->
+    <section class="py-8 sm:py-12 md:py-16 bg-soil-mid">
+        <div class="max-w-7xl mx-auto px-4">
+            <SectionTitle 
+                title="Our Perspective"
+                subtitle="The philosophy that defines every decision."
+            />
+            
+            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+                {values.map((value, index) => (
+                    <div 
+                        class="bg-soil-raised p-4 sm:p-5 md:p-6 rounded text-center animate-value"
+                        data-index={index}
+                    >
+                        <span class="text-3xl sm:text-4xl mb-2 sm:mb-3 block">{value.icon}</span>
+                        <h3 class="text-sm sm:text-base md:text-lg font-display font-bold text-white mb-1 sm:mb-2">{value.title}</h3>
+                        <p class="text-stone-300 text-xs sm:text-sm">{value.description}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Impulsor -->
+    <section class="py-8 sm:py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <SectionTitle 
+                title="Promoter"
+                subtitle="The person behind Ancestral Lab."
+            />
+            
+            <div class="max-w-sm sm:max-w-md md:max-w-lg mx-auto mt-6 sm:mt-8">
+                <div class="bg-soil-raised rounded overflow-hidden" data-animate>
+                    <div class="relative h-48 sm:h-56 md:h-64 overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80"
+                            alt="Yaku Heredia"
+                            class="w-full h-full object-cover"
+                        />
+                        <div class="absolute inset-0 bg-gradient-to-t from-soil-void to-transparent opacity-70"></div>
+                    </div>
+                    <div class="p-5 sm:p-6 text-center">
+                        <h3 class="text-xl sm:text-2xl font-display font-bold text-white mb-2">Yaku Heredia</h3>
+                        <p class="text-clay-400 font-semibold uppercase text-xs sm:text-sm mb-3">Cultural Mediator and Visual Narrator</p>
+                        <p class="text-stone-300 text-sm sm:text-base">
+                            Their work integrates creation, education, and communication with community ethics and non-extractive approaches.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-10 sm:py-12 md:py-16 bg-clay-600">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-display font-bold text-white mb-3 sm:mb-4">
+                Want to explore co-creation possibilities?
+            </h2>
+            <p class="text-white/80 text-sm sm:text-base md:text-lg mb-6 sm:mb-8">
+                Contact us to start a dialogue from the territory.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                <a href="/en/contacto/" class="inline-block bg-soil-void hover:bg-soil-deep text-white font-bold uppercase text-xs sm:text-sm px-5 sm:px-8 py-3 sm:py-4 rounded transition-colors">
+                    Write to Us
+                </a>
+                <a href="/en/servicios/" class="inline-block bg-transparent border-2 border-white hover:bg-white hover:text-clay-600 text-white font-bold uppercase text-xs sm:text-sm px-5 sm:px-8 py-3 sm:py-4 rounded transition-colors">
+                    View Services
+                </a>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<script>
+    const animateOnScroll = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('[data-animate]').forEach((el) => {
+        animateOnScroll.observe(el);
+    });
+
+    document.querySelectorAll('.animate-value').forEach((el, index) => {
+        (el as HTMLElement).style.transitionDelay = `${index * 100}ms`;
+        animateOnScroll.observe(el);
+    });
+</script>
+
+<style>
+    [data-animate] {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    [data-animate].visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .animate-value {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    .animate-value.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>

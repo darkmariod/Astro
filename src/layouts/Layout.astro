@@ -10,21 +10,22 @@ interface Props {
 }
 
 const { title, subtitle, bgImage } = Astro.props;
+const lang = Astro.url.pathname.startsWith("/en") ? "en" : "es";
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <title>Astra Lab: {title}</title>
+        <title>Ancestral Lab: {title}</title>
     </head>
     <body class="bg-soil-deep text-stone-100 font-body antialiased">
         <Header bgImage={bgImage} subtitle={subtitle} />
 
         <slot name="before-content" />
-        <main class="bg-soil-base px-4 py-12 md:py-16 md:px-8 max-w-7xl mx-auto">
+        <main class="bg-soil-base px-4 sm:px-6 py-8 sm:py-12 md:py-16 max-w-7xl mx-auto">
             <slot />
         </main>
         <slot name="after-main-content" />

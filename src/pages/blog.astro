@@ -1,0 +1,126 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import bg from "@/assets/bg_home.jpg";
+---
+
+<Layout title="Blog" subtitle="Reflexiones" bgImage={bg.src}>
+    
+    <!-- Intro -->
+    <section class="text-center px-4 py-6 sm:py-8" data-animate>
+        <p class="text-stone-300 text-sm sm:text-base max-w-2xl mx-auto">
+            Reflexiones y experiencias sobre activación del patrimonio vivo, mediación cultural y trabajo ético con comunidades.
+        </p>
+    </section>
+
+    <!-- Posts -->
+    <section class="mb-8 sm:mb-12 px-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
+            <!-- Post 1 -->
+            <article class="bg-soil-raised rounded overflow-hidden" data-animate>
+                <a href="/blog/escucha-territorial/" class="block">
+                    <div class="relative h-44 sm:h-52 overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80"
+                            alt="Escucha territorial"
+                            class="w-full h-full object-cover"
+                        />
+                        <span class="absolute top-2 left-2 bg-clay-600 text-white text-xs font-bold uppercase px-2 py-1 rounded">
+                            Metodología
+                        </span>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-stone-400 text-xs mb-2">20 Marzo 2026 • 10 min</p>
+                        <h2 class="text-base sm:text-lg font-display font-bold text-white mb-2 line-clamp-2">
+                            La importancia de la escucha territorial en proyectos culturales
+                        </h2>
+                        <p class="text-stone-300 text-xs sm:text-sm line-clamp-3">
+                            Antes de cualquier proceso de documentación, es fundamental establecer vínculos genuinos con el territorio y sus comunidades.
+                        </p>
+                        <span class="inline-block mt-3 text-clay-400 text-xs font-semibold">
+                            Leer más →
+                        </span>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Post 2 -->
+            <article class="bg-soil-raised rounded overflow-hidden" data-animate>
+                <a href="/blog/documentacion-etica/" class="block">
+                    <div class="relative h-44 sm:h-52 overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800&q=80"
+                            alt="Documentación ética"
+                            class="w-full h-full object-cover"
+                        />
+                        <span class="absolute top-2 left-2 bg-clay-600 text-white text-xs font-bold uppercase px-2 py-1 rounded">
+                            Reflexión
+                        </span>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-stone-400 text-xs mb-2">15 Marzo 2026 • 8 min</p>
+                        <h2 class="text-base sm:text-lg font-display font-bold text-white mb-2 line-clamp-2">
+                            Documentación ética: más allá de la fotografía
+                        </h2>
+                        <p class="text-stone-300 text-xs sm:text-sm line-clamp-3">
+                            Cuando documentamos saberes ancestrales, estamos construyendo archivos que deben respetar la soberanía de las comunidades.
+                        </p>
+                        <span class="inline-block mt-3 text-clay-400 text-xs font-semibold">
+                            Leer más →
+                        </span>
+                    </div>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-8 sm:py-10 bg-clay-600 rounded mx-4" data-animate>
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <h2 class="text-lg sm:text-xl font-display font-bold text-white mb-2">
+                Boletín Ancestral Lab
+            </h2>
+            <p class="text-white/80 mb-4 text-xs sm:text-sm">
+                Recibe reflexiones y herramientas sobre patrimonio vivo.
+            </p>
+            <form class="flex flex-col sm:flex-row gap-2 max-w-sm mx-auto">
+                <input 
+                    type="email" 
+                    placeholder="Tu email"
+                    class="flex-1 px-3 py-2 bg-white/10 border border-white/20 rounded text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50 text-sm"
+                />
+                <button 
+                    type="submit"
+                    class="px-4 py-3 bg-soil-void hover:bg-soil-deep text-white font-bold uppercase rounded transition-colors text-xs sm:text-sm"
+                >
+                    Suscribirse
+                </button>
+            </form>
+        </div>
+    </section>
+</Layout>
+
+<script>
+    const animateOnScroll = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('[data-animate]').forEach((el) => {
+        animateOnScroll.observe(el);
+    });
+</script>
+
+<style>
+    [data-animate] {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    [data-animate].visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>

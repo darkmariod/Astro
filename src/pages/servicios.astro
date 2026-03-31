@@ -1,0 +1,179 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import bg from "@/assets/bg_home.jpg";
+import SectionTitle from "@/components/ui/SectionTitle.astro";
+
+const services = [
+    {
+        title: "Laboratorios Culturales y Educativos",
+        description: "Espacios de creación y experimentación donde el patrimonio vivo se encuentra con propuestas contemporáneas.",
+        image: "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=800&q=80",
+        features: ["Diseño participativo", "Metodologías ágiles", "Prototipado"]
+    },
+    {
+        title: "Talleres de Mediación Visual",
+        description: "Talleres para aprender a documentar y contar historias desde una mirada ética y comunitaria.",
+        image: "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?w=800&q=80",
+        features: ["Fotografía ética", "Escritura de memoria", "Video participativo"]
+    },
+    {
+        title: "Procesos Comunitarios",
+        description: "Acompañamiento a comunidades en la valorización y activación de sus saberes ancestrales.",
+        image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80",
+        features: ["Escucha territorial", "Co-creación", "Devolución"]
+    },
+    {
+        title: "Documentación Ética",
+        description: "Procesos de registro y archivo que respetan la soberanía de las comunidades sobre sus saberes.",
+        image: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800&q=80",
+        features: ["Consentimiento", "Archivos comunitarios", "Soberanía"]
+    },
+    {
+        title: "Comunicación Cultural",
+        description: "Diseño de estrategias de comunicación para proyectos culturales desde la voz comunitaria.",
+        image: "https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?w=800&q=80",
+        features: ["Narrativas", "Medios alternativos", "Difusión ética"]
+    },
+    {
+        title: "Diseño de Proyectos",
+        description: "Asesoría en el diseño de proyectos culturales que priorizan sostenibilidad e impacto real.",
+        image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80",
+        features: ["Impacto", "Modelos sostenibles", "Alianzas"]
+    }
+];
+---
+
+<Layout title="Servicios" subtitle="Nuestros Servicios" bgImage={bg.src}>
+    
+    <!-- Intro -->
+    <section class="text-center px-4 py-8 sm:py-12" data-animate>
+        <p class="text-stone-300 text-sm sm:text-base md:text-lg max-w-3xl mx-auto">
+            Procesos de creación, mediación cultural, educación y comunicación ética. 
+            Cada proyecto se diseña desde la escucha y se construye con el territorio.
+        </p>
+    </section>
+
+    <!-- Servicios Grid -->
+    <section class="mb-12 sm:mb-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+            {services.map((service, index) => (
+                <div 
+                    class="bg-soil-raised rounded overflow-hidden group animate-service"
+                    data-index={index}
+                >
+                    <div class="relative h-40 sm:h-48 overflow-hidden">
+                        <img 
+                            src={service.image}
+                            alt={service.title}
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h2 class="text-base sm:text-lg md:text-xl font-display font-bold text-white mb-2 group-hover:text-clay-400 transition-colors">
+                            {service.title}
+                        </h2>
+                        <p class="text-stone-300 text-sm mb-3 sm:mb-4">
+                            {service.description}
+                        </p>
+                        <div class="flex flex-wrap gap-1 sm:gap-2">
+                            {service.features.map((feature) => (
+                                <span class="bg-clay-600/20 text-clay-400 text-xs px-2 py-1 rounded">
+                                    {feature}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- Metodología Preview -->
+    <section class="py-10 sm:py-12 md:py-16 bg-soil-mid rounded px-4" data-animate>
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-display font-bold text-white mb-4 sm:mb-6">
+                Nuestra Metodología: 4 Momentos
+            </h2>
+            <p class="text-stone-300 mb-6 sm:mb-8 max-w-2xl mx-auto text-sm sm:text-base">
+                Cada proyecto sigue nuestra metodología Ancestral Lab, garantizando procesos éticos y comunitarios.
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 text-left">
+                <div class="bg-soil-raised p-3 sm:p-4 rounded">
+                    <span class="text-clay-400 font-bold text-sm sm:text-base">01</span>
+                    <h3 class="text-white font-semibold mt-1 text-sm sm:text-base">Escucha Territorial</h3>
+                </div>
+                <div class="bg-soil-raised p-3 sm:p-4 rounded">
+                    <span class="text-clay-400 font-bold text-sm sm:text-base">02</span>
+                    <h3 class="text-white font-semibold mt-1 text-sm sm:text-base">Investigación</h3>
+                </div>
+                <div class="bg-soil-raised p-3 sm:p-4 rounded">
+                    <span class="text-clay-400 font-bold text-sm sm:text-base">03</span>
+                    <h3 class="text-white font-semibold mt-1 text-sm sm:text-base">Creación</h3>
+                </div>
+                <div class="bg-soil-raised p-3 sm:p-4 rounded">
+                    <span class="text-clay-400 font-bold text-sm sm:text-base">04</span>
+                    <h3 class="text-white font-semibold mt-1 text-sm sm:text-base">Devolución</h3>
+                </div>
+            </div>
+            <p class="text-clay-400 mt-4 sm:mt-6 italic font-display text-sm sm:text-base">
+                "Nada se publica sin devolución. Nada se crea sin escucha."
+            </p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-12 sm:py-16 bg-clay-600 mt-12 sm:mt-16 px-4" data-animate>
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white mb-3 sm:mb-4">
+                ¿Tienes un proyecto cultural en mente?
+            </h2>
+            <p class="text-white/80 text-base sm:text-lg mb-6 sm:mb-8">
+                Conversemos sobre cómo podemos co-crear desde el territorio.
+            </p>
+            <a href="/contacto/" class="inline-block bg-soil-void hover:bg-soil-deep text-white font-bold uppercase text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded transition-colors">
+                Iniciemos un Diálogo
+            </a>
+        </div>
+    </section>
+</Layout>
+
+<script>
+    const animateOnScroll = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('[data-animate]').forEach((el) => {
+        animateOnScroll.observe(el);
+    });
+
+    document.querySelectorAll('.animate-service').forEach((el, index) => {
+        (el as HTMLElement).style.transitionDelay = `${index * 100}ms`;
+        animateOnScroll.observe(el);
+    });
+</script>
+
+<style>
+    [data-animate] {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    [data-animate].visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .animate-service {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    .animate-service.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>

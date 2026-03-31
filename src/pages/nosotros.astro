@@ -1,8 +1,221 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "@/layouts/Layout.astro";
 import bg from "@/assets/bg_home.jpg";
+import SectionTitle from "@/components/ui/SectionTitle.astro";
+
+const values = [
+    {
+        title: "Patrimonio Vivo",
+        icon: "🌱",
+        description: "Conservamos la cultura en la práctica cotidiana."
+    },
+    {
+        title: "Territorio",
+        icon: "🗺️",
+        description: "Fuente de conocimiento, no de extracción."
+    },
+    {
+        title: "No Extractivismo",
+        icon: "🛡️",
+        description: "El conocimiento se comparte, no se extrae."
+    },
+    {
+        title: "Co-creación",
+        icon: "🤝",
+        description: "Comunidades como sujetos activos."
+    },
+    {
+        title: "Tiempo",
+        icon: "⏳",
+        description: "Los procesos no se aceleran."
+    },
+    {
+        title: "Educación Ética",
+        icon: "🎓",
+        description: "Un acto político, no un producto."
+    }
+];
+
+const principles = [
+    "Patrimonio vivo, no museificado.",
+    "Territorio como fuente de conocimiento.",
+    "No extractivismo cultural.",
+    "Co-creación y escucha activa.",
+    "El tiempo como valor.",
+    "Educación cultural como acto ético."
+];
 ---
 
 <Layout title="Nosotros" subtitle="Sobre Nosotros" bgImage={bg.src}>
-    <h1>Nosotros</h1>
+    
+    <!-- Identidad -->
+    <section class="py-6 sm:py-8 md:py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 items-center">
+            <div data-animate>
+                <img 
+                    src="https://images.unsplash.com/photo-1531058020387-3be344556be6?w=800&q=80" 
+                    alt="Ancestral Lab"
+                    class="rounded w-full h-40 sm:h-56 md:h-72 object-cover"
+                />
+            </div>
+            <div data-animate class="mt-4 sm:mt-0">
+                <h1 class="text-xl sm:text-2xl md:text-3xl font-display font-bold text-white mb-3 sm:mb-4">
+                    Ancestral <span class="text-clay-400">Lab</span>
+                </h1>
+                <p class="text-stone-300 text-xs sm:text-sm mb-2">
+                    Plataforma cultural y metodológica dedicada a la <strong class="text-white">activación del patrimonio vivo</strong> y los saberes ancestrales desde el territorio.
+                </p>
+                <p class="text-stone-300 text-xs sm:text-sm mb-2">
+                    <strong class="text-white">Enfoque:</strong> Procesos de creación, mediación cultural, educación y comunicación ética.
+                </p>
+                <p class="text-stone-300 text-xs sm:text-sm">
+                    Un <strong class="text-clay-400">laboratorio vivo</strong> donde la memoria se practica.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Principios -->
+    <section class="py-6 sm:py-8 md:py-12 bg-soil-mid rounded px-3 sm:px-4">
+        <SectionTitle 
+            title="Principios"
+            subtitle="Los pilares que guían cada proceso."
+        />
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+            {principles.map((principle) => (
+                <div class="flex items-start gap-2 bg-soil-raised p-3 rounded">
+                    <span class="w-1.5 h-1.5 bg-clay-600 rounded-full mt-1.5 shrink-0"></span>
+                    <p class="text-stone-200 text-xs sm:text-sm">{principle}</p>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- Visión y Misión -->
+    <section class="py-6 sm:py-8 md:py-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            <div class="bg-soil-raised p-4 sm:p-5 rounded" data-animate>
+                <h3 class="text-lg sm:text-xl font-display font-bold text-clay-400 mb-2">Visión</h3>
+                <p class="text-stone-200 text-xs sm:text-sm">
+                    Ser un referente cultural en América Latina por su práctica ética y contemporánea en la activación del patrimonio vivo.
+                </p>
+            </div>
+            <div class="bg-soil-raised p-4 sm:p-5 rounded" data-animate>
+                <h3 class="text-lg sm:text-xl font-display font-bold text-clay-400 mb-2">Misión</h3>
+                <p class="text-stone-200 text-xs sm:text-sm">
+                    Activar saberes ancestrales mediante mediación cultural que integra creación, escritura y educación desde el territorio.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Valores -->
+    <section class="py-6 sm:py-8 md:py-12 bg-soil-mid rounded px-3 sm:px-4">
+        <SectionTitle 
+            title="Nuestra Mirada"
+            subtitle="La filosofía que define cada decisión."
+        />
+        
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
+            {values.map((value, index) => (
+                <div 
+                    class="bg-soil-raised p-3 sm:p-4 rounded text-center animate-value"
+                    data-index={index}
+                >
+                    <span class="text-2xl sm:text-3xl mb-1 sm:mb-2 block">{value.icon}</span>
+                    <h3 class="text-xs sm:text-sm font-display font-bold text-white mb-1">{value.title}</h3>
+                    <p class="text-stone-400 text-xs line-clamp-2">{value.description}</p>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- Impulsor -->
+    <section class="py-6 sm:py-8 md:py-12">
+        <SectionTitle 
+            title="Impulsor"
+            subtitle="La persona detrás de Ancestral Lab."
+        />
+        
+        <div class="max-w-xs sm:max-w-sm md:max-w-md mx-auto">
+            <div class="bg-soil-raised rounded overflow-hidden" data-animate>
+                <div class="relative h-40 sm:h-48 overflow-hidden">
+                    <img 
+                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80"
+                        alt="Yaku Heredia"
+                        class="w-full h-full object-cover"
+                    />
+                </div>
+                <div class="p-4 text-center">
+                    <h3 class="text-lg font-display font-bold text-white mb-1">Yaku Heredia</h3>
+                    <p class="text-clay-400 font-semibold uppercase text-xs mb-2">Mediador Cultural y Narrador Visual</p>
+                    <p class="text-stone-300 text-xs">
+                        Creación, educación y comunicación con ética comunitaria.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-8 sm:py-10 md:py-12 bg-clay-600 rounded px-3 sm:px-4">
+        <div class="text-center">
+            <h2 class="text-lg sm:text-xl md:text-2xl font-display font-bold text-white mb-2">
+                ¿Explorar posibilidades de co-creación?
+            </h2>
+            <p class="text-white/80 text-xs sm:text-sm mb-4 sm:mb-6">
+                Contáctanos para iniciar un diálogo desde el territorio.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center">
+                <a href="/contacto/" class="inline-block bg-soil-void hover:bg-soil-deep text-white font-bold uppercase text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-3 rounded transition-colors">
+                    Escríbenos
+                </a>
+                <a href="/servicios/" class="inline-block bg-transparent border-2 border-white hover:bg-white hover:text-clay-600 text-white font-bold uppercase text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-3 rounded transition-colors">
+                    Ver Servicios
+                </a>
+            </div>
+        </div>
+    </section>
 </Layout>
+
+<script>
+    const animateOnScroll = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('[data-animate]').forEach((el) => {
+        animateOnScroll.observe(el);
+    });
+
+    document.querySelectorAll('.animate-value').forEach((el, index) => {
+        (el as HTMLElement).style.transitionDelay = `${index * 100}ms`;
+        animateOnScroll.observe(el);
+    });
+</script>
+
+<style>
+    [data-animate] {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    [data-animate].visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .animate-value {
+        opacity: 0;
+        transform: translateY(15px);
+        transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    }
+    .animate-value.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>

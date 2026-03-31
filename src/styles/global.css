@@ -1,1 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap");
 @import "tailwindcss";
+
+@theme {
+    --color-clay-50: #fdf0ee;
+    --color-clay-100: #fad5cf;
+    --color-clay-200: #f5aba0;
+    --color-clay-300: #ee7d6e;
+    --color-clay-400: #e45540;
+    --color-clay-500: #d43d28;
+    --color-clay-600: #b83026;
+    --color-clay-700: #96261e;
+    --color-clay-800: #741d17;
+    --color-clay-900: #52130f;
+    --color-clay-950: #300b08;
+
+    --color-blush-50: #fff5f4;
+    --color-blush-100: #ffe8e5;
+    --color-blush-200: #ffd1cc;
+    --color-blush-300: #ffb4aa;
+    --color-blush-400: #ff9488;
+    --color-blush-500: #f97060;
+    --color-blush-600: #e04f40;
+    --color-blush-700: #c0352a;
+    --color-blush-800: #9a2520;
+    --color-blush-900: #731918;
+    --color-blush-950: #4a0e0e;
+
+    --color-ochre-50: #fef9f0;
+    --color-ochre-100: #fdf0d5;
+    --color-ochre-200: #fce0a8;
+    --color-ochre-300: #fbca78;
+    --color-ochre-400: #fbba6c;
+    --color-ochre-500: #f0a040;
+    --color-ochre-600: #d4832a;
+    --color-ochre-700: #ae6520;
+    --color-ochre-800: #874d18;
+    --color-ochre-900: #5f3510;
+    --color-ochre-950: #3a1f08;
+
+    --color-stone-50: #f5f4f4;
+    --color-stone-100: #e5e2e1;
+    --color-stone-200: #c8c6c6;
+    --color-stone-300: #ababab;
+    --color-stone-400: #8e8e8e;
+    --color-stone-500: #717171;
+    --color-stone-600: #595959;
+    --color-stone-700: #424242;
+    --color-stone-800: #2c2c2a;
+    --color-stone-900: #1c1b1b;
+    --color-stone-950: #131313;
+
+    --color-soil-void: #0e0e0e;
+    --color-soil-deep: #131313;
+    --color-soil-base: #1c1b1b;
+    --color-soil-mid: #201f1f;
+    --color-soil-raised: #353534;
+    --color-soil-bright: #3a3939;
+
+    --font-display: "Noto Serif", Georgia, serif;
+    --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+@layer base {
+    html {
+        font-family: var(--font-body);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-display);
+    }
+}

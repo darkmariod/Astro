@@ -21,15 +21,76 @@ export default function Nav() {
   });
 
   const [isHidden, setIsHidden] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    setIsHidden(latest < 0.1);
+    if (!isMobile) {
+      setIsHidden(latest < 0.1);
+    }
   });
 
   useEffect(() => {
-    setIsHidden(scrollYProgress.get() < 0.1);
-  }, [scrollYProgress]);
+    if (!isMobile) {
+      setIsHidden(scrollYProgress.get() < 0.1);
+    }
+  }, [isMobile, scrollYProgress]);
 
+  // Mobile Menu
+  if (isMobile) {
+    return (
+      <>
+        <button 
+          className={styles.menu_button}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Menú"
+        >
+          <span className={`${styles.hamburger} ${isMenuOpen ? styles.hamburger_open : ""}`}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              className={styles.mobile_menu}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+            >
+              <ul className={styles.mobile_links}>
+                {links.map((link) => (
+                  <li key={link.href}>
+                    <a 
+                      href={link.href} 
+                      className={styles.mobile_link}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {link.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </>
+    );
+  }
+
+  // Desktop Nav
   return (
     <AnimatePresence mode="sync">
       <motion.nav layout className={styles.nav_container}>

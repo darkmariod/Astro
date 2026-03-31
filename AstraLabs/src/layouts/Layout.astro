@@ -4,13 +4,12 @@ import Header from "@/components/ui/Header.astro";
 import Footer from "@/components/ui/Footer.astro";
 
 interface Props {
-    title?: string;
-    description?: string;
+    title: string;
+    subtitle: string;
     bgImage: string;
-    canonical?: string;
 }
 
-const { title, bgImage } = Astro.props;
+const { title, subtitle, bgImage } = Astro.props;
 ---
 
 <!doctype html>
@@ -19,12 +18,17 @@ const { title, bgImage } = Astro.props;
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-        <title>Astra Lab:{title}</title>
+        <title>Astra Lab: {title}</title>
     </head>
     <body class="bg-soil-deep text-stone-100 font-body antialiased">
-        <Header bgImage={bgImage} />
-        <slot />
+        <Header bgImage={bgImage} subtitle={subtitle} />
+
+        <slot name="before-content" />
+        <main class="bg-soil-base px-4 py-12 md:py-16 md:px-8 max-w-7xl mx-auto">
+            <slot />
+        </main>
+        <slot name="after-main-content" />
+
         <Footer />
     </body>
 </html>

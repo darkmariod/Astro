@@ -49,26 +49,26 @@ const principles = [
 <Layout title="Nosotros" subtitle="Sobre Nosotros" bgImage={bg.src}>
     
     <!-- Identidad -->
-    <section class="py-6 sm:py-8 md:py-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 items-center">
+    <section class="py-10 sm:py-14 md:py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-center">
             <div data-animate>
                 <img 
                     src="https://images.unsplash.com/photo-1531058020387-3be344556be6?w=800&q=80" 
                     alt="Ancestral Lab"
-                    class="rounded w-full h-40 sm:h-56 md:h-72 object-cover"
+                    class="rounded-xl w-full h-48 sm:h-56 md:h-72 object-cover"
                 />
             </div>
-            <div data-animate class="mt-4 sm:mt-0">
-                <h1 class="text-xl sm:text-2xl md:text-3xl font-display font-bold text-white mb-3 sm:mb-4">
+            <div data-animate class="mt-5 sm:mt-0">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white mb-4">
                     Ancestral <span class="text-clay-400">Lab</span>
                 </h1>
-                <p class="text-stone-300 text-xs sm:text-sm mb-2">
+                <p class="text-stone-300 text-base sm:text-lg mb-3 leading-relaxed">
                     Plataforma cultural y metodológica dedicada a la <strong class="text-white">activación del patrimonio vivo</strong> y los saberes ancestrales desde el territorio.
                 </p>
-                <p class="text-stone-300 text-xs sm:text-sm mb-2">
+                <p class="text-stone-300 text-base sm:text-lg mb-3 leading-relaxed">
                     <strong class="text-white">Enfoque:</strong> Procesos de creación, mediación cultural, educación y comunicación ética.
                 </p>
-                <p class="text-stone-300 text-xs sm:text-sm">
+                <p class="text-stone-300 text-base sm:text-lg">
                     Un <strong class="text-clay-400">laboratorio vivo</strong> donde la memoria se practica.
                 </p>
             </div>
@@ -76,34 +76,34 @@ const principles = [
     </section>
 
     <!-- Principios -->
-    <section class="py-6 sm:py-8 md:py-12 bg-soil-mid rounded px-3 sm:px-4">
+    <section class="py-10 sm:py-14 md:py-16 bg-soil-mid rounded-xl px-5 sm:px-6">
         <SectionTitle 
             title="Principios"
             subtitle="Los pilares que guían cada proceso."
         />
         
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-8 sm:mt-10">
             {principles.map((principle) => (
-                <div class="flex items-start gap-2 bg-soil-raised p-3 rounded">
-                    <span class="w-1.5 h-1.5 bg-clay-600 rounded-full mt-1.5 shrink-0"></span>
-                    <p class="text-stone-200 text-xs sm:text-sm">{principle}</p>
+                <div class="flex items-start gap-3 bg-soil-raised p-4 sm:p-5 rounded-xl">
+                    <span class="w-2 h-2 bg-clay-600 rounded-full mt-2 shrink-0"></span>
+                    <p class="text-stone-200 text-base sm:text-lg">{principle}</p>
                 </div>
             ))}
         </div>
     </section>
 
     <!-- Visión y Misión -->
-    <section class="py-6 sm:py-8 md:py-12">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-            <div class="bg-soil-raised p-4 sm:p-5 rounded" data-animate>
-                <h3 class="text-lg sm:text-xl font-display font-bold text-clay-400 mb-2">Visión</h3>
-                <p class="text-stone-200 text-xs sm:text-sm">
+    <section class="py-10 sm:py-14 md:py-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+            <div class="bg-soil-raised p-5 sm:p-7 rounded-xl" data-animate>
+                <h3 class="text-xl sm:text-2xl font-display font-bold text-clay-400 mb-3">Visión</h3>
+                <p class="text-stone-200 text-base sm:text-lg leading-relaxed">
                     Ser un referente cultural en América Latina por su práctica ética y contemporánea en la activación del patrimonio vivo.
                 </p>
             </div>
-            <div class="bg-soil-raised p-4 sm:p-5 rounded" data-animate>
-                <h3 class="text-lg sm:text-xl font-display font-bold text-clay-400 mb-2">Misión</h3>
-                <p class="text-stone-200 text-xs sm:text-sm">
+            <div class="bg-soil-raised p-5 sm:p-7 rounded-xl" data-animate>
+                <h3 class="text-xl sm:text-2xl font-display font-bold text-clay-400 mb-3">Misión</h3>
+                <p class="text-stone-200 text-base sm:text-lg leading-relaxed">
                     Activar saberes ancestrales mediante mediación cultural que integra creación, escritura y educación desde el territorio.
                 </p>
             </div>
@@ -111,46 +111,46 @@ const principles = [
     </section>
 
     <!-- Valores -->
-    <section class="py-6 sm:py-8 md:py-12 bg-soil-mid rounded px-3 sm:px-4">
+    <section class="py-10 sm:py-14 md:py-16 bg-soil-mid rounded-xl px-5 sm:px-6">
         <SectionTitle 
             title="Nuestra Mirada"
             subtitle="La filosofía que define cada decisión."
         />
         
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mt-8 sm:mt-10">
             {values.map((value, index) => (
                 <div 
-                    class="bg-soil-raised p-3 sm:p-4 rounded text-center animate-value"
+                    class="bg-soil-raised p-5 sm:p-6 rounded-xl text-center animate-value"
                     data-index={index}
                 >
-                    <span class="text-2xl sm:text-3xl mb-1 sm:mb-2 block">{value.icon}</span>
-                    <h3 class="text-xs sm:text-sm font-display font-bold text-white mb-1">{value.title}</h3>
-                    <p class="text-stone-400 text-xs line-clamp-2">{value.description}</p>
+                    <span class="text-4xl sm:text-5xl mb-4 block">{value.icon}</span>
+                    <h3 class="text-base sm:text-lg font-display font-bold text-white mb-2">{value.title}</h3>
+                    <p class="text-stone-400 text-sm sm:text-base leading-relaxed">{value.description}</p>
                 </div>
             ))}
         </div>
     </section>
 
     <!-- Impulsor -->
-    <section class="py-6 sm:py-8 md:py-12">
+    <section class="py-10 sm:py-14 md:py-16">
         <SectionTitle 
             title="Impulsor"
             subtitle="La persona detrás de Ancestral Lab."
         />
         
-        <div class="max-w-xs sm:max-w-sm md:max-w-md mx-auto">
-            <div class="bg-soil-raised rounded overflow-hidden" data-animate>
-                <div class="relative h-40 sm:h-48 overflow-hidden">
+        <div class="max-w-sm sm:max-w-md md:max-w-lg mx-auto">
+            <div class="bg-soil-raised rounded-xl overflow-hidden" data-animate>
+                <div class="relative h-48 sm:h-56 overflow-hidden">
                     <img 
                         src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80"
                         alt="Yaku Heredia"
                         class="w-full h-full object-cover"
                     />
                 </div>
-                <div class="p-4 text-center">
-                    <h3 class="text-lg font-display font-bold text-white mb-1">Yaku Heredia</h3>
-                    <p class="text-clay-400 font-semibold uppercase text-xs mb-2">Mediador Cultural y Narrador Visual</p>
-                    <p class="text-stone-300 text-xs">
+                <div class="p-5 sm:p-6 text-center">
+                    <h3 class="text-xl sm:text-2xl font-display font-bold text-white mb-2">Yaku Heredia</h3>
+                    <p class="text-clay-400 font-semibold uppercase text-xs sm:text-sm tracking-wider mb-3">Mediador Cultural y Narrador Visual</p>
+                    <p class="text-stone-300 text-base sm:text-lg leading-relaxed">
                         Creación, educación y comunicación con ética comunitaria.
                     </p>
                 </div>
@@ -159,19 +159,19 @@ const principles = [
     </section>
 
     <!-- CTA -->
-    <section class="py-8 sm:py-10 md:py-12 bg-clay-600 rounded px-3 sm:px-4">
+    <section class="py-10 sm:py-14 md:py-16 bg-clay-600 rounded-xl px-5 sm:px-6">
         <div class="text-center">
-            <h2 class="text-lg sm:text-xl md:text-2xl font-display font-bold text-white mb-2">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white mb-4">
                 ¿Explorar posibilidades de co-creación?
             </h2>
-            <p class="text-white/80 text-xs sm:text-sm mb-4 sm:mb-6">
+            <p class="text-white/80 text-base sm:text-lg mb-8 max-w-xl mx-auto">
                 Contáctanos para iniciar un diálogo desde el territorio.
             </p>
-            <div class="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center">
-                <a href="/contacto/" class="inline-block bg-soil-void hover:bg-soil-deep text-white font-bold uppercase text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-3 rounded transition-colors">
+            <div class="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
+                <a href="/contacto/" class="inline-block bg-soil-void hover:bg-soil-deep text-white font-semibold uppercase text-sm tracking-wider px-8 py-4 rounded-full transition-all hover:scale-105">
                     Escríbenos
                 </a>
-                <a href="/servicios/" class="inline-block bg-transparent border-2 border-white hover:bg-white hover:text-clay-600 text-white font-bold uppercase text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-3 rounded transition-colors">
+                <a href="/servicios/" class="inline-block bg-transparent border-2 border-white hover:bg-white hover:text-clay-600 text-white font-semibold uppercase text-sm tracking-wider px-8 py-4 rounded-full transition-all hover:scale-105">
                     Ver Servicios
                 </a>
             </div>

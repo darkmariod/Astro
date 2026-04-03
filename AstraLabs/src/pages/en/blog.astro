@@ -63,24 +63,24 @@ const posts = [
 const categories = ["All", "Methodology", "Reflection", "Tools", "Practice"];
 ---
 
-<Layout title="Blog" subtitle="Reflections and Tools" bgImage={bg.src}>
+< Layout title="Blog" subtitle="Reflections" bgImage={bg.src}>
     
     <!-- Intro -->
-    <section class="text-center px-4 py-8 sm:py-12" data-animate>
-        <p class="text-stone-300 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
+    <section class="text-center px-5 py-10 sm:py-12" data-animate>
+        <p class="text-stone-300 text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
             Reflections, tools, and experiences on living heritage activation, cultural mediation, and ethical work with communities.
         </p>
     </section>
 
     <!-- Filtros -->
-    <section class="mb-8 sm:mb-12 px-4" data-animate>
+    <section class="mb-10 sm:mb-12 px-5" data-animate>
         <div class="flex flex-wrap justify-center gap-2 sm:gap-3">
             {categories.map((cat) => (
                 <button 
-                    class={`filter-btn px-3 sm:px-4 py-1.5 sm:py-2 rounded text-xs sm:text-sm font-semibold uppercase transition-all ${
-                        cat === "All" 
-                            ? "bg-clay-600 text-white" 
-                            : "bg-soil-raised text-stone-300 hover:bg-clay-600/50 hover:text-white"
+                    class={`filter-btn px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-sm font-semibold uppercase transition-all ${
+                            cat === "All" 
+                                ? "bg-clay-600 text-white" 
+                                : "bg-soil-raised text-stone-300 hover:bg-clay-600/50 hover:text-white"
                     }`}
                     data-category={cat}
                 >
@@ -91,41 +91,41 @@ const categories = ["All", "Methodology", "Reflection", "Tools", "Practice"];
     </section>
 
     <!-- Posts Grid -->
-    <section class="mb-12 sm:mb-16 px-4">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8" id="blog-grid">
+    <section class="mb-10 sm:mb-14 px-5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6" id="blog-grid">
             {posts.map((post, index) => (
                 <article 
-                    class="blog-card bg-soil-raised rounded overflow-hidden group hover:ring-2 hover:ring-clay-600 transition-all animate-blog"
+                    class="blog-card bg-soil-raised rounded-xl overflow-hidden group hover:ring-2 hover:ring-clay-600 transition-all animate-blog"
                     data-category={post.category}
                     data-index={index}
                 >
                     <a href={`/en/blog/${post.title.toLowerCase().replace(/\s+/g, '-')}`}>
-                        <div class="relative h-40 sm:h-48 md:h-56 overflow-hidden">
+                        <div class="relative h-48 sm:h-52 overflow-hidden">
                             <img 
                                 src={post.image}
                                 alt={post.title}
                                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                 loading="lazy"
                             />
-                            <span class="absolute top-2 left-2 sm:top-3 sm:left-3 bg-clay-600 text-white text-xs font-bold uppercase px-2 py-1 rounded">
+                            <span class="absolute top-3 left-3 bg-clay-600 text-white text-xs font-bold uppercase px-3 py-1.5 rounded-full tracking-wider">
                                 {post.category}
                             </span>
                         </div>
-                        <div class="p-4 sm:p-5 md:p-6">
-                            <div class="flex items-center gap-2 text-xs sm:text-sm text-stone-400 mb-2 sm:mb-3">
+                        <div class="p-5 sm:p-6">
+                            <div class="flex items-center gap-2 text-sm text-stone-400 mb-3">
                                 <span>{post.date}</span>
                                 <span>•</span>
                                 <span>{post.readTime}</span>
                             </div>
-                            <h2 class="text-sm sm:text-base md:text-lg font-display font-bold text-white mb-2 sm:mb-3 group-hover:text-clay-400 transition-colors line-clamp-2">
+                            <h2 class="text-lg sm:text-xl font-display font-bold text-white mb-3 group-hover:text-clay-400 transition-colors line-clamp-2 leading-tight">
                                 {post.title}
                             </h2>
-                            <p class="text-stone-300 text-xs sm:text-sm line-clamp-2 sm:line-clamp-3 mb-3 sm:mb-4">
+                            <p class="text-stone-300 text-base sm:text-lg line-clamp-2 sm:line-clamp-3 leading-relaxed mb-4">
                                 {post.excerpt}
                             </p>
                             <div class="flex items-center justify-between">
-                                <span class="text-stone-400 text-xs sm:text-sm">By {post.author}</span>
-                                <span class="text-clay-400 text-xs sm:text-sm font-semibold group-hover:translate-x-1 transition-transform">
+                                <span class="text-stone-400 text-sm">By {post.author}</span>
+                                <span class="text-clay-400 text-sm font-semibold group-hover:translate-x-1 transition-transform">
                                     Read →
                                 </span>
                             </div>
@@ -137,23 +137,23 @@ const categories = ["All", "Methodology", "Reflection", "Tools", "Practice"];
     </section>
 
     <!-- Newsletter -->
-    <section class="py-10 sm:py-12 md:py-16 bg-clay-600 rounded mx-4" data-animate>
-        <div class="max-w-2xl mx-auto px-4 text-center">
-            <h2 class="text-xl sm:text-2xl md:text-3xl font-display font-bold text-white mb-3 sm:mb-4">
+    <section class="py-10 sm:py-14 bg-clay-600 rounded-xl mx-5" data-animate>
+        <div class="max-w-xl mx-auto px-5 text-center">
+            <h2 class="text-2xl sm:text-3xl font-display font-bold text-white mb-3">
                 Ancestral Lab Newsletter
             </h2>
-            <p class="text-white/80 mb-4 sm:mb-6 text-sm sm:text-base">
+            <p class="text-white/80 mb-6 text-base sm:text-lg">
                 Reflections, tools, and experiences on living heritage and cultural mediation.
             </p>
-            <form class="flex flex-col sm:flex-row gap-2 sm:gap-3 max-w-md mx-auto">
+            <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
                 <input 
                     type="email" 
                     placeholder="Your email"
-                    class="flex-1 px-3 sm:px-4 py-2 sm:py-3 bg-white/10 border border-white/20 rounded text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50 text-sm sm:text-base"
+                    class="flex-1 px-4 py-3.5 bg-white/10 border border-white/20 rounded-full text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50 text-base"
                 />
                 <button 
                     type="submit"
-                    class="px-4 py-3 bg-soil-void hover:bg-soil-deep text-white font-bold uppercase rounded transition-colors text-xs sm:text-sm"
+                    class="px-6 py-3.5 bg-soil-void hover:bg-soil-deep text-white font-semibold uppercase rounded-full transition-all hover:scale-105 text-sm tracking-wider"
                 >
                     Subscribe
                 </button>

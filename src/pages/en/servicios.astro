@@ -36,47 +36,48 @@ const services = [
     },
     {
         title: "Sustainable Project Design",
-        description: "Advisory services for designing cultural and cooperation projects that prioritize sustainability and real community impact.",
+        description: "Advisory services for designing cultural projects that prioritize sustainability and real community impact.",
         image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80",
         features: ["Impact evaluation", "Sustainable models", "Strategic alliances"]
     }
 ];
 ---
 
-<Layout title="Services" subtitle="Our Services" bgImage={bg.src}>
+< Layout title="Services" subtitle="Our Services" bgImage={bg.src}>
     
     <!-- Intro -->
-    <section class="text-center px-4 py-8 sm:py-12" data-animate>
-        <p class="text-stone-300 text-sm sm:text-base md:text-lg max-w-3xl mx-auto">
+    <section class="text-center px-5 py-10 sm:py-14" data-animate>
+        <p class="text-stone-300 text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
             Processes of creation, cultural mediation, education, and ethical communication. Every project is designed from listening and built with the territory.
         </p>
     </section>
 
     <!-- Servicios Grid -->
     <section class="mb-12 sm:mb-16">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 md:gap-8">
             {services.map((service, index) => (
                 <div 
-                    class="bg-soil-raised rounded overflow-hidden group animate-service"
+                    class="bg-soil-raised rounded-xl overflow-hidden group animate-service"
                     data-index={index}
                 >
-                    <div class="relative h-40 sm:h-48 overflow-hidden">
+                    <div class="relative h-48 sm:h-52 overflow-hidden">
                         <img 
                             src={service.image}
                             alt={service.title}
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            loading="lazy"
                         />
                     </div>
-                    <div class="p-4 sm:p-6">
-                        <h2 class="text-base sm:text-lg md:text-xl font-display font-bold text-white mb-2 group-hover:text-clay-400 transition-colors">
+                    <div class="p-5 sm:p-6 md:p-7">
+                        <h2 class="text-xl sm:text-2xl font-display font-bold text-white mb-3 group-hover:text-clay-400 transition-colors leading-tight">
                             {service.title}
                         </h2>
-                        <p class="text-stone-300 text-sm mb-3 sm:mb-4">
+                        <p class="text-stone-300 text-base sm:text-lg mb-4 leading-relaxed">
                             {service.description}
                         </p>
-                        <div class="flex flex-wrap gap-1 sm:gap-2">
+                        <div class="flex flex-wrap gap-2">
                             {service.features.map((feature) => (
-                                <span class="bg-clay-600/20 text-clay-400 text-xs px-2 py-1 rounded">
+                                <span class="bg-clay-600/20 text-clay-400 text-xs sm:text-sm px-3 py-1.5 rounded-full font-medium">
                                     {feature}
                                 </span>
                             ))}
@@ -88,48 +89,48 @@ const services = [
     </section>
 
     <!-- Metodología Preview -->
-    <section class="py-10 sm:py-12 md:py-16 bg-soil-mid rounded px-4" data-animate>
+    <section class="py-10 sm:py-14 md:py-16 bg-soil-mid rounded-xl px-5 sm:px-6" data-animate>
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-xl sm:text-2xl md:text-3xl font-display font-bold text-white mb-4 sm:mb-6">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white mb-4 sm:mb-6">
                 Our Methodology: 4 Moments
             </h2>
-            <p class="text-stone-300 mb-6 sm:mb-8 max-w-2xl mx-auto text-sm sm:text-base">
+            <p class="text-stone-300 mb-8 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
                 Every project follows our Ancestral Lab methodology, guaranteeing ethical and community processes.
             </p>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 text-left">
-                <div class="bg-soil-raised p-3 sm:p-4 rounded">
-                    <span class="text-clay-400 font-bold text-sm sm:text-base">01</span>
-                    <h3 class="text-white font-semibold mt-1 text-sm sm:text-base">Territorial Listening</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-left">
+                <div class="bg-soil-raised p-4 sm:p-5 rounded-xl">
+                    <span class="text-clay-400 font-bold text-lg sm:text-xl">01</span>
+                    <h3 class="text-white font-semibold mt-2 text-base sm:text-lg">Territorial Listening</h3>
                 </div>
-                <div class="bg-soil-raised p-3 sm:p-4 rounded">
-                    <span class="text-clay-400 font-bold text-sm sm:text-base">02</span>
-                    <h3 class="text-white font-semibold mt-1 text-sm sm:text-base">Sensitive Research</h3>
+                <div class="bg-soil-raised p-4 sm:p-5 rounded-xl">
+                    <span class="text-clay-400 font-bold text-lg sm:text-xl">02</span>
+                    <h3 class="text-white font-semibold mt-2 text-base sm:text-lg">Sensitive Research</h3>
                 </div>
-                <div class="bg-soil-raised p-3 sm:p-4 rounded">
-                    <span class="text-clay-400 font-bold text-sm sm:text-base">03</span>
-                    <h3 class="text-white font-semibold mt-1 text-sm sm:text-base">Creation</h3>
+                <div class="bg-soil-raised p-4 sm:p-5 rounded-xl">
+                    <span class="text-clay-400 font-bold text-lg sm:text-xl">03</span>
+                    <h3 class="text-white font-semibold mt-2 text-base sm:text-lg">Creation</h3>
                 </div>
-                <div class="bg-soil-raised p-3 sm:p-4 rounded">
-                    <span class="text-clay-400 font-bold text-sm sm:text-base">04</span>
-                    <h3 class="text-white font-semibold mt-1 text-sm sm:text-base">Return</h3>
+                <div class="bg-soil-raised p-4 sm:p-5 rounded-xl">
+                    <span class="text-clay-400 font-bold text-lg sm:text-xl">04</span>
+                    <h3 class="text-white font-semibold mt-2 text-base sm:text-lg">Return</h3>
                 </div>
             </div>
-            <p class="text-clay-400 mt-4 sm:mt-6 italic font-display text-sm sm:text-base">
+            <p class="text-clay-400 mt-6 sm:mt-8 italic font-display text-base sm:text-lg">
                 "Nothing is published without return. Nothing is created without listening."
             </p>
         </div>
     </section>
 
     <!-- CTA -->
-    <section class="py-12 sm:py-16 bg-clay-600 mt-12 sm:mt-16 px-4" data-animate>
+    <section class="py-12 sm:py-16 bg-clay-600 mt-10 sm:mt-14 rounded-xl px-5 sm:px-6" data-animate>
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white mb-3 sm:mb-4">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-4">
                 Do you have a cultural project in mind?
             </h2>
-            <p class="text-white/80 text-base sm:text-lg mb-6 sm:mb-8">
+            <p class="text-white/80 text-lg sm:text-xl md:text-2xl mb-8 max-w-2xl mx-auto leading-relaxed">
                 Let's talk about how we can co-create from the territory.
             </p>
-            <a href="/en/contacto/" class="inline-block bg-soil-void hover:bg-soil-deep text-white font-bold uppercase text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded transition-colors">
+            <a href="/en/contacto/" class="inline-block bg-soil-void hover:bg-soil-deep text-white font-semibold uppercase text-sm sm:text-base tracking-wider px-10 py-4 rounded-full transition-all hover:scale-105">
                 Let's Start a Dialogue
             </a>
         </div>

@@ -52,50 +52,50 @@ const metodology = [
 ];
 ---
 
-<Layout title="Home" subtitle="Ancestral Lab" bgImage={bg.src}>
+< Layout title="Home" subtitle="Ancestral Lab" bgImage={bg.src}>
     
     <!-- Hero Section -->
-    <section class="text-center px-4 py-12 sm:py-16 md:py-20" data-animate>
-        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4 sm:mb-6 leading-tight">
+    <section class="text-center px-4 py-16 sm:py-20 md:py-24" data-animate>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-6 sm:mb-8 leading-[1.1] tracking-tight">
             Living Heritage<br />
             <span class="text-clay-400">Activation</span>
         </h1>
-        <p class="text-stone-300 text-base sm:text-lg md:text-xl max-w-3xl mx-auto mb-6 sm:mb-8 px-2">
+        <p class="text-stone-300 text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto mb-8 sm:mb-10 px-2 leading-relaxed">
             Cultural and methodological platform dedicated to the activation of living heritage and ancestral knowledge from the territory.
         </p>
-        <a href="/en/nosotros/" class="inline-block bg-clay-600 hover:bg-clay-700 text-white font-bold uppercase text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded transition-colors">
+        <a href="/en/nosotros/" class="inline-block bg-clay-600 hover:bg-clay-700 text-white font-semibold uppercase text-sm sm:text-base tracking-wider px-8 sm:px-10 py-4 sm:py-5 rounded-full transition-all hover:scale-105">
             Learn Our Methodology
         </a>
     </section>
 
     <!-- Propósito -->
-    <section class="py-12 sm:py-16 md:py-20 border-t border-soil-raised">
-        <div class="max-w-7xl mx-auto px-4">
+    <section class="py-16 sm:py-20 md:py-24 border-t border-soil-raised">
+        <div class="max-w-6xl mx-auto px-5">
             <SectionTitle 
                 title="Our Perspective"
                 subtitle="Culture is a living body in constant transformation, not something static for museums."
                 align="center"
             />
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12">
-                <div class="bg-soil-raised p-4 sm:p-6 md:p-8 rounded text-center" data-animate>
-                    <div class="text-3xl sm:text-4xl mb-3 sm:mb-4">🌱</div>
-                    <h3 class="text-lg sm:text-xl font-display font-bold text-white mb-2 sm:mb-3">Heritage in Practice</h3>
-                    <p class="text-stone-300 text-sm sm:text-base">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10 sm:mt-14">
+                <div class="bg-soil-raised p-6 sm:p-8 rounded-xl text-center" data-animate>
+                    <div class="text-4xl sm:text-5xl mb-5">🌱</div>
+                    <h3 class="text-xl sm:text-2xl font-display font-bold text-white mb-4">Heritage in Practice</h3>
+                    <p class="text-stone-300 text-base sm:text-lg leading-relaxed">
                         It's preserved in everyday life: trades, words, images, and relationship with the territory.
                     </p>
                 </div>
-                <div class="bg-soil-raised p-4 sm:p-6 md:p-8 rounded text-center" data-animate>
-                    <div class="text-3xl sm:text-4xl mb-3 sm:mb-4">🤝</div>
-                    <h3 class="text-lg sm:text-xl font-display font-bold text-white mb-2 sm:mb-3">Contemporary Dialogue</h3>
-                    <p class="text-stone-300 text-sm sm:text-base">
+                <div class="bg-soil-raised p-6 sm:p-8 rounded-xl text-center" data-animate>
+                    <div class="text-4xl sm:text-5xl mb-5">🤝</div>
+                    <h3 class="text-xl sm:text-2xl font-display font-bold text-white mb-4">Contemporary Dialogue</h3>
+                    <p class="text-stone-300 text-base sm:text-lg leading-relaxed">
                         We work with ancestral knowledge without folklorizing it, recognizing communities as active subjects.
                     </p>
                 </div>
-                <div class="bg-soil-raised p-4 sm:p-6 md:p-8 rounded text-center sm:col-span-2 lg:col-span-1" data-animate>
-                    <div class="text-3xl sm:text-4xl mb-3 sm:mb-4">🛡️</div>
-                    <h3 class="text-lg sm:text-xl font-display font-bold text-white mb-2 sm:mb-3">Non-Extraction</h3>
-                    <p class="text-stone-300 text-sm sm:text-base">
+                <div class="bg-soil-raised p-6 sm:p-8 rounded-xl text-center md:col-span-1" data-animate>
+                    <div class="text-4xl sm:text-5xl mb-5">🛡️</div>
+                    <h3 class="text-xl sm:text-2xl font-display font-bold text-white mb-4">Non-Extraction</h3>
+                    <p class="text-stone-300 text-base sm:text-lg leading-relaxed">
                         We're not an extractive or superficial project. Knowledge is shared, not extracted.
                     </p>
                 </div>
@@ -104,47 +104,47 @@ const metodology = [
     </section>
 
     <!-- Metodología -->
-    <section class="py-12 sm:py-16 md:py-20 bg-soil-mid">
-        <div class="max-w-7xl mx-auto px-4">
+    <section class="py-16 sm:py-20 md:py-24 bg-soil-mid">
+        <div class="max-w-6xl mx-auto px-5">
             <SectionTitle 
                 title="Ancestral Lab Methodology"
                 subtitle="Four moments to activate living heritage in an ethical and community-based way."
             />
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-8 sm:mt-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-10 sm:mt-14">
                 {metodology.map((step, index) => (
                     <div 
-                        class="relative bg-soil-raised p-4 sm:p-6 rounded border-l-4 border-clay-600 animate-method"
+                        class="relative bg-soil-raised p-6 sm:p-8 rounded-xl border-l-4 border-clay-600 animate-method"
                         data-index={index}
                     >
-                        <span class="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-clay-600/30 absolute top-2 right-2 sm:top-4 sm:right-4">
+                        <span class="text-5xl sm:text-6xl md:text-7xl font-display font-bold text-clay-600/20 absolute top-4 right-4 sm:top-6 sm:right-6">
                             {step.moment}
                         </span>
-                        <h3 class="text-base sm:text-lg md:text-xl font-display font-bold text-white mb-2 sm:mb-3 relative z-10">
+                        <h3 class="text-xl sm:text-2xl font-display font-bold text-white mb-4 relative z-10">
                             {step.title}
                         </h3>
-                        <p class="text-stone-300 text-xs sm:text-sm relative z-10">
+                        <p class="text-stone-300 text-sm sm:text-base leading-relaxed relative z-10">
                             {step.description}
                         </p>
                     </div>
                 ))}
             </div>
             
-            <p class="text-center text-clay-400 mt-6 sm:mt-8 md:mt-10 italic font-display text-sm sm:text-base px-4">
+            <p class="text-center text-clay-400 mt-8 sm:mt-10 italic font-display text-base sm:text-lg px-4">
                 "Nothing is published without return. Nothing is created without listening."
             </p>
         </div>
     </section>
 
     <!-- Servicios -->
-    <section class="py-12 sm:py-16 md:py-20">
-        <div class="max-w-7xl mx-auto px-4">
+    <section class="py-16 sm:py-20 md:py-24">
+        <div class="max-w-6xl mx-auto px-5">
             <SectionTitle 
                 title="Our Lines of Work"
                 subtitle="Processes of creation, cultural mediation, education, and ethical communication."
             />
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mt-10 sm:mt-14">
                 {servicios.map((item, index) => (
                     <Card 
                         title={item.title}
@@ -160,48 +160,48 @@ const metodology = [
     </section>
 
     <!-- Quiénes trabajamos -->
-    <section class="py-12 sm:py-16 md:py-20 bg-soil-mid">
-        <div class="max-w-7xl mx-auto px-4">
+    <section class="py-16 sm:py-20 md:py-24 bg-soil-mid">
+        <div class="max-w-6xl mx-auto px-5">
             <SectionTitle 
                 title="Who We Work With"
                 subtitle="Alliances and processes with communities, institutions, and projects that share our vision."
             />
             
-            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mt-8 sm:mt-12">
-                <div class="bg-soil-raised p-4 sm:p-6 rounded text-center" data-animate>
-                    <div class="text-2xl sm:text-3xl mb-2 sm:mb-3">🏘️</div>
-                    <h3 class="text-white font-semibold text-sm sm:text-base">Communities</h3>
-                    <p class="text-stone-400 text-xs sm:text-sm mt-1">Knowledge bearers</p>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mt-10 sm:mt-14">
+                <div class="bg-soil-raised p-5 sm:p-7 rounded-xl text-center" data-animate>
+                    <div class="text-3xl sm:text-4xl mb-4">🏘️</div>
+                    <h3 class="text-white font-semibold text-base sm:text-lg">Communities</h3>
+                    <p class="text-stone-400 text-sm mt-2">Knowledge bearers</p>
                 </div>
-                <div class="bg-soil-raised p-4 sm:p-6 rounded text-center" data-animate>
-                    <div class="text-2xl sm:text-3xl mb-2 sm:mb-3">🎓</div>
-                    <h3 class="text-white font-semibold text-sm sm:text-base">Education</h3>
-                    <p class="text-stone-400 text-xs sm:text-sm mt-1">Youth and processes</p>
+                <div class="bg-soil-raised p-5 sm:p-7 rounded-xl text-center" data-animate>
+                    <div class="text-3xl sm:text-4xl mb-4">🎓</div>
+                    <h3 class="text-white font-semibold text-base sm:text-lg">Education</h3>
+                    <p class="text-stone-400 text-sm mt-2">Youth and processes</p>
                 </div>
-                <div class="bg-soil-raised p-4 sm:p-6 rounded text-center" data-animate>
-                    <div class="text-2xl sm:text-3xl mb-2 sm:mb-3">🏛️</div>
-                    <h3 class="text-white font-semibold text-sm sm:text-base">Institutions</h3>
-                    <p class="text-stone-400 text-xs sm:text-sm mt-1">Cultural spaces</p>
+                <div class="bg-soil-raised p-5 sm:p-7 rounded-xl text-center" data-animate>
+                    <div class="text-3xl sm:text-4xl mb-4">🏛️</div>
+                    <h3 class="text-white font-semibold text-base sm:text-lg">Institutions</h3>
+                    <p class="text-stone-400 text-sm mt-2">Cultural spaces</p>
                 </div>
-                <div class="bg-soil-raised p-4 sm:p-6 rounded text-center" data-animate>
-                    <div class="text-2xl sm:text-3xl mb-2 sm:mb-3">🤝</div>
-                    <h3 class="text-white font-semibold text-sm sm:text-base">Cooperation</h3>
-                    <p class="text-stone-400 text-xs sm:text-sm mt-1">Sustainable projects</p>
+                <div class="bg-soil-raised p-5 sm:p-7 rounded-xl text-center" data-animate>
+                    <div class="text-3xl sm:text-4xl mb-4">🤝</div>
+                    <h3 class="text-white font-semibold text-base sm:text-lg">Cooperation</h3>
+                    <p class="text-stone-400 text-sm mt-2">Sustainable projects</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA -->
-    <section class="py-12 sm:py-16 md:py-20 bg-clay-600" data-animate>
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white mb-3 sm:mb-4">
+    <section class="py-16 sm:py-20 md:py-24 bg-clay-600" data-animate>
+        <div class="max-w-4xl mx-auto px-5 text-center">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-6">
                 Want to activate living heritage in your territory?
             </h2>
-            <p class="text-white/80 text-base sm:text-lg mb-6 sm:mb-8 px-2">
+            <p class="text-white/80 text-lg sm:text-xl mb-10 px-2 leading-relaxed">
                 Contact us to explore co-creation possibilities.
             </p>
-            <a href="/en/contacto/" class="inline-block bg-soil-void hover:bg-soil-deep text-white font-bold uppercase text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded transition-colors">
+            <a href="/en/contacto/" class="inline-block bg-soil-void hover:bg-soil-deep text-white font-semibold uppercase text-sm sm:text-base tracking-wider px-10 py-4 rounded-full transition-all hover:scale-105">
                 Write to Us
             </a>
         </div>

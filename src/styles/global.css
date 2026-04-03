@@ -1,7 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 @import "tailwindcss";
 
 @theme {
+    /* Colores principales - igual que antes */
     --color-clay-50: #fdf0ee;
     --color-clay-100: #fad5cf;
     --color-clay-200: #f5aba0;
@@ -26,18 +27,6 @@
     --color-blush-900: #731918;
     --color-blush-950: #4a0e0e;
 
-    --color-ochre-50: #fef9f0;
-    --color-ochre-100: #fdf0d5;
-    --color-ochre-200: #fce0a8;
-    --color-ochre-300: #fbca78;
-    --color-ochre-400: #fbba6c;
-    --color-ochre-500: #f0a040;
-    --color-ochre-600: #d4832a;
-    --color-ochre-700: #ae6520;
-    --color-ochre-800: #874d18;
-    --color-ochre-900: #5f3510;
-    --color-ochre-950: #3a1f08;
-
     --color-stone-50: #f5f4f4;
     --color-stone-100: #e5e2e1;
     --color-stone-200: #c8c6c6;
@@ -57,21 +46,98 @@
     --color-soil-raised: #353534;
     --color-soil-bright: #3a3939;
 
-    --font-display: "Noto Serif", Georgia, serif;
-    --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+    /* Tipografía - Poppins como ojodenomada.com */
+    --font-display: "Poppins", system-ui, sans-serif;
+    --font-body: "Poppins", system-ui, sans-serif;
 }
 
 @layer base {
     html {
         font-family: var(--font-body);
+        /* Tamaños base para mobile */
+        font-size: 16px;
+        line-height: 1.6;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
+    h1, h2, h3, h4, h5, h6 {
         font-family: var(--font-display);
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
     }
+
+    /* Títulos muy grandes - estilo ojodenomada */
+    h1 {
+        font-size: clamp(2.5rem, 8vw, 5rem);
+        font-weight: 800;
+        line-height: 1;
+    }
+
+    h2 {
+        font-size: clamp(2rem, 6vw, 4rem);
+        font-weight: 700;
+    }
+
+    h3 {
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        font-weight: 600;
+    }
+
+    h4 {
+        font-size: clamp(1.25rem, 3vw, 1.75rem);
+        font-weight: 600;
+    }
+
+    p {
+        font-size: clamp(1rem, 2.5vw, 1.125rem);
+        line-height: 1.7;
+    }
+
+    /* Links */
+    a {
+        font-weight: 500;
+        transition: opacity 0.2s ease;
+    }
+
+    a:hover {
+        opacity: 0.8;
+    }
+
+    /* Botones */
+    button, .btn {
+        font-weight: 600;
+        letter-spacing: 0.02em;
+    }
+}
+
+/* Animaciones suaves */
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    .text-gradient {
+        background: linear-gradient(135deg, var(--color-clay-400), var(--color-clay-600));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-soil-deep);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-stone-700);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-stone-600);
 }

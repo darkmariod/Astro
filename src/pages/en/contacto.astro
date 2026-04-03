@@ -3,44 +3,44 @@ import Layout from "@/layouts/Layout.astro";
 import bg from "@/assets/bg_home.jpg";
 ---
 
-<Layout title="Contact" subtitle="Contact" bgImage={bg.src}>
+< Layout title="Contact" subtitle="Contact" bgImage={bg.src}>
     
-    <section class="py-8 sm:py-12 md:py-16">
-        <div class="grid md:grid-cols-2 gap-8 sm:gap-12">
+    <section class="py-10 sm:py-14 md:py-16 px-5">
+        <div class="grid md:grid-cols-2 gap-10 sm:gap-12 lg:gap-16">
             
             <!-- Formulario -->
             <div data-animate>
-                <h2 class="text-2xl sm:text-3xl font-display font-bold text-white mb-4 sm:mb-6">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-5">
                     Let's Start a <span class="text-clay-400">Dialogue</span>
                 </h2>
-                <p class="text-stone-300 mb-6 sm:mb-8 text-sm sm:text-base">
+                <p class="text-stone-300 mb-8 text-lg sm:text-xl leading-relaxed">
                     Do you have a cultural project in mind? Want to explore co-creation possibilities from the territory? Write to us and we'll respond from listening.
                 </p>
                 
-                <form class="space-y-4 sm:space-y-6">
-                    <div class="grid sm:grid-cols-2 gap-4 sm:gap-6">
+                <form class="space-y-5 sm:space-y-6">
+                    <div class="grid sm:grid-cols-2 gap-5">
                         <div>
-                            <label class="block text-stone-300 text-sm font-semibold mb-2" for="name">
+                            <label class="block text-stone-300 text-base font-semibold mb-2" for="name">
                                 Name
                             </label>
                             <input 
                                 type="text" 
                                 id="name" 
                                 name="name"
-                                class="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-soil-raised border border-soil-raised focus:border-clay-600 rounded text-white placeholder-stone-500 focus:outline-none focus:ring-1 focus:ring-clay-600 transition-colors text-sm sm:text-base"
+                                class="w-full px-4 py-3.5 bg-soil-raised border border-soil-raised focus:border-clay-600 rounded-xl text-white placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-clay-600 transition-colors text-base"
                                 placeholder="Your name"
                                 required
                             />
                         </div>
                         <div>
-                            <label class="block text-stone-300 text-sm font-semibold mb-2" for="email">
+                            <label class="block text-stone-300 text-base font-semibold mb-2" for="email">
                                 Email
                             </label>
                             <input 
                                 type="email" 
                                 id="email" 
                                 name="email"
-                                class="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-soil-raised border border-soil-raised focus:border-clay-600 rounded text-white placeholder-stone-500 focus:outline-none focus:ring-1 focus:ring-clay-600 transition-colors text-sm sm:text-base"
+                                class="w-full px-4 py-3.5 bg-soil-raised border border-soil-raised focus:border-clay-600 rounded-xl text-white placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-clay-600 transition-colors text-base"
                                 placeholder="your@email.com"
                                 required
                             />
@@ -48,26 +48,39 @@ import bg from "@/assets/bg_home.jpg";
                     </div>
                     
                     <div>
-                        <label class="block text-stone-300 text-sm font-semibold mb-2" for="organization">
+                        <label class="block text-stone-300 text-base font-semibold mb-2" for="organization">
                             Organization or Community (optional)
                         </label>
                         <input 
                             type="text" 
                             id="organization" 
                             name="organization"
-                            class="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-soil-raised border border-soil-raised focus:border-clay-600 rounded text-white placeholder-stone-500 focus:outline-none focus:ring-1 focus:ring-clay-600 transition-colors text-sm sm:text-base"
+                            class="w-full px-4 py-3.5 bg-soil-raised border border-soil-raised focus:border-clay-600 rounded-xl text-white placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-clay-600 transition-colors text-base"
                             placeholder="Name of your organization"
                         />
                     </div>
                     
                     <div>
-                        <label class="block text-stone-300 text-sm font-semibold mb-2" for="subject">
+                        <label class="block text-stone-300 text-base font-semibold mb-2" for="phone">
+                            Phone (optional)
+                        </label>
+                        <input 
+                            type="tel" 
+                            id="phone" 
+                            name="phone"
+                            class="w-full px-4 py-3.5 bg-soil-raised border border-soil-raised focus:border-clay-600 rounded-xl text-white placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-clay-600 transition-colors text-base"
+                            placeholder="+1 234 567 890"
+                        />
+                    </div>
+                    
+                    <div>
+                        <label class="block text-stone-300 text-base font-semibold mb-2" for="subject">
                             Type of inquiry
                         </label>
                         <select 
                             id="subject" 
                             name="subject"
-                            class="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-soil-raised border border-soil-raised focus:border-clay-600 rounded text-white focus:outline-none focus:ring-1 focus:ring-clay-600 transition-colors text-sm sm:text-base"
+                            class="w-full px-4 py-3.5 bg-soil-raised border border-soil-raised focus:border-clay-600 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-clay-600 transition-colors text-base"
                             required
                         >
                             <option value="">Select an option</option>
@@ -81,14 +94,14 @@ import bg from "@/assets/bg_home.jpg";
                     </div>
                     
                     <div>
-                        <label class="block text-stone-300 text-sm font-semibold mb-2" for="message">
+                        <label class="block text-stone-300 text-base font-semibold mb-2" for="message">
                             Tell us about your project or inquiry
                         </label>
                         <textarea 
                             id="message" 
                             name="message"
-                            rows="4"
-                            class="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-soil-raised border border-soil-raised focus:border-clay-600 rounded text-white placeholder-stone-500 focus:outline-none focus:ring-1 focus:ring-clay-600 transition-colors resize-none text-sm sm:text-base"
+                            rows="5"
+                            class="w-full px-4 py-3.5 bg-soil-raised border border-soil-raised focus:border-clay-600 rounded-xl text-white placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-clay-600 transition-colors resize-none text-base"
                             placeholder="Describe your project or inquiry..."
                             required
                         ></textarea>
@@ -96,7 +109,7 @@ import bg from "@/assets/bg_home.jpg";
                     
                     <button 
                         type="submit"
-                        class="w-full bg-clay-600 hover:bg-clay-700 text-white font-bold uppercase text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded transition-colors"
+                        class="w-full bg-clay-600 hover:bg-clay-700 text-white font-semibold uppercase text-base px-8 py-4 rounded-full transition-all hover:scale-[1.02] tracking-wider"
                     >
                         Send Message
                     </button>
@@ -104,70 +117,70 @@ import bg from "@/assets/bg_home.jpg";
             </div>
             
             <!-- Info -->
-            <div data-animate class="mt-8 md:mt-0">
-                <h2 class="text-2xl sm:text-3xl font-display font-bold text-white mb-4 sm:mb-6">
+            <div data-animate class="mt-10 md:mt-0">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-5">
                     Contact <span class="text-clay-400">Information</span>
                 </h2>
                 
-                <p class="text-stone-300 mb-6 sm:mb-8 text-sm sm:text-base">
+                <p class="text-stone-300 mb-8 text-lg sm:text-xl leading-relaxed">
                     We respond to each message with the attention it deserves. Time is a value in our processes.
                 </p>
                 
-                <div class="space-y-4 sm:space-y-6 mb-8 sm:mb-10">
-                    <div class="flex items-start gap-3 sm:gap-4">
-                        <div class="w-10 sm:w-12 h-10 sm:h-12 bg-clay-600/20 rounded flex items-center justify-center shrink-0">
-                            <span class="text-lg sm:text-xl">📧</span>
+                <div class="space-y-5 sm:space-y-6 mb-10">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-clay-600/20 rounded-xl flex items-center justify-center shrink-0">
+                            <span class="text-xl">📧</span>
                         </div>
                         <div>
-                            <h3 class="text-white font-semibold mb-1 text-sm sm:text-base">Email</h3>
-                            <a href="mailto:contacto@ancestrallab.com" class="text-clay-400 hover:text-clay-300 transition-colors text-sm sm:text-base">
+                            <h3 class="text-white font-semibold mb-1 text-lg">Email</h3>
+                            <a href="mailto:contacto@ancestrallab.com" class="text-clay-400 hover:text-clay-300 transition-colors text-lg">
                                 contacto@ancestrallab.com
                             </a>
                         </div>
                     </div>
                     
-                    <div class="flex items-start gap-3 sm:gap-4">
-                        <div class="w-10 sm:w-12 h-10 sm:h-12 bg-clay-600/20 rounded flex items-center justify-center shrink-0">
-                            <span class="text-lg sm:text-xl">👤</span>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-clay-600/20 rounded-xl flex items-center justify-center shrink-0">
+                            <span class="text-xl">👤</span>
                         </div>
                         <div>
-                            <h3 class="text-white font-semibold mb-1 text-sm sm:text-base">Promoter</h3>
-                            <p class="text-stone-300 text-sm sm:text-base">Yaku Heredia</p>
-                            <p class="text-stone-400 text-xs sm:text-sm">Cultural Mediator and Visual Narrator</p>
+                            <h3 class="text-white font-semibold mb-1 text-lg">Promoter</h3>
+                            <p class="text-stone-300 text-lg">Yaku Heredia</p>
+                            <p class="text-stone-400 text-base">Cultural Mediator and Visual Narrator</p>
                         </div>
                     </div>
                     
-                    <div class="flex items-start gap-3 sm:gap-4">
-                        <div class="w-10 sm:w-12 h-10 sm:h-12 bg-clay-600/20 rounded flex items-center justify-center shrink-0">
-                            <span class="text-lg sm:text-xl">🌐</span>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-clay-600/20 rounded-xl flex items-center justify-center shrink-0">
+                            <span class="text-xl">🌐</span>
                         </div>
                         <div>
-                            <h3 class="text-white font-semibold mb-1 text-sm sm:text-base">Territory</h3>
-                            <p class="text-stone-300 text-sm sm:text-base">Ecuador</p>
-                            <p class="text-stone-400 text-xs sm:text-sm">Work throughout Latin America</p>
+                            <h3 class="text-white font-semibold mb-1 text-lg">Territory</h3>
+                            <p class="text-stone-300 text-lg">Ecuador</p>
+                            <p class="text-stone-400 text-base">Work throughout Latin America</p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Redes -->
-                <div class="mb-6 sm:mb-8 sm:mb-10">
-                    <h3 class="text-white font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Follow Us</h3>
-                    <div class="flex gap-3 sm:gap-4">
-                        <a href="#" class="w-10 sm:w-12 h-10 sm:h-12 bg-soil-raised hover:bg-clay-600 rounded flex items-center justify-center transition-colors" title="Instagram">
-                            <span class="text-lg sm:text-xl">📸</span>
+                <div class="mb-8">
+                    <h3 class="text-white font-semibold mb-4 text-lg">Follow Us</h3>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-12 h-12 bg-soil-raised hover:bg-clay-600 rounded-xl flex items-center justify-center transition-colors" title="Instagram">
+                            <span class="text-xl">📸</span>
                         </a>
-                        <a href="#" class="w-10 sm:w-12 h-10 sm:h-12 bg-soil-raised hover:bg-clay-600 rounded flex items-center justify-center transition-colors" title="YouTube">
-                            <span class="text-lg sm:text-xl">▶️</span>
+                        <a href="#" class="w-12 h-12 bg-soil-raised hover:bg-clay-600 rounded-xl flex items-center justify-center transition-colors" title="YouTube">
+                            <span class="text-xl">▶️</span>
                         </a>
-                        <a href="#" class="w-10 sm:w-12 h-10 sm:h-12 bg-soil-raised hover:bg-clay-600 rounded flex items-center justify-center transition-colors" title="Facebook">
-                            <span class="text-lg sm:text-xl">📘</span>
+                        <a href="#" class="w-12 h-12 bg-soil-raised hover:bg-clay-600 rounded-xl flex items-center justify-center transition-colors" title="Facebook">
+                            <span class="text-xl">📘</span>
                         </a>
                     </div>
                 </div>
                 
                 <!-- Lema -->
-                <div class="bg-soil-raised p-4 sm:p-6 rounded">
-                    <p class="text-clay-400 font-display italic text-base sm:text-lg">
+                <div class="bg-soil-raised p-6 sm:p-7 rounded-xl">
+                    <p class="text-clay-400 font-display italic text-xl sm:text-2xl leading-relaxed">
                         "Nothing is published without return.<br />Nothing is created without listening."
                     </p>
                 </div>
@@ -187,6 +200,24 @@ import bg from "@/assets/bg_home.jpg";
 
     document.querySelectorAll('[data-animate]').forEach((el) => {
         animateOnScroll.observe(el);
+    });
+
+    const form = document.querySelector('form');
+    form?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+        
+        const message = encodeURIComponent(
+            `New contact message:\n\n` +
+            `Name: ${data.name}\n` +
+            `Email: ${data.email}\n` +
+            `Organization: ${data.organization || 'Not specified'}\n` +
+            `Type of inquiry: ${data.subject}\n` +
+            `Message: ${data.message}`
+        );
+        
+        window.location.href = `https://wa.me/593991234567?text=${message}`;
     });
 </script>
 

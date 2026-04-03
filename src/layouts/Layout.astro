@@ -5,27 +5,29 @@ import Footer from "@/components/ui/Footer.astro";
 
 interface Props {
     title: string;
-    subtitle: string;
-    bgImage: string;
+    subtitle?: string;
+    bgImage?: string;
+    bgVideo?: string; // Para agregar video después
 }
 
-const { title, subtitle, bgImage } = Astro.props;
+const { title, subtitle, bgImage, bgVideo } = Astro.props;
 const lang = Astro.url.pathname.startsWith("/en") ? "en" : "es";
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} class="scroll-smooth">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <title>Ancestral Lab: {title}</title>
+        <meta name="theme-color" content="#131313" />
     </head>
-    <body class="bg-soil-deep text-stone-100 font-body antialiased">
-        <Header bgImage={bgImage} subtitle={subtitle} />
+    <body class="bg-soil-deep text-stone-100 antialiased">
+        <Header bgImage={bgImage} subtitle={subtitle} bgVideo={bgVideo} />
 
         <slot name="before-content" />
-        <main class="bg-soil-base px-4 sm:px-6 py-8 sm:py-12 md:py-16 max-w-7xl mx-auto">
+        <main class="bg-soil-base px-5 sm:px-6 py-12 sm:py-16 md:py-20">
             <slot />
         </main>
         <slot name="after-main-content" />

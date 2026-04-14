@@ -1,67 +1,20 @@
 .projects__header {
   text-align: center;
-  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 1.5rem;
+}
+
+/* Usar نفس estilos que Services */
+.features__header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.features__headline {
+  margin: 1rem 0;
+  color: var(--text-primary);
 }
 
 .projects__header h2 {
   margin-top: 1rem;
-}
-
-.projects__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem;
-}
-
-.project-card {
-  padding: 0;
-  overflow: hidden;
-}
-
-.project-card__image {
-  height: 180px;
-  background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--bg-surface) 100%);
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.project-card__content {
-  padding: 1.5rem;
-}
-
-.project-card__category {
-  font-size: 0.75rem;
-  font-family: var(--font-mono);
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.project-card__title {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 700;
   color: var(--text-primary);
-  margin: 0.5rem 0;
-}
-
-.project-card__desc {
-  font-size: 0.9375rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-  margin-bottom: 1rem;
-}
-
-.project-card__stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.project-stack-tag {
-  padding: 0.2rem 0.5rem;
-  background: var(--bg-elevated);
-  border-radius: 4px;
-  font-size: 0.7rem;
-  font-family: var(--font-mono);
-  color: var(--text-muted);
 }

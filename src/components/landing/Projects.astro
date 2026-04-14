@@ -1,0 +1,50 @@
+---
+// Proyectos - mostrar trabajos anteriores
+const projects = [
+  {
+    title: 'E-commerce Moda',
+    category: 'Tienda Online',
+    desc: 'Tienda online completa con Stripe, inventario y panel admin.',
+    stack: ['Next.js', 'Stripe', 'PostgreSQL']
+  },
+  {
+    title: 'Dashboard SaaS',
+    category: 'Panel Admin',
+    desc: 'Panel de administración para startup fintech con gráficos en tiempo real.',
+    stack: ['React', 'D3.js', 'Node.js']
+  },
+  {
+    title: 'Chatbot WhatsApp',
+    category: 'Chatbot',
+    desc: 'Bot de atención al cliente integrado con WhatsApp Business API.',
+    stack: ['WhatsApp API', 'ChatGPT', 'Node.js']
+  }
+];
+---
+
+<section class="projects section" id="proyectos">
+  <div class="container">
+    <div class="projects__header reveal">
+      <p class="eyebrow">Proyectos</p>
+      <h2 class="display-lg">Trabajos<span class="gradient-text">recientes.</span></h2>
+    </div>
+
+    <div class="projects__grid">
+      {projects.map((project, i) => (
+        <div class={`card project-card reveal reveal-delay-${i + 1}`}>
+          <div class="project-card__image"></div>
+          <div class="project-card__content">
+            <span class="project-card__category">{project.category}</span>
+            <h3 class="project-card__title">{project.title}</h3>
+            <p class="project-card__desc">{project.desc}</p>
+            <div class="project-card__stack">
+              {project.stack.map(tech => (
+                <span class="project-stack-tag">{tech}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

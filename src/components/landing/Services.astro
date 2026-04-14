@@ -1,0 +1,56 @@
+---
+// Services - los servicios que ofrece
+const services = [
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>`,
+    title: 'Páginas Web',
+    desc: 'Sitios web profesionales, rápidos y optimizados para SEO. Desde landing pages hasta sitios corporativos completos.',
+    tags: ['HTML/CSS/JS', 'Astro', 'Next.js', 'SEO']
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>`,
+    title: 'Tiendas Online',
+    desc: 'E-commerce completos con pasarela de pagos, gestión de inventario y panel de administración. Vende 24/7.',
+    tags: ['Stripe', 'MercadoPago', 'Shopify', 'WC']
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`,
+    title: 'Paneles de Administración',
+    desc: 'Dashboards a medida para gestionar tu negocio. Estadísticas,CRUD, reportes y automatización.',
+    tags: ['React', 'Vue', 'AdminJS', 'Node.js']
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6v6l4 2"/></svg>`,
+    title: 'Chatbots & AI',
+    desc: 'Asistentes virtuales integrados con WhatsApp, web o Slack. Automatiza atención al cliente y ventas.',
+    tags: ['WhatsApp API', 'ChatGPT', 'LLMs', 'Twilio']
+  }
+];
+---
+
+<section class="services section" id="servicios">
+  <div class="container">
+    <div class="services__header reveal">
+      <p class="eyebrow">Servicios</p>
+      <h2 class="display-lg">Todo lo que necesitas<br/><span class="gradient-text">en un solo lugar.</span></h2>
+      <p class="services__sub">
+        No necesitas contratar varios desarrolladores. Yo hago todo: desde el diseño hasta el deploy.
+      </p>
+    </div>
+
+    <div class="services__grid">
+      {services.map((service, i) => (
+        <div class={`card service-card reveal reveal-delay-${i + 1}`}>
+          <div class="icon-glow" set:html={service.icon} />
+          <h3 class="service-card__title">{service.title}</h3>
+          <p class="service-card__desc">{service.desc}</p>
+          <div class="service-card__tags">
+            {service.tags.map(tag => (
+              <span class="service-tag">{tag}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

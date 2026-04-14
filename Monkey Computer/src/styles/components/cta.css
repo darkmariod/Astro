@@ -31,8 +31,8 @@
 .cta__sub {
   color: var(--text-secondary);
   font-size: 1.0625rem;
-  line-height: 1.7;
-  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
 }
 
 .cta__actions {
@@ -40,13 +40,13 @@
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .cta__contact-info {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 

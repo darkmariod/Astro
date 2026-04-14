@@ -1,33 +1,29 @@
 ---
 // Testimonials - testimonios de clientes
 const testimonials = [
-  {
-    quote: "Excelente trabajo. Entregó antes de lo esperado y con calidad superior a lo pactado.",
-    name: "Juan Pérez",
-    role: "Director, TechStart"
-  },
-  {
-    quote: "Entendió exactamente lo que necesitaba. El chatbot incrementó nuestro soporte en un 40%.",
-    name: "María González",
-    role: "CEO, E-comerce"
-  }
+  { quoteKey: "testimonials.quote1", name: "Juan Pérez", role: "Director, TechStart" },
+  { quoteKey: "testimonials.quote2", name: "María González", role: "CEO, E-comerce" }
 ];
 ---
 
 <section class="testimonials section">
   <div class="container">
     <div class="testimonials__header reveal">
-      <p class="eyebrow">Testimonios</p>
-      <h2 class="display-lg">Lo que<span class="gradient-text">dicen.</span></h2>
+      <p class="eyebrow" data-i18n="testimonials.eyebrow">Testimonios</p>
+      <h2 class="display-lg"><span data-i18n="testimonials.headline">Lo que</span><span class="gradient-text" data-i18n="testimonials.titleAccent">dicen.</span></h2>
     </div>
 
-    <div class="testimonials__grid">
-      {testimonials.map((t, i) => (
-        <div class={`card testimonial-card reveal reveal-delay-${i + 1}`}>
-          <blockquote class="testimonial-card__quote">"{t.quote}"</blockquote>
-          <div class="testimonial-card__author">
-            <strong>{t.name}</strong>
-            <span>{t.role}</span>
+    <div class="bento">
+      {testimonials.map((t_item, i) => (
+        <div class={`card bento__card reveal reveal-delay-${i + 1}`}>
+          <div class="bento__card-inner">
+            <div class="bento__card-text">
+              <blockquote class="bento__card-quote">"<span data-i18n={t_item.quoteKey}>Excelente trabajo. Entregó antes de lo esperado y con calidad superior a lo pactado.</span>"</blockquote>
+              <div class="bento__card-author">
+                <strong>{t_item.name}</strong>
+                <span>{t_item.role}</span>
+              </div>
+            </div>
           </div>
         </div>
       ))}

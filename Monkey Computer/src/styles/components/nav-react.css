@@ -61,7 +61,7 @@
   display: inline-flex;
   align-items: center;
   padding: 0.5rem 1rem;
-  background: #6366f1;
+  background: #c084fc;
   color: #fff;
   border-radius: 8px;
   font-family: 'Geist', sans-serif;
@@ -99,7 +99,8 @@
 
 @media (max-width: 600px) {
   .nav-react-container {
-    width: 90%;
+    width: 95%;
+    max-width: 360px;
     flex-wrap: wrap;
     gap: 0.75rem;
     padding-inline: 1rem;
@@ -107,7 +108,7 @@
   }
 
   .nav-react-links {
-    gap: 1.5rem;
+    gap: 1rem;
     order: 2;
     width: 100%;
     justify-content: center;
@@ -122,5 +123,12 @@
   
   .nav-lang-switch {
     margin-left: auto;
+  }
+}
+
+@media (max-width: 400px) {
+  .nav-react-links {
+    gap: 0.75rem;
+    font-size: 0.75rem;
   }
 }

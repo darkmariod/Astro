@@ -1,5 +1,5 @@
 ---
-// Final CTA para agencia
+// Final CTA - lenguaje de conversión
 ---
 
 <section class="cta section" id="contacto">
@@ -7,29 +7,65 @@
 
   <div class="container">
     <div class="cta__inner reveal">
-      <p class="eyebrow" data-i18n="cta.eyebrow">Contacto</p>
+      <p class="eyebrow">Contacto</p>
       <h2 class="display-lg">
-        <span data-i18n="cta.headline">¿Listo para</span><br/><span class="gradient-text" data-i18n="cta.titleAccent">empezar?</span>
+        ¿Listo para<br/>
+        <span class="gradient-text">hacer crecer tu negocio?</span>
       </h2>
-      <p class="cta__sub" data-i18n="cta.sub">
-        Cuéntanos de tu proyecto y te enviamos un presupuesto sin compromiso.
+      <p class="cta__sub">
+        Cuéntame tu proyecto y te envío un presupuesto.<br/>
         Respondemos en menos de 24 horas.
       </p>
 
       <div class="cta__actions">
         <a href="https://wa.me/5491136000797?text=Hola,%20me%20contacto%20desde%20la%20web%20de%20Monkey%20Computer" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
-          <span data-i18n="cta.button">Enviar mensaje</span>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path fill="#fff" d="M17.498 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.197-.1-.577-.3-.1.1-.198.198-.283.298-.287.327-.008.032-.006.198.005.347.07.477.16 1.06-.048 1.207-.23.164-.709.164-1.106 0-.396-.198-.672-.596-.792-.988-.12-.392.12-.833.272-1.002.15-.168.299-.347.448-.521.151-.174.2-.347.272-.521.074-.174.025-.372.012-.525-.012-.174-.074-.323.198-.497l.65-.854c.271-.323.528-.579.704-.793.176-.213.322-.366.455-.521.173-.174.347-.223.523-.347l1.207-1.207c.173-.173.347-.223.523-.348l1.207-1.207c.173-.173.347-.223.523-.348l.65-.854c.271-.323.528-.579.704-.793.176-.213.322-.366.455-.521.173-.174.347-.223.523-.347l1.207-1.207c.173-.173.347-.223.523-.348l1.207-1.207c.173-.173.347-.223.523-.348l.65-.854c.271-.323.528-.579.704-.793.176-.213.322-.366.455-.521.173-.174.347-.223.523-.347l1.207-1.207c.173-.173.347-.223.523-.348l.347-.298c.025-.198.025-.397.012-.596l-.012-1.037c-.025-.198-.174-.397-.348-.521l-1.207-1.207c-.347-.347-.595-.794-.793-1.106-.198-.347-.198-.595-.074-.846.124-.248.173-.521.272-.793.1-.273.197-.595.173-.846-.025-.248-.124-.495-.272-.694l-.65-.854c-.347-.347-.793-.595-1.106-.793l-1.207-.854c-.272-.124-.595-.222-.846-.272l-1.106-.198c-.348-.074-.595-.173-.846-.347l-.347-.347c.1-.025.198-.025.297-.025.099 0 .223.012.347.025l.793.198c.272.074.521.198.695.347l.65.854c.198.174.347.397.472.695.124.273.173.595.173.846-.025.273-.025.595-.099.846l-.012.124c0 .05.012.099.025.147l.15 1.04c.05.347.198.674.397.919z"/>
+          <span>Quiero más clientes</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
           </svg>
         </a>
       </div>
 
       <div class="cta__contact-info">
-        <div class="cta__contact-item">
-          <a href="https://wa.me/5491136000797"></a>
-        </div>
+        <a href="https://wa.me/5491136000797" class="cta__whatsapp-link">
+          O escribinos directamente: +54 9 11 3600-0797
+        </a>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  .cta {
+    background: var(--bg-surface);
+    padding: var(--section-py) 0;
+    text-align: center;
+  }
+
+  .cta__inner {
+    max-width: 600px;
+    margin-inline: auto;
+  }
+
+  .cta__sub {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .cta__actions {
+    margin-bottom: 2rem;
+  }
+
+  .cta__whatsapp-link {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .cta__whatsapp-link:hover {
+    color: var(--accent);
+  }
+</style>

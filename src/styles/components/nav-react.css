@@ -114,6 +114,25 @@
   box-shadow: 0 8px 24px rgba(192, 132, 252, 0.35);
 }
 
+/* WhatsApp en navbar */
+.nav-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #25d366;
+  border-radius: 0.5rem;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.nav-whatsapp:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+}
+
 /* Hamburger Menu - visible only on mobile */
 .nav-hamburger {
   display: flex;

@@ -1,5 +1,4 @@
 ---
-// Contacto - Formulario que redirige a WhatsApp
 ---
 
 <section class="contact section" id="contacto">
@@ -18,24 +17,24 @@
         <div class="form__row">
           <div class="form__group">
             <label for="name" class="form__label">Nombre</label>
-            <input 
-              type="text" 
-              id="name" 
-              name="name" 
-              class="form__input" 
-              placeholder="Tu nombre" 
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form__input"
+              placeholder="Tu nombre"
               required
             />
           </div>
 
           <div class="form__group">
             <label for="email" class="form__label">Email</label>
-            <input 
-              type="email" 
-              id="email" 
-              name="email" 
-              class="form__input" 
-              placeholder="tu@email.com" 
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form__input"
+              placeholder="tu@email.com"
               required
             />
           </div>
@@ -55,10 +54,10 @@
 
         <div class="form__group">
           <label for="message" class="form__label">Mensaje</label>
-          <textarea 
-            id="message" 
-            name="message" 
-            class="form__input form__textarea" 
+          <textarea
+            id="message"
+            name="message"
+            class="form__input form__textarea"
             placeholder="Contame sobre tu proyecto..."
             rows="3"
           ></textarea>
@@ -78,14 +77,14 @@
 <script is:inline>
   document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    
+
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const project = document.getElementById('project').value;
     const message = document.getElementById('message').value;
-    
+
     const texto = `Hola,%20me%20llamo%20${encodeURIComponent(name)}%20(${encodeURIComponent(email)})%20y%20quiero%20un%20proyecto%20de%20${encodeURIComponent(project)}.%20${encodeURIComponent(message)}`;
-    
+
     window.open(`https://wa.me/5491136000797?text=${texto}`, '_blank');
   });
 </script>

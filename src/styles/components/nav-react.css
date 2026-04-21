@@ -23,7 +23,6 @@
 .nav-logo {
   display: flex;
   align-items: center;
-  color: #c084fc;
   text-decoration: none;
   transition: transform 0.2s;
 }
@@ -32,9 +31,11 @@
   transform: scale(1.05);
 }
 
-.nav-logo svg {
-  width: 2rem;
-  height: 2rem;
+.nav-logo-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #c084fc;
 }
 
 /* Desktop Links - hidden on mobile */
@@ -121,11 +122,15 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  background: #25d366;
-  border-radius: 0.5rem;
-  color: #fff;
+  background: transparent;
+  border-radius: 50%;
   text-decoration: none;
   transition: all 0.2s;
+}
+
+.nav-whatsapp svg {
+  width: 26px;
+  height: 26px;
 }
 
 .nav-whatsapp:hover {

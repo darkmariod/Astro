@@ -1,0 +1,10 @@
+---
+// src/components/TestimoniosGrid.astro
+import TestimoniosGridClient from './TestimoniosGridClient.jsx';
+import { getTestimonios } from '../lib/sanity';
+
+// Fetch data from Sanity if available
+const testimonios = await getTestimonios().catch(() => null);
+---
+
+<TestimoniosGridClient client:visible testimonios={testimonios} />

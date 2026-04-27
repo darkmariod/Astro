@@ -1,0 +1,61 @@
+---
+// src/pages/contacto.astro
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import ContactoActions from '../components/ContactoActions.astro';
+import AbogadoCard from '../components/AbogadoCard.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Contactos | Centeno - Firma de Abogados">
+  <Navbar />
+  
+  <main class="bg-white overflow-x-hidden pt-[100px]">
+    <!-- Header -->
+    <div class="bg-[#312780] py-16 md:py-24">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center text-white">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+            Contacto
+          </h1>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Actions -->
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <ContactoActions />
+    </div>
+    
+    <!-- Abogado Info -->
+    <div class="max-w-7xl mx-auto px-6 pb-16">
+      <AbogadoCard
+        nombre="Pablo Rivadeneira"
+        especialidad="DERECHO PÚBLICO"
+        telefono="0992579425"
+        imagen="/images/abogados/paul-centeno.png"
+        perfilLink="/contacto/paul-centeno"
+      />
+      
+      <!-- Ubicación -->
+      <div class="mt-12 bg-gray-50 rounded-xl p-6 md:p-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-4">UBICACIÓN</h3>
+        <p class="text-gray-600 mb-4">
+          Primera Constituyente 27-38 entre Rocafuerte y Pichincha<br />
+          Edificio Axxius Plaza. 3 er piso, oficina 305<br />
+          Riobamba, Ecuador
+        </p>
+        <a
+          href="https://www.google.com/maps?ll=-1.669975,-78.651908&z=19&t=m&hl=en&gl=EC&mapclient=embed&q=Primera+Constituyente+27-38+Riobamba"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 text-[#312780] font-semibold hover:underline"
+        >
+          Ver en Google Maps →
+        </a>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>

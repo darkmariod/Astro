@@ -1,0 +1,23 @@
+---
+// src/components/AbogadoCard.astro
+import AbogadoCardClient from './AbogadoCardClient.jsx';
+
+interface Props {
+  nombre: string;
+  especialidad: string;
+  telefono: string;
+  imagen: string;
+  perfilLink?: string;
+}
+
+const { nombre, especialidad, telefono, imagen, perfilLink } = Astro.props;
+---
+
+<AbogadoCardClient 
+  client:visible
+  nombre={nombre}
+  especialidad={especialidad}
+  telefono={telefono}
+  imagen={imagen}
+  perfilLink={perfilLink}
+/>

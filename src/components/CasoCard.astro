@@ -1,0 +1,25 @@
+---
+// src/components/CasoCard.astro
+import CasoCardClient from './CasoCardClient.jsx';
+
+interface Props {
+  numero: string;
+  titulo: string;
+  nombre: string;
+  descripcion: string;
+  imagen: string;
+  sentencia?: string;
+}
+
+const { numero, titulo, nombre, descripcion, imagen, sentencia } = Astro.props;
+---
+
+<CasoCardClient 
+  client:visible
+  numero={numero}
+  titulo={titulo}
+  nombre={nombre}
+  descripcion={descripcion}
+  imagen={imagen}
+  sentencia={sentencia}
+/>

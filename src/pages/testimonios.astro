@@ -1,0 +1,40 @@
+---
+// src/pages/testimonios.astro
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import TestimoniosGrid from '../components/TestimoniosGrid.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Testimonios | Centeno Abogados">
+  <Navbar />
+  
+  <main class="bg-white overflow-x-hidden pt-[100px]">
+    <!-- Header -->
+    <div class="relative h-[300px] md:h-[400px] overflow-hidden">
+      <img
+        src="/images/TestimoniosHeader.webp"
+        alt="Testimonios"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-[#312780]/60" />
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="text-center text-white">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+            TESTIMONIOS
+          </h1>
+          <p class="text-xl md:text-2xl">
+            Nuestros clientes te lo cuentan
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Testimonios Grid -->
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <TestimoniosGrid />
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>

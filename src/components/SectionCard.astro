@@ -1,0 +1,25 @@
+---
+// src/components/SectionCard.astro
+import SectionCardClient from './SectionCardClient.jsx';
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  description: string;
+  image: string;
+  link: string;
+  variant?: 'testimonios' | 'podcast' | 'casos';
+}
+
+const { title, subtitle, description, image, link, variant = 'testimonios' } = Astro.props;
+---
+
+<SectionCardClient 
+  client:visible
+  title={title}
+  subtitle={subtitle}
+  description={description}
+  image={image}
+  link={link}
+  variant={variant}
+/>

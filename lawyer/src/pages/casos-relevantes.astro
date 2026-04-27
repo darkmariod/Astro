@@ -1,0 +1,68 @@
+---
+// src/pages/casos-relevantes.astro
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import CasosRelevantesClient from '../components/CasosRelevantesClient.jsx';
+import Footer from '../components/Footer.astro';
+
+const casos = [
+  {
+    numero: "02241-2022-00011",
+    titulo: "¡Regreso Triunfal! Indemnización y Disculpas para Raquel Silva",
+    nombre: "Raquel Silva",
+    descripcion: "Tras 5 años de desviación en el Consejo Nacional Electoral de Bolívar, se logró su reincorporación con una indemnización justa y disculpas públicas.",
+    imagen: "/images/casos/raquel-silva.webp",
+    sentencia: "/sentencias/SENTENCIA_SILVA_RAQUEL.pdf"
+  },
+  {
+    numero: "06335-2019-03171",
+    titulo: "¡Triunfo en Avalon Park! Estela Chavarrea Defiende su Propiedad ante Gigantes Económicos",
+    nombre: "Estela Chavarrea",
+    descripcion: "Poderosos sectores económicos demandaron la reivindicación de un lote de terreno de 420m2 por el sector de Avalon Park. Se probó la justa propiedad y el cliente conservó su bien inmueble.",
+    imagen: "/images/casos/estela-chavarrea.webp",
+    sentencia: "/sentencias/SENTENCIA_CHAVARREA_ESTELA.pdf"
+  },
+  {
+    numero: "06171-2023-00079",
+    titulo: "Profesor Restituido: La ESPOCH Pierde Batalla Legal en Defensa de Derechos",
+    nombre: "Marcelo Montufar",
+    descripcion: "La ESPOCH mediante sanción disciplinaria le destituye del cargo a un Docente de la carrera de medicina, se probó vulneración al derecho a la defensa logrando la restitución del docente y el pago de remuneraciones no percibidas.",
+    imagen: "/images/casos/marcelo-montufar.webp",
+    sentencia: "/sentencias/SENTENCIA_MONTUFAR_MARCELO.pdf"
+  },
+  {
+    numero: "RPC-SO-13-No.240-2024",
+    titulo: "¡La Red Ecuatoriana de Pedagogía Gana! Proceso Sancionador Archivado por el CES",
+    nombre: "Red Ecuatoriana de Pedagogía",
+    descripcion: "En una investigación administrativa se probó qué las actividades de la Red Ecuatoriana de Pedagogía cumple con los requisitos legales y su procesos de educación continua son de alta calidad, obligando al Consejo de Educación Superior archivar el procedimiento sancionador.",
+    imagen: "/images/casos/red-pedagogia.webp",
+    sentencia: null
+  },
+  {
+    numero: "06335-2021-03174",
+    titulo: "Cupido Viajero Sale Victorioso: ¡Demanda Infundada Desestimada!",
+    nombre: "Cupido Viajero",
+    descripcion: "Se reconoció que la empresa Cupido Viajero, cumplió con sus obligaciones económicas en la subcontratación de vehículos de transporte para el proceso electoral 2021. Probando que los demandantes no tenían derechos que reclamar a la empresa.",
+    imagen: "/images/casos/cupido-viajero.webp",
+    sentencia: "/sentencias/SENTENCIA_CUPIDO_VIAJERO.pdf"
+  },
+  {
+    numero: "06571-2023-00777",
+    titulo: "Reincorporación Triunfal: ¡Cristina Silva Regresa al MIES con Disculpas Públicas!",
+    nombre: "Cristina Silva",
+    descripcion: "Pese a tener nombramiento provisional en el Ministerio de Inclusión Económica y Social de Chimborazo, hace 6 años fue desvinculada, Mediante una Acción de Protección se logró la reincorporación a su lugar de trabajo y disculpas públicas.",
+    imagen: "/images/casos/cristina-silva.webp",
+    sentencia: "/sentencias/SENTENCIA_CRISTINA_SILVA.pdf"
+  }
+];
+---
+
+<Layout title="Casos Relevantes | Centeno">
+  <Navbar />
+  
+  <main class="bg-white overflow-x-hidden pt-[100px]">
+    <CasosRelevantesClient client:visible casos={casos} />
+  </main>
+  
+  <Footer />
+</Layout>

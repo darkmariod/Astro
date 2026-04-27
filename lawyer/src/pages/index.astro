@@ -1,0 +1,45 @@
+---
+// src/pages/index.astro
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import StatsBar from '../components/StatsBar.astro';
+import SectionCard from '../components/SectionCard.astro';
+import LogoCarousel from '../components/LogoCarousel.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Centeno - Firma de Abogados">
+  <Navbar />
+  
+  <main class="bg-white overflow-x-hidden pt-[100px]">
+    <Hero />
+    <StatsBar />
+    
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <SectionCard
+          title="TESTIMONIOS"
+          subtitle="NUESTROS CLIENTES"
+          description="te lo cuentan"
+          image="/images/TestimoniosImg.jpg"
+          link="/testimonios"
+          variant="testimonios"
+        />
+        
+        <SectionCard
+          title="CASOS RELEVANTES"
+          subtitle="MIRA NUESTROS"
+          description=""
+          image="/images/CasosImg.jpg"
+          link="/casos-relevantes"
+          variant="casos"
+        />
+      </div>
+    </div>
+    
+    <LogoCarousel />
+  </main>
+  
+  <Footer />
+</Layout>

@@ -44,7 +44,8 @@ function AnimatedNumber({ value, prefix = '', suffix = '' }) {
   );
 }
 
-export default function StatsBarClient({ stats = defaultStats }) {
+export default function StatsBarClient({ stats: rawStats }) {
+  const stats = rawStats || defaultStats;
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 

@@ -1,10 +1,6 @@
 ---
 // src/components/Footer.astro
 import FooterClient from './FooterClient.jsx';
-import { getSiteSettings } from '../lib/sanity';
-
-// Fetch data from Sanity if available
-const siteSettings = await getSiteSettings().catch(() => ({}));
 ---
 
-<FooterClient client:load siteSettings={siteSettings} />
+<FooterClient client:load />

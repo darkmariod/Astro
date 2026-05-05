@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import CasoCardClient from './CasoCardClient.jsx';
 
 export default function CasosRelevantesClient({ casos }) {
+  const data = casos || [];
   return (
     <>
       {/* Header con caso destacado */}
@@ -45,7 +46,7 @@ export default function CasosRelevantesClient({ casos }) {
       {/* Casos Grid */}
       <div id="lista-casos" className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {casos.map((caso, index) => (
+          {data.map((caso, index) => (
             <motion.div
               key={caso.numero}
               initial={{ opacity: 0, y: 50 }}

@@ -27,9 +27,10 @@ const getLogoUrl = (logo) => {
   return '';
 };
 
-export default function LogoCarouselClient({ clientes = defaultLogos }) {
+export default function LogoCarouselClient({ clientes }) {
+  const data = clientes || defaultLogos;
   // Si vienen objetos con logo.image, transformarlos
-  const logos = clientes.map(c => ({
+  const logos = data.map(c => ({
     name: c.name || c.title || 'Cliente',
     src: c.logo ? getLogoUrl(c.logo) : (c.src || c.image || '')
   }));

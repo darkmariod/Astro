@@ -37,10 +37,11 @@ const getImageUrl = (imagen) => {
   return '/testimonios/patricia-leon.webp';
 };
 
-export default function TestimoniosGridClient({ testimonios = defaultTestimonios }) {
+export default function TestimoniosGridClient({ testimonios }) {
+  const data = testimonios || defaultTestimonios;
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-      {testimonios.map((testimonio, index) => (
+      {data.map((testimonio, index) => (
         <motion.a
           key={testimonio.nombre || index}
           href={testimonio.link || '#'}

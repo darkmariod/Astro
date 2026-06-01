@@ -35,7 +35,7 @@
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #c084fc;
+  color: #d1a0ff;
 }
 
 /* Desktop Links - hidden on mobile */
@@ -100,19 +100,19 @@
   display: inline-flex;
   align-items: center;
   padding: 0.6rem 1.25rem;
-  background: #c084fc;
-  color: #fff;
+  background: #d1a0ff;
+  color: #09090b;
   border-radius: 0.5rem;
   font-family: 'Geist', sans-serif;
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   transition: all 0.2s;
 }
 
 .nav-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(192, 132, 252, 0.35);
+  box-shadow: 0 8px 24px rgba(209, 160, 255, 0.35);
 }
 
 /* WhatsApp en navbar */
@@ -227,12 +227,12 @@
   max-width: 280px;
   margin-top: 1rem;
   padding: 1rem 2rem;
-  background: #c084fc;
-  color: #fff;
+  background: #d1a0ff;
+  color: #09090b;
   border-radius: 0.75rem;
   font-family: 'Geist', sans-serif;
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
 }
 

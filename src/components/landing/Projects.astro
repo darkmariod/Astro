@@ -1,34 +1,43 @@
 ---
 import etsaatours from '../../assets/etsaatours.png';
-import natufitness from '../../assets/natufitness.png';
+import ecommerce from '../../assets/ecommerce.png';
+import reservation from '../../assets/reservation.png';
 
 const projects = [
   {
     image: etsaatours.src,
     tag: 'Página Web',
-    client: 'ETSA Tours',
+    client: 'ETSAA Tours',
     problem: 'Necesitaba presencia digital para captar turistas',
     solution: 'Web profesional con diseño premium',
     result: 'Web visible y atrayendo clientes',
   },
   {
-    image: natufitness.src,
-    tag: 'Tienda Online',
-    client: 'Natufitness',
-    problem: 'Necesitaba vender suplementos online',
-    solution: 'Tienda online con medios pagos y inventario',
-    result: 'Vendiendo 24/7 automáticamente',
+    image: ecommerce.src,
+    tag: 'E-commerce',
+    client: 'E-Commerce',
+    problem: 'Digitalizar sus ventas en línea',
+    solution: 'Tienda online moderna con catálogo y pagos',
+    result: 'Ventas automatizadas sin intervención',
+  },
+  {
+    image: reservation.src,
+    tag: 'Sistema de Reservas',
+    client: 'Reservas',
+    problem: 'Gestión manual de reservas y turnos',
+    solution: 'Sistema digital con google calendar y  gestión de pagos',
+    result: 'Reservas 24/7 sin errores humanos',
   },
 ];
 ---
 
-<section class="projects section" id="proyectos">
+<section class="projects section" id="projects">
   <div class="container">
     <div class="projects__header reveal">
-      <p class="eyebrow">Casos de Éxito</p>
+      <p class="eyebrow" data-i18n="projectsAlt.eyebrow">Casos de Éxito</p>
       <h2 class="display-lg">
-        <span>Proyectos que</span><br/>
-        <span class="gradient-text">generan resultados.</span>
+        <span data-i18n="projectsAlt.headline1">Proyectos que</span><br/>
+        <span class="gradient-text" data-i18n="projectsAlt.headline2">generan resultados.</span>
       </h2>
     </div>
 
@@ -38,22 +47,22 @@ const projects = [
           <div class="case-card__image" style={`background-image: url('${project.image}')`}></div>
 
           <div class="case-card__header">
-            <span class="case-card__tag">{project.tag}</span>
+            <span class="case-card__tag" data-i18n={`projectsAlt.p${index + 1}Tag`}>{project.tag}</span>
           </div>
-          <h3 class="case-card__client">{project.client}</h3>
+          <h3 class="case-card__client" data-i18n={`projectsAlt.p${index + 1}Client`}>{project.client}</h3>
 
           <div class="case-card__content">
             <div class="case-item">
-              <span class="case-item__label">Problema</span>
-              <p>{project.problem}</p>
+              <span class="case-item__label" data-i18n="projectsAlt.labelProblem">Problema</span>
+              <p data-i18n={`projectsAlt.p${index + 1}Problem`}>{project.problem}</p>
             </div>
             <div class="case-item">
-              <span class="case-item__label">Solución</span>
-              <p>{project.solution}</p>
+              <span class="case-item__label" data-i18n="projectsAlt.labelSolution">Solución</span>
+              <p data-i18n={`projectsAlt.p${index + 1}Solution`}>{project.solution}</p>
             </div>
             <div class="case-item case-item__result">
-              <span class="case-item__label">Resultado</span>
-              <p>{project.result}</p>
+              <span class="case-item__label" data-i18n="projectsAlt.labelResult">Resultado</span>
+              <p data-i18n={`projectsAlt.p${index + 1}Result`}>{project.result}</p>
             </div>
           </div>
         </a>
@@ -99,7 +108,6 @@ const projects = [
     }
   }
 
-  /* Case Card - estilo Ryze */
   .case-card {
     display: block;
     padding: 0;
@@ -114,7 +122,7 @@ const projects = [
   .case-card:hover {
     transform: translateY(-4px) scale(1.02);
     border-color: var(--accent);
-    box-shadow: 0 20px 40px rgba(192, 132, 252, 0.15);
+    box-shadow: 0 20px 40px rgba(209, 160, 255, 0.15);
   }
 
   /* Imagen del caso - editable desde código */

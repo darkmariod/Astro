@@ -4,10 +4,10 @@
 <section class="testimonials section" id="resultados">
   <div class="container">
     <div class="testimonials__header reveal">
-      <p class="eyebrow">Resultados</p>
+      <p class="eyebrow" data-i18n="testimonialsAlt.eyebrow">Resultados</p>
       <h2 class="display-lg">
-        <span>Clientes que</span><br/>
-        <span class="gradient-text">confían en nosotros.</span>
+        <span data-i18n="testimonialsAlt.headline1">Clientes que</span><br/>
+        <span class="gradient-text" data-i18n="testimonialsAlt.headline2">confían en nosotros.</span>
       </h2>
     </div>
 
@@ -15,28 +15,28 @@
       <div class="testimonial reveal">
         <div class="testimonial__result">
           <span class="testimonial__number">+50%</span>
-          <span class="testimonial__label">ventas en promedio</span>
+          <span class="testimonial__label" data-i18n="testimonialsAlt.label1">ventas en promedio</span>
         </div>
-        <p class="testimonial__text">"Transformaron notre negocio. Duplicamos ventas en 3 meses."</p>
-        <span class="testimonial__author">—  Tienda Online</span>
+        <p class="testimonial__text" data-i18n="testimonialsAlt.text1">"Transformaron notre negocio. Duplicamos ventas en 3 meses."</p>
+        <span class="testimonial__author" data-i18n="testimonialsAlt.author1">— Tienda Online</span>
       </div>
 
       <div class="testimonial reveal reveal-delay-1">
         <div class="testimonial__result">
           <span class="testimonial__number">24/7</span>
-          <span class="testimonial__label">atención automática</span>
+          <span class="testimonial__label" data-i18n="testimonialsAlt.label2">atención automática</span>
         </div>
-        <p class="testimonial__text">"Nuestro chatbot atiende siempre. Sin perder clientes."</p>
-        <span class="testimonial__author">— Gerente</span>
+        <p class="testimonial__text" data-i18n="testimonialsAlt.text2">"Nuestro chatbot atiende siempre. Sin perder clientes."</p>
+        <span class="testimonial__author" data-i18n="testimonialsAlt.author2">— Gerente</span>
       </div>
 
       <div class="testimonial reveal reveal-delay-2">
         <div class="testimonial__result">
           <span class="testimonial__number">-70%</span>
-          <span class="testimonial__label">tiempo en tareas</span>
+          <span class="testimonial__label" data-i18n="testimonialsAlt.label3">tiempo en tareas</span>
         </div>
-        <p class="testimonial__text">"Sistema automatizado. Nos permite enfocarnos en crecer."</p>
-        <span class="testimonial__author">— Director, Empresa de servicios</span>
+        <p class="testimonial__text" data-i18n="testimonialsAlt.text3">"Sistema automatizado. Nos permite enfocarnos en crecer."</p>
+        <span class="testimonial__author" data-i18n="testimonialsAlt.author3">— Director, Empresa de servicios</span>
       </div>
     </div>
   </div>
@@ -73,6 +73,12 @@
   }
 
   @media (min-width: 640px) {
+    .testimonials__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 900px) {
     .testimonials__grid {
       grid-template-columns: repeat(3, 1fr);
     }

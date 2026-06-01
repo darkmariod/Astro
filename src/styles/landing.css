@@ -8,12 +8,12 @@
   --bg-surface: #111113;
   --bg-elevated: #18181c;
   --border-subtle: rgba(255, 255, 255, 0.07);
-  --border-glow: rgba(192, 132, 252, 0.35);
+  --border-glow: rgba(209, 160, 255, 0.35);
 
-  --accent: #c084fc;
-  --accent-soft: rgba(192, 132, 252, 0.15);
-  --accent-glow: rgba(192, 132, 252, 0.25);
-  --accent-glow-strong: rgba(192, 132, 252, 0.45);
+  --accent: #d1a0ff;
+  --accent-soft: rgba(209, 160, 255, 0.15);
+  --accent-glow: rgba(209, 160, 255, 0.25);
+  --accent-glow-strong: rgba(209, 160, 255, 0.45);
 
   --text-primary: #fafafa;
   --text-secondary: #a1a1aa;
@@ -31,8 +31,8 @@
 
   /* Shadows */
   --shadow-card: 0 1px 3px rgba(0,0,0,0.5), 0 8px 32px rgba(0,0,0,0.3);
-  --shadow-glow: 0 0 40px rgba(192, 132, 252, 0.2), 0 0 80px rgba(192, 132, 252, 0.08);
-  --shadow-glow-strong: 0 0 60px rgba(192, 132, 252, 0.35), 0 0 120px rgba(192, 132, 252, 0.12);
+  --shadow-glow: 0 0 40px rgba(209, 160, 255, 0.2), 0 0 80px rgba(209, 160, 255, 0.08);
+  --shadow-glow-strong: 0 0 60px rgba(209, 160, 255, 0.35), 0 0 120px rgba(209, 160, 255, 0.12);
   --shadow-elevated: 0 4px 6px rgba(0,0,0,0.4), 0 20px 60px rgba(0,0,0,0.5);
 }
 
@@ -98,6 +98,7 @@ body.landing-body {
 
 .section {
   padding-block: var(--section-py);
+  scroll-margin-top: 5rem;
 }
 
 /* Espacio consistente entre secciones */
@@ -145,7 +146,7 @@ body.landing-body {
 /* GRADIENT TEXT */
 
 .gradient-text {
-  background: linear-gradient(135deg, #ffffff 0%, #c084fc 60%, #818cf8 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #d1a0ff 60%, #a78bfa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -166,7 +167,6 @@ body.landing-body {
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   border: 1px solid transparent;
   text-decoration: none;
-  white-space: nowrap;
 }
 
 .btn-primary {
@@ -422,5 +422,7 @@ body.landing-body {
 /* Scroll suave entre secciones */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 5.5rem;
 }
+
+/* scroll-margin lo maneja .section */

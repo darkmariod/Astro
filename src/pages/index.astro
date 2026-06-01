@@ -6,9 +6,9 @@ import '@fontsource/geist/700.css';
 import '@fontsource/geist-mono/400.css';
 import '@fontsource/geist-mono/500.css';
 import '../styles/landing.css';
-import '../styles/components/nav-react.css';
 
 import { translations } from '../i18n/translations';
+const translationsJson = JSON.stringify({ es: translations.es, en: translations.en });
 import Nav from '../components/react/Nav.jsx';
 import Hero from '../components/landing/Hero.astro';
 import Services from '../components/landing/Services.astro';
@@ -24,19 +24,81 @@ import Footer from '../components/landing/Footer.astro';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta -->
     <meta name="description" content="Monkey Computer - Desarrollo de software a medida. Páginas web, tiendas online, paneles admin y chatbots." />
+    <meta name="keywords" content="desarrollo web, tienda online, ecommerce, chatbots, paneles admin, software a medida, landing pages, automatización, Monkey Computer" />
+    <meta name="author" content="Monkey Computer" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
     <meta property="og:title" content="Monkey Computer - Software a Medida" />
     <meta property="og:description" content="Desarrollo de páginas web, tiendas online, paneles de admin y chatbots." />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://monkey.computer.ec" />
+    <meta property="og:site_name" content="Monkey Computer" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Monkey Computer - Software a Medida" />
     <meta name="twitter:description" content="Desarrollo de páginas web, tiendas online, paneles de admin y chatbots." />
+
+    <!-- Canonical + Hreflang -->
+    <link rel="canonical" href="https://monkey.computer.ec" />
+    <link rel="alternate" href="https://monkey.computer.ec/?lang=es" hreflang="es" />
+    <link rel="alternate" href="https://monkey.computer.ec/?lang=en" hreflang="en" />
+    <link rel="alternate" href="https://monkey.computer.ec" hreflang="x-default" />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Monkey Computer",
+        "url": "https://monkey.computer.ec",
+        "logo": "https://monkey.computer.ec/favicon.svg",
+        "description": "Desarrollo de software a medida. Páginas web, tiendas online, paneles admin y chatbots.",
+        "foundingDate": "2024",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+54-9-11-3600-0797",
+          "contactType": "sales",
+          "availableLanguage": ["Spanish", "English"]
+        },
+        "sameAs": [
+          "https://github.com/MonkeyComputer593",
+          "https://www.linkedin.com/company/monkey-computer/",
+          "https://www.instagram.com/monkey.computer.ec/"
+        ],
+        "offers": {
+          "@type": "AggregateOffer",
+          "description": "Servicios de desarrollo de software"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Monkey Computer",
+        "url": "https://monkey.computer.ec",
+        "inLanguage": ["es", "en"],
+        "description": "Desarrollo de software a medida. Páginas web, tiendas online, paneles admin y chatbots."
+      }
+    </script>
+
     <title>Monkey Computer - Desarrollo de Software</title>
-    <script is:inline>
+
+    <script define:vars={{ translationsJson }} is:inline>
       window.__I18N__ = {
-        translations: JSON.parse(JSON.stringify({es:translations.es, en:translations.en}))
+        translations: JSON.parse(translationsJson)
       };
+
+      // Set lang from URL immediately
       (function() {
         var params = new URLSearchParams(window.location.search);
         var lang = params.get('lang');
@@ -44,7 +106,93 @@ import Footer from '../components/landing/Footer.astro';
           document.documentElement.lang = lang;
         }
       })();
+
+      // Apply translations on DOM ready
+      document.addEventListener('DOMContentLoaded', function() {
+        var lang = document.documentElement.lang || 'es';
+        var t = window.__I18N__.translations[lang];
+        if (!t) return;
+
+        // 1. Text content
+        document.querySelectorAll('[data-i18n]').forEach(function(el) {
+          var key = el.getAttribute('data-i18n');
+          var keys = key.split('.');
+          var val = t;
+          try {
+            for (var i = 0; i < keys.length; i++) {
+              val = val[keys[i]];
+            }
+            if (val && val !== key) el.textContent = val;
+          } catch(e) {
+            console.warn('i18n error for key:', key);
+          }
+        });
+
+        // 2. Placeholders
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+          var key = el.getAttribute('data-i18n-placeholder');
+          var keys = key.split('.');
+          var val = t;
+          try {
+            for (var i = 0; i < keys.length; i++) {
+              val = val[keys[i]];
+            }
+            if (val && val !== key) el.setAttribute('placeholder', val);
+          } catch(e) {}
+        });
+
+        // 3. Aria-labels
+        document.querySelectorAll('[data-i18n-aria]').forEach(function(el) {
+          var key = el.getAttribute('data-i18n-aria');
+          var keys = key.split('.');
+          var val = t;
+          try {
+            for (var i = 0; i < keys.length; i++) {
+              val = val[keys[i]];
+            }
+            if (val && val !== key) el.setAttribute('aria-label', val);
+          } catch(e) {}
+        });
+
+        // 4. Titles
+        document.querySelectorAll('[data-i18n-title]').forEach(function(el) {
+          var key = el.getAttribute('data-i18n-title');
+          var keys = key.split('.');
+          var val = t;
+          try {
+            for (var i = 0; i < keys.length; i++) {
+              val = val[keys[i]];
+            }
+            if (val && val !== key) el.setAttribute('title', val);
+          } catch(e) {}
+        });
+
+        // 5. Meta tags
+        var metaDesc = document.querySelector('meta[name="description"]');
+        var metaOgDesc = document.querySelector('meta[property="og:description"]');
+        var metaOgTitle = document.querySelector('meta[property="og:title"]');
+        var metaTwDesc = document.querySelector('meta[name="twitter:description"]');
+        var metaTwTitle = document.querySelector('meta[name="twitter:title"]');
+        var titleEl = document.querySelector('title');
+
+        if (lang === 'en') {
+          if (metaDesc) metaDesc.setAttribute('content', 'Monkey Computer - Custom software development. Websites, online stores, admin panels, and chatbots. We build digital systems that automate businesses.');
+          if (metaOgDesc) metaOgDesc.setAttribute('content', 'Custom software development - websites, online stores, admin panels, and chatbots.');
+          if (metaOgTitle) metaOgTitle.setAttribute('content', 'Monkey Computer - Custom Software Development');
+          if (metaTwDesc) metaTwDesc.setAttribute('content', 'Custom software development - websites, online stores, admin panels, and chatbots.');
+          if (metaTwTitle) metaTwTitle.setAttribute('content', 'Monkey Computer - Custom Software Development');
+          if (titleEl) titleEl.textContent = 'Monkey Computer - Custom Software Development';
+        } else {
+          if (metaDesc) metaDesc.setAttribute('content', 'Monkey Computer - Desarrollo de software a medida. Páginas web, tiendas online, paneles admin y chatbots. Creamos sistemas digitales que automatizan negocios.');
+          if (metaOgDesc) metaOgDesc.setAttribute('content', 'Desarrollo de páginas web, tiendas online, paneles de admin y chatbots.');
+          if (metaOgTitle) metaOgTitle.setAttribute('content', 'Monkey Computer - Software a Medida');
+          if (metaTwDesc) metaTwDesc.setAttribute('content', 'Desarrollo de páginas web, tiendas online, paneles de admin y chatbots.');
+          if (metaTwTitle) metaTwTitle.setAttribute('content', 'Monkey Computer - Software a Medida');
+          if (titleEl) titleEl.textContent = 'Monkey Computer - Desarrollo de Software';
+        }
+      });
     </script>
+
     <style is:global>
       html {
         scroll-behavior: smooth;
@@ -54,7 +202,7 @@ import Footer from '../components/landing/Footer.astro';
   <body class="landing-body">
     <Nav client:load />
     
-    <main id="main-content" style="padding-top: 4.5rem;">
+    <main id="main-content">
       <Hero />
       <Services />
       <Projects />
@@ -67,7 +215,9 @@ import Footer from '../components/landing/Footer.astro';
     <button
       id="scroll-top"
       aria-label="Volver arriba"
+      data-i18n-aria="nav.scrollTopAria"
       title="Volver arriba"
+      data-i18n-title="nav.scrollTopTitle"
     >
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <polyline points="18 15 12 9 6 15"></polyline>
@@ -75,44 +225,5 @@ import Footer from '../components/landing/Footer.astro';
     </button>
 
     <script src="../scripts/main.js"></script>
-    <script is:inline>
-      document.addEventListener('DOMContentLoaded', function() {
-        var lang = document.documentElement.lang || 'es';
-        var t = window.__I18N__.translations[lang];
-        var isEnglish = lang === 'en';
-
-        document.querySelectorAll('[data-i18n]').forEach(function(el) {
-          var key = el.getAttribute('data-i18n');
-          var keys = key.split('.');
-          var val = t;
-          try {
-            for (var i = 0; i < keys.length; i++) {
-              val = val[keys[i]];
-            }
-            if (val) el.textContent = val;
-          } catch(e) {
-            console.log('Translation error for key:', key);
-          }
-        });
-
-        var metaDesc = document.querySelector('meta[name="description"]');
-        var metaOgDesc = document.querySelector('meta[property="og:description"]');
-        var metaTwDesc = document.querySelector('meta[name="twitter:description"]');
-        var title = document.querySelector('title');
-
-        if (isEnglish) {
-          if (metaDesc) metaDesc.setAttribute('content', 'Monkey Computer - Custom software development. Websites, online stores, admin panels, and chatbots.');
-          if (metaOgDesc) metaOgDesc.setAttribute('content', 'Custom software development - websites, online stores, admin panels, and chatbots.');
-          if (metaTwDesc) metaTwDesc.setAttribute('content', 'Custom software development - websites, online stores, admin panels, and chatbots.');
-          if (title) title.textContent = 'Monkey Computer - Custom Software Development';
-        }
-
-        var scrollTopBtn = document.getElementById('scroll-top');
-        if (scrollTopBtn) {
-          scrollTopBtn.setAttribute('aria-label', isEnglish ? 'Back to top' : 'Volver arriba');
-          scrollTopBtn.setAttribute('title', isEnglish ? 'Back to top' : 'Volver arriba');
-        }
-      });
-    </script>
   </body>
 </html>

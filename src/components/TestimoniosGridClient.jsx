@@ -8,25 +8,7 @@ const defaultTestimonios = [
     cargo: 'Funcionaria Registro Civil',
     imagen: '/testimonios/patricia-leon.webp',
     link: 'https://www.instagram.com/centeno.abogados/',
-  },
-  {
-    nombre: 'Raquel Silva',
-    cargo: 'Extrabajadora del CNE',
-    imagen: '/testimonios/raquel-silva.webp',
-    link: 'https://www.instagram.com/centeno.abogados/',
-  },
-  {
-    nombre: 'Juan Falconi',
-    cargo: 'Gerente de IAF Industrias',
-    imagen: '/testimonios/juan-falconi.webp',
-    link: 'https://www.instagram.com/centeno.abogados/',
-  },
-  {
-    nombre: 'Cristina Muñoz',
-    cargo: 'Médico del IESS',
-    imagen: '/testimonios/cristina-munoz.webp',
-    link: 'https://www.instagram.com/centeno.abogados/',
-  },
+  }
 ];
 
 // Helper para obtener URL de imagen

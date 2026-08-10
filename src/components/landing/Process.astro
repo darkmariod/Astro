@@ -1,0 +1,120 @@
+---
+const steps = [
+  {
+    n: '01',
+    title: 'Diagnóstico',
+    desc: 'Conversamos sobre tu proceso y cerramos el alcance. Salís con el objetivo claro y el precio en firme.',
+    time: '1 día',
+  },
+  {
+    n: '02',
+    title: 'Diseño',
+    desc: 'Definimos cómo va a funcionar el sistema antes de programar. Acá entran tus ajustes.',
+    time: '2 a 4 días',
+  },
+  {
+    n: '03',
+    title: 'Desarrollo',
+    desc: 'Construyo el sistema en Laravel y lo pruebo hasta que funcione como tiene que funcionar.',
+    time: 'Según alcance',
+  },
+  {
+    n: '04',
+    title: 'Entrega',
+    desc: 'Lo dejo en producción, te lo entrego y te enseño a usarlo.',
+    time: '1 día',
+  },
+];
+---
+
+<section class="process section" id="proceso">
+  <div class="container">
+    <div class="process__header reveal">
+      <p class="eyebrow">Proceso</p>
+      <h2 class="display-lg">Cuatro pasos, sin sorpresas</h2>
+    </div>
+
+    <div class="process__grid">
+      {steps.map((s) => (
+        <div class="step reveal">
+          <span class="step__n">{s.n}</span>
+          <h3 class="step__title">{s.title}</h3>
+          <p class="step__desc">{s.desc}</p>
+          <span class="step__time">{s.time}</span>
+        </div>
+      ))}
+    </div>
+
+    <p class="process__note reveal">
+      El tiempo corre desde que definimos el alcance y me pasás la información, no desde que pagás.
+    </p>
+  </div>
+</section>
+
+<style>
+  .process__header {
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .process__header h2 { margin-top: 0.75rem; }
+
+  .process__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem 2rem;
+  }
+
+  @media (min-width: 640px) {
+    .process__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 1000px) {
+    .process__grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  .step {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .step__n {
+    font-family: var(--font-mono);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 0.35rem;
+  }
+
+  .step__title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+  }
+
+  .step__desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    flex: 1;
+  }
+
+  .step__time {
+    margin-top: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .process__note {
+    margin-top: clamp(2rem, 4vw, 3rem);
+    font-size: 0.95rem;
+    color: var(--text-muted);
+  }
+</style>

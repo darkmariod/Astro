@@ -6,8 +6,8 @@ import reservation from '../../assets/reservation.png';
 // image: null => placeholder hasta tener el mockup real.
 const projects = [
   {
-    title: 'Sistema de reservas para barberías',
-    status: 'Producto propio · En desarrollo',
+    title: 'Reservas para barberías',
+    category: 'Reservas online · En desarrollo',
     tech: ['Laravel'],
     short: 'Plataforma web para gestionar servicios, barberos, horarios y reservas online.',
     detail:
@@ -16,8 +16,8 @@ const projects = [
     demo: '',
   },
   {
-    title: 'Sistema de inventario y ventas',
-    status: 'Producto propio',
+    title: 'Inventario y ventas',
+    category: 'Gestión de stock · Producto propio',
     tech: ['Laravel', 'Vue'],
     short: 'Sistema web para gestionar productos, inventario, ventas y operaciones de un negocio.',
     detail:
@@ -27,7 +27,7 @@ const projects = [
   },
   {
     title: 'Facturación electrónica SRI',
-    status: 'Funcional · Integración',
+    category: 'Integración SRI · Funcional',
     tech: ['Laravel', 'SRI'],
     short: 'Integración de facturación electrónica para sistemas empresariales en Ecuador.',
     detail:
@@ -36,8 +36,8 @@ const projects = [
     demo: '',
   },
   {
-    title: 'Sistema de garantías con QR',
-    status: 'Proyecto desarrollado',
+    title: 'Garantías con QR',
+    category: 'Gestión de garantías · Desarrollado',
     tech: ['Laravel'],
     short: 'Sistema para gestionar garantías y consultar información mediante códigos QR.',
     detail:
@@ -51,19 +51,18 @@ const projects = [
 <section class="projects section" id="projects">
   <div class="container">
     <div class="projects__header reveal">
-      <p class="eyebrow">Proyectos</p>
+      <p class="eyebrow">Trabajos</p>
       <h2 class="display-lg">Proyectos seleccionados</h2>
       <p class="projects__lead">Software desarrollado para resolver necesidades concretas.</p>
     </div>
 
     <div class="projects__grid">
-      {projects.map((p, i) => (
+      {projects.map((p) => (
         <button
           type="button"
           class="case-card reveal"
-          data-project={i}
           data-title={p.title}
-          data-status={p.status}
+          data-status={p.category}
           data-tech={p.tech.join(' · ')}
           data-detail={p.detail}
           data-image={p.image || ''}
@@ -79,13 +78,10 @@ const projects = [
           </div>
 
           <div class="case-card__body">
-            <span class="case-card__status">{p.status}</span>
             <h3 class="case-card__title">{p.title}</h3>
+            <p class="case-card__category">{p.category}</p>
             <p class="case-card__desc">{p.short}</p>
-            <div class="case-card__foot">
-              <span class="case-card__tech">{p.tech.join(' · ')}</span>
-              <span class="case-card__more">Ver detalle →</span>
-            </div>
+            <span class="case-card__tech">{p.tech.join(' · ')}</span>
           </div>
         </button>
       ))}
@@ -105,7 +101,7 @@ const projects = [
         <h3 class="pmodal__title" id="pmodalTitle"></h3>
         <p class="pmodal__detail" id="pmodalDetail"></p>
         <div class="pmodal__tech" id="pmodalTech"></div>
-        <a class="pmodal__demo btn btn-secondary" id="pmodalDemo" target="_blank" rel="noopener noreferrer" hidden>Ver demo</a>
+        <a class="pmodal__demo btn btn-secondary" id="pmodalDemo" target="_blank" rel="noopener noreferrer">Ver demo</a>
       </div>
     </div>
   </div>
@@ -234,7 +230,7 @@ const projects = [
     outline-offset: 2px;
   }
 
-  /* Mockup floating on a gradient panel (RysthDesign "Sitios ya publicados" style) */
+  /* Mockup floating on a gradient panel */
   .case-card__media {
     aspect-ratio: 16 / 11;
     padding: clamp(1.25rem, 3vw, 1.75rem) clamp(1.25rem, 3vw, 1.75rem) 0;
@@ -272,16 +268,8 @@ const projects = [
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 0.5rem;
     flex: 1;
-  }
-
-  .case-card__status {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent);
   }
 
   .case-card__title {
@@ -292,38 +280,25 @@ const projects = [
     color: var(--text-primary);
   }
 
-  .case-card__desc {
+  .case-card__category {
     font-size: 0.95rem;
-    line-height: 1.55;
     color: var(--text-secondary);
   }
 
-  .case-card__foot {
-    margin-top: auto;
-    padding-top: 0.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    border-top: 1px solid var(--border-subtle);
+  .case-card__desc {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--text-muted);
   }
 
   .case-card__tech {
+    margin-top: 0.5rem;
     font-family: var(--font-mono);
     font-size: 0.72rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     color: var(--text-muted);
   }
-
-  .case-card__more {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    white-space: nowrap;
-  }
-
-  .case-card:hover .case-card__more { color: var(--text-primary); }
 
   /* Modal */
   .pmodal {

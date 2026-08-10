@@ -1,36 +1,42 @@
 ---
+// anual/delivery vacíos => no se muestran (ej: Tienda, pendiente de definir).
 const plans = [
   {
-    name: 'Landing',
+    name: 'Landing Page',
     for: 'Para el negocio con un solo objetivo: que lo llamen.',
-    price: '$250',
-    priceNote: 'Proyecto',
+    setup: '$250',
+    anual: '$120',
+    delivery: 'Entrega en 7 días · 1 ronda de cambios',
     featured: false,
     features: [
       'Una página de hasta 6 secciones',
       'Dominio, hosting y SSL incluidos',
       'Botón de WhatsApp y formulario de contacto',
-      'Optimizada para carga rápida',
+      'Ficha de Google Business optimizada',
+      'Carga en menos de 1 segundo, garantizado',
     ],
   },
   {
-    name: 'Página web',
+    name: 'Sitio Informativo',
     for: 'Para el negocio con varios servicios que necesita explicarlos.',
-    price: '$350',
-    priceNote: 'Proyecto',
+    setup: '$450',
+    anual: '$140',
+    delivery: 'Entrega en 12 días · 2 rondas de cambios',
     featured: true,
     features: [
       'Hasta 6 páginas',
-      'Dominio, hosting y SSL incluidos',
-      'Secciones administrables',
+      'Catálogo de hasta 40 productos',
+      'Blog que administras tú mismo',
       'SEO configurado página por página',
+      '2 rondas de cambios',
     ],
   },
   {
     name: 'Tienda en línea',
     for: 'Para el negocio que quiere vender online.',
-    price: '$300',
-    priceNote: 'Proyecto',
+    setup: '$400',
+    anual: '',
+    delivery: '',
     featured: false,
     features: [
       'Catálogo de productos',
@@ -45,8 +51,8 @@ const plans = [
 <section class="pricing section" id="planes">
   <div class="container">
     <div class="pricing__header reveal">
-      <p class="eyebrow">Planes</p>
-      <h2 class="display-lg">Cómo trabajamos</h2>
+      <p class="eyebrow">Servicios</p>
+      <h2 class="display-lg">Planes y precios</h2>
     </div>
 
     <div class="pricing__grid">
@@ -56,9 +62,18 @@ const plans = [
           <h3 class="plan__name">{plan.name}</h3>
           <p class="plan__for">{plan.for}</p>
 
-          <div class="plan__price">
-            <span class="plan__amount">{plan.price}</span>
-            <span class="plan__note">{plan.priceNote}</span>
+          <div class="plan__meta">
+            <div class="plan__price">
+              <span class="plan__label">Setup</span>
+              <span class="plan__amount">{plan.setup}</span>
+            </div>
+            {plan.anual && (
+              <div class="plan__price">
+                <span class="plan__label">Anual</span>
+                <span class="plan__amount">{plan.anual}</span>
+              </div>
+            )}
+            {plan.delivery && <p class="plan__delivery">{plan.delivery}</p>}
           </div>
 
           <ul class="plan__features">
@@ -88,6 +103,7 @@ const plans = [
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.25rem;
+    align-items: start;
   }
 
   @media (min-width: 640px) {
@@ -138,28 +154,42 @@ const plans = [
     min-height: 2.8em;
   }
 
-  .plan__price {
-    display: flex;
-    align-items: baseline;
-    gap: 0.6rem;
+  .plan__meta {
     margin: 1.5rem 0;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid var(--border-subtle);
   }
 
+  .plan__price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+
+  .plan__price + .plan__price { margin-top: 0.6rem; }
+
+  .plan__label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    width: 3.2rem;
+  }
+
   .plan__amount {
     font-family: var(--font-display);
-    font-size: 2.4rem;
+    font-size: 1.9rem;
     font-weight: 700;
     color: var(--text-primary);
     letter-spacing: -0.02em;
   }
 
-  .plan__note {
+  .plan__delivery {
+    margin-top: 1rem;
     font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    font-size: 0.78rem;
+    line-height: 1.5;
     color: var(--text-muted);
   }
 

@@ -3,21 +3,22 @@
    =================================================== */
 
 :root {
-  /* Colors */
-  --bg-base: #09090b;
-  --bg-surface: #111113;
-  --bg-elevated: #18181c;
-  --border-subtle: rgba(255, 255, 255, 0.07);
-  --border-glow: rgba(209, 160, 255, 0.35);
+  /* Colors — neutral studio palette, violet only as accent */
+  --bg-base: #0a0a0b;
+  --bg-surface: #101012;
+  --bg-elevated: #161619;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --border-glow: rgba(124, 108, 255, 0.30);
 
-  --accent: #d1a0ff;
-  --accent-soft: rgba(209, 160, 255, 0.15);
-  --accent-glow: rgba(209, 160, 255, 0.25);
-  --accent-glow-strong: rgba(209, 160, 255, 0.45);
+  --accent: #7c6cff;
+  --accent-soft: rgba(124, 108, 255, 0.12);
+  --accent-glow: rgba(124, 108, 255, 0.18);
+  --accent-glow-strong: rgba(124, 108, 255, 0.30);
 
   --text-primary: #fafafa;
   --text-secondary: #a1a1aa;
-  --text-muted: #52525b;
+  --text-muted: #6b6b75;
 
   /* Typography */
   --font-display: 'Geist', sans-serif;
@@ -25,15 +26,15 @@
   --font-mono: 'Geist Mono', 'Fira Code', monospace;
 
   /* Spacing */
-  --section-py: clamp(3rem, 5vw, 4rem);
-  --content-max: 1200px;
-  --card-radius: 16px;
+  --section-py: clamp(4rem, 9vw, 8rem);
+  --content-max: 1120px;
+  --card-radius: 14px;
 
-  /* Shadows */
-  --shadow-card: 0 1px 3px rgba(0,0,0,0.5), 0 8px 32px rgba(0,0,0,0.3);
-  --shadow-glow: 0 0 40px rgba(209, 160, 255, 0.2), 0 0 80px rgba(209, 160, 255, 0.08);
-  --shadow-glow-strong: 0 0 60px rgba(209, 160, 255, 0.35), 0 0 120px rgba(209, 160, 255, 0.12);
-  --shadow-elevated: 0 4px 6px rgba(0,0,0,0.4), 0 20px 60px rgba(0,0,0,0.5);
+  /* Shadows — neutral, no color glow */
+  --shadow-card: 0 1px 2px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.35);
+  --shadow-glow: 0 20px 60px rgba(0,0,0,0.45);
+  --shadow-glow-strong: 0 24px 70px rgba(0,0,0,0.55);
+  --shadow-elevated: 0 4px 6px rgba(0,0,0,0.4), 0 24px 70px rgba(0,0,0,0.5);
 }
 
 /* RESET + BASE */
@@ -62,8 +63,12 @@ body.landing-body {
 }
 
 .landing-body a {
-  color: inherit;
   text-decoration: none;
+}
+
+/* Reset only bare links; class-styled links (buttons, nav) set their own color */
+.landing-body a:not([class]) {
+  color: inherit;
 }
 
 /* SCROLL REVEAL */
@@ -145,12 +150,15 @@ body.landing-body {
 
 /* GRADIENT TEXT */
 
+/* Subtle, restrained — near-white with a hint of accent. Hero only. */
 .gradient-text {
-  background: linear-gradient(135deg, #ffffff 0%, #d1a0ff 60%, #a78bfa 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #cfc9ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+.accent-text { color: var(--accent); }
 
 /* BUTTONS */
 
@@ -169,29 +177,41 @@ body.landing-body {
   text-decoration: none;
 }
 
+/* Primary = high-contrast editorial white on dark */
 .btn-primary {
-  background: var(--accent);
-  color: #fff;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 rgba(234, 24, 137, 0);
+  background: var(--text-primary);
+  color: #0a0a0b;
+  border-color: var(--text-primary);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-glow-strong);
+  background: #ffffff;
+  border-color: #ffffff;
 }
 
 .btn-secondary {
   background: transparent;
   color: var(--text-primary);
-  border-color: var(--border-subtle);
-  backdrop-filter: blur(8px);
+  border-color: var(--border-strong);
 }
 
 .btn-secondary:hover {
-  border-color: rgba(234, 24, 137, 0.5);
-  color: var(--accent);
+  border-color: var(--text-primary);
   transform: translateY(-2px);
+}
+
+/* WhatsApp CTA keeps the recognizable green */
+.btn-whatsapp {
+  background: #25d366;
+  color: #0a0a0b;
+  border-color: #25d366;
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-2px);
+  background: #2bea72;
+  border-color: #2bea72;
 }
 
 .btn-ghost {
@@ -227,7 +247,7 @@ body.landing-body {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: radial-gradient(ellipse at top left, rgba(234, 24, 137, 0.06) 0%, transparent 60%);
+  background: radial-gradient(ellipse at top left, var(--accent-soft) 0%, transparent 60%);
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
@@ -263,7 +283,7 @@ body.landing-body {
   position: absolute;
   inset: -4px;
   border-radius: 16px;
-  background: radial-gradient(ellipse, rgba(234, 24, 137, 0.35) 0%, transparent 70%);
+  background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
   filter: blur(8px);
   z-index: -1;
 }

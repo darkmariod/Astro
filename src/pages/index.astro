@@ -7,14 +7,12 @@ import '@fontsource/geist-mono/400.css';
 import '@fontsource/geist-mono/500.css';
 import '../styles/landing.css';
 
-import { translations } from '../i18n/translations';
-const translationsJson = JSON.stringify({ es: translations.es, en: translations.en });
 import Nav from '../components/react/Nav.jsx';
 import Hero from '../components/landing/Hero.astro';
-import Services from '../components/landing/Services.astro';
 import Projects from '../components/landing/Projects.astro';
-import Process from '../components/landing/Process.astro';
-import Testimonials from '../components/landing/Testimonials.astro';
+import About from '../components/landing/About.astro';
+import Tech from '../components/landing/Tech.astro';
+import Services from '../components/landing/Services.astro';
 import ContactForm from '../components/landing/ContactForm.astro';
 import Footer from '../components/landing/Footer.astro';
 ---
@@ -26,14 +24,14 @@ import Footer from '../components/landing/Footer.astro';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Primary Meta -->
-    <meta name="description" content="Monkey Computer - Desarrollo de software a medida. Páginas web, tiendas online, paneles admin y chatbots." />
-    <meta name="keywords" content="desarrollo web, tienda online, ecommerce, chatbots, paneles admin, software a medida, landing pages, automatización, Monkey Computer" />
+    <meta name="description" content="Monkey Computer - Desarrollo de software para negocios. Sistemas web, inventario y ventas, reservas, facturación electrónica SRI y software a medida con Laravel." />
+    <meta name="keywords" content="desarrollo de software, Laravel, PHP, sistemas web, inventario, reservas, facturación electrónica SRI, software a medida, Ecuador, Monkey Computer" />
     <meta name="author" content="Monkey Computer" />
     <meta name="robots" content="index, follow" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Monkey Computer - Software a Medida" />
-    <meta property="og:description" content="Desarrollo de páginas web, tiendas online, paneles de admin y chatbots." />
+    <meta property="og:title" content="Monkey Computer - Software para negocios reales" />
+    <meta property="og:description" content="Desarrollo de sistemas web para negocios con Laravel: inventario, reservas, facturación SRI y software a medida." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://monkey.computer.ec" />
     <meta property="og:site_name" content="Monkey Computer" />
@@ -42,8 +40,8 @@ import Footer from '../components/landing/Footer.astro';
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Monkey Computer - Software a Medida" />
-    <meta name="twitter:description" content="Desarrollo de páginas web, tiendas online, paneles de admin y chatbots." />
+    <meta name="twitter:title" content="Monkey Computer - Software para negocios reales" />
+    <meta name="twitter:description" content="Desarrollo de sistemas web para negocios con Laravel: inventario, reservas, facturación SRI y software a medida." />
 
     <!-- Canonical + Hreflang -->
     <link rel="canonical" href="https://monkey.computer.ec" />
@@ -61,7 +59,7 @@ import Footer from '../components/landing/Footer.astro';
         "name": "Monkey Computer",
         "url": "https://monkey.computer.ec",
         "logo": "https://monkey.computer.ec/favicon.svg",
-        "description": "Desarrollo de software a medida. Páginas web, tiendas online, paneles admin y chatbots.",
+        "description": "Desarrollo de software para negocios con Laravel: sistemas web, inventario y ventas, reservas, facturación electrónica SRI y software a medida.",
         "foundingDate": "2024",
         "contactPoint": {
           "@type": "ContactPoint",
@@ -86,112 +84,12 @@ import Footer from '../components/landing/Footer.astro';
         "@type": "WebSite",
         "name": "Monkey Computer",
         "url": "https://monkey.computer.ec",
-        "inLanguage": ["es", "en"],
-        "description": "Desarrollo de software a medida. Páginas web, tiendas online, paneles admin y chatbots."
+        "inLanguage": ["es"],
+        "description": "Desarrollo de software para negocios con Laravel: sistemas web, inventario, reservas, facturación SRI y software a medida."
       }
     </script>
 
-    <title>Monkey Computer - Desarrollo de Software</title>
-
-    <script define:vars={{ translationsJson }} is:inline>
-      window.__I18N__ = {
-        translations: JSON.parse(translationsJson)
-      };
-
-      // Set lang from URL immediately
-      (function() {
-        var params = new URLSearchParams(window.location.search);
-        var lang = params.get('lang');
-        if (lang === 'en' || lang === 'es') {
-          document.documentElement.lang = lang;
-        }
-      })();
-
-      // Apply translations on DOM ready
-      document.addEventListener('DOMContentLoaded', function() {
-        var lang = document.documentElement.lang || 'es';
-        var t = window.__I18N__.translations[lang];
-        if (!t) return;
-
-        // 1. Text content
-        document.querySelectorAll('[data-i18n]').forEach(function(el) {
-          var key = el.getAttribute('data-i18n');
-          var keys = key.split('.');
-          var val = t;
-          try {
-            for (var i = 0; i < keys.length; i++) {
-              val = val[keys[i]];
-            }
-            if (val && val !== key) el.textContent = val;
-          } catch(e) {
-            console.warn('i18n error for key:', key);
-          }
-        });
-
-        // 2. Placeholders
-        document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
-          var key = el.getAttribute('data-i18n-placeholder');
-          var keys = key.split('.');
-          var val = t;
-          try {
-            for (var i = 0; i < keys.length; i++) {
-              val = val[keys[i]];
-            }
-            if (val && val !== key) el.setAttribute('placeholder', val);
-          } catch(e) {}
-        });
-
-        // 3. Aria-labels
-        document.querySelectorAll('[data-i18n-aria]').forEach(function(el) {
-          var key = el.getAttribute('data-i18n-aria');
-          var keys = key.split('.');
-          var val = t;
-          try {
-            for (var i = 0; i < keys.length; i++) {
-              val = val[keys[i]];
-            }
-            if (val && val !== key) el.setAttribute('aria-label', val);
-          } catch(e) {}
-        });
-
-        // 4. Titles
-        document.querySelectorAll('[data-i18n-title]').forEach(function(el) {
-          var key = el.getAttribute('data-i18n-title');
-          var keys = key.split('.');
-          var val = t;
-          try {
-            for (var i = 0; i < keys.length; i++) {
-              val = val[keys[i]];
-            }
-            if (val && val !== key) el.setAttribute('title', val);
-          } catch(e) {}
-        });
-
-        // 5. Meta tags
-        var metaDesc = document.querySelector('meta[name="description"]');
-        var metaOgDesc = document.querySelector('meta[property="og:description"]');
-        var metaOgTitle = document.querySelector('meta[property="og:title"]');
-        var metaTwDesc = document.querySelector('meta[name="twitter:description"]');
-        var metaTwTitle = document.querySelector('meta[name="twitter:title"]');
-        var titleEl = document.querySelector('title');
-
-        if (lang === 'en') {
-          if (metaDesc) metaDesc.setAttribute('content', 'Monkey Computer - Custom software development. Websites, online stores, admin panels, and chatbots. We build digital systems that automate businesses.');
-          if (metaOgDesc) metaOgDesc.setAttribute('content', 'Custom software development - websites, online stores, admin panels, and chatbots.');
-          if (metaOgTitle) metaOgTitle.setAttribute('content', 'Monkey Computer - Custom Software Development');
-          if (metaTwDesc) metaTwDesc.setAttribute('content', 'Custom software development - websites, online stores, admin panels, and chatbots.');
-          if (metaTwTitle) metaTwTitle.setAttribute('content', 'Monkey Computer - Custom Software Development');
-          if (titleEl) titleEl.textContent = 'Monkey Computer - Custom Software Development';
-        } else {
-          if (metaDesc) metaDesc.setAttribute('content', 'Monkey Computer - Desarrollo de software a medida. Páginas web, tiendas online, paneles admin y chatbots. Creamos sistemas digitales que automatizan negocios.');
-          if (metaOgDesc) metaOgDesc.setAttribute('content', 'Desarrollo de páginas web, tiendas online, paneles de admin y chatbots.');
-          if (metaOgTitle) metaOgTitle.setAttribute('content', 'Monkey Computer - Software a Medida');
-          if (metaTwDesc) metaTwDesc.setAttribute('content', 'Desarrollo de páginas web, tiendas online, paneles de admin y chatbots.');
-          if (metaTwTitle) metaTwTitle.setAttribute('content', 'Monkey Computer - Software a Medida');
-          if (titleEl) titleEl.textContent = 'Monkey Computer - Desarrollo de Software';
-        }
-      });
-    </script>
+    <title>Monkey Computer - Software para negocios reales</title>
 
     <style is:global>
       html {
@@ -204,10 +102,10 @@ import Footer from '../components/landing/Footer.astro';
     
     <main id="main-content">
       <Hero />
-      <Services />
       <Projects />
-      <Testimonials />
-      <Process />
+      <About />
+      <Tech />
+      <Services />
       <ContactForm />
     </main>
     <Footer />

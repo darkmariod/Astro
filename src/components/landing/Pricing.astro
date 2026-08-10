@@ -1,30 +1,42 @@
 ---
-// Precios en placeholder ($—) hasta que el usuario defina los reales. No inventar montos.
 const plans = [
   {
-    name: 'Sitio / Landing',
-    for: 'Para el negocio que necesita estar donde lo buscan.',
-    price: '$—',
+    name: 'Landing',
+    for: 'Para el negocio con un solo objetivo: que lo llamen.',
+    price: '$250',
     priceNote: 'Proyecto',
     featured: false,
     features: [
-      'Página profesional y responsive',
-      'Dominio, hosting y SSL',
-      'Botón de WhatsApp y contacto',
+      'Una página de hasta 6 secciones',
+      'Dominio, hosting y SSL incluidos',
+      'Botón de WhatsApp y formulario de contacto',
       'Optimizada para carga rápida',
     ],
   },
   {
-    name: 'Sistema a medida',
-    for: 'Para el negocio que necesita digitalizar un proceso.',
-    price: '$—',
-    priceNote: 'Según alcance',
+    name: 'Página web',
+    for: 'Para el negocio con varios servicios que necesita explicarlos.',
+    price: '$350',
+    priceNote: 'Proyecto',
     featured: true,
     features: [
-      'Inventario, reservas, ventas o facturación',
-      'Desarrollado en Laravel',
-      'Panel de administración propio',
-      'Soporte post-entrega',
+      'Hasta 6 páginas',
+      'Dominio, hosting y SSL incluidos',
+      'Secciones administrables',
+      'SEO configurado página por página',
+    ],
+  },
+  {
+    name: 'Tienda en línea',
+    for: 'Para el negocio que quiere vender online.',
+    price: '$300',
+    priceNote: 'Proyecto',
+    featured: false,
+    features: [
+      'Catálogo de productos',
+      'Carrito y pagos en línea',
+      'Panel para gestionar productos y pedidos',
+      'Dominio, hosting y SSL incluidos',
     ],
   },
 ];
@@ -61,7 +73,7 @@ const plans = [
       ))}
     </div>
 
-    <p class="pricing__note reveal">Precios referenciales. Cada proyecto se cotiza según su alcance.</p>
+    <p class="pricing__note reveal">Precios en USD. Cada proyecto puede ajustarse según lo que necesites.</p>
   </div>
 </section>
 
@@ -76,11 +88,14 @@ const plans = [
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.25rem;
-    max-width: 860px;
   }
 
-  @media (min-width: 720px) {
+  @media (min-width: 640px) {
     .pricing__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 980px) {
+    .pricing__grid { grid-template-columns: repeat(3, 1fr); }
   }
 
   .plan {
@@ -120,6 +135,7 @@ const plans = [
     font-size: 0.95rem;
     color: var(--text-secondary);
     line-height: 1.5;
+    min-height: 2.8em;
   }
 
   .plan__price {

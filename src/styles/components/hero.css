@@ -1,0 +1,107 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: 6rem 1.5rem 4rem;
+  overflow: hidden;
+  background: var(--bg-base);
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(209, 160, 255, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(209, 160, 255, 0.08) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.hero__center {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 640px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* Badge simple */
+.hero__badge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: var(--accent-soft);
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+/* Title */
+.hero__title {
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+.hero__title span:first-child {
+  display: block;
+}
+
+/* Descripción */
+.hero__desc {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Botones - grandes para mobile */
+.hero__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.btn-hero {
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  justify-content: center;
+}
+
+.btn-hero svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Tablet */
+@media (min-width: 640px) {
+  .hero {
+    padding: 8rem 2rem 5rem;
+  }
+
+  .hero__actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .btn-hero {
+    min-width: 160px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .hero {
+    padding: 10rem 2rem 6rem;
+  }
+
+  .hero__title span:first-child {
+    display: inline;
+  }
+
+  .hero__desc {
+    font-size: 1.25rem;
+  }
+}

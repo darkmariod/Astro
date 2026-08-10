@@ -1,0 +1,179 @@
+---
+// Precios en placeholder ($—) hasta que el usuario defina los reales. No inventar montos.
+const plans = [
+  {
+    name: 'Sitio / Landing',
+    for: 'Para el negocio que necesita estar donde lo buscan.',
+    price: '$—',
+    priceNote: 'Proyecto',
+    featured: false,
+    features: [
+      'Página profesional y responsive',
+      'Dominio, hosting y SSL',
+      'Botón de WhatsApp y contacto',
+      'Optimizada para carga rápida',
+    ],
+  },
+  {
+    name: 'Sistema a medida',
+    for: 'Para el negocio que necesita digitalizar un proceso.',
+    price: '$—',
+    priceNote: 'Según alcance',
+    featured: true,
+    features: [
+      'Inventario, reservas, ventas o facturación',
+      'Desarrollado en Laravel',
+      'Panel de administración propio',
+      'Soporte post-entrega',
+    ],
+  },
+];
+---
+
+<section class="pricing section" id="planes">
+  <div class="container">
+    <div class="pricing__header reveal">
+      <p class="eyebrow">Planes</p>
+      <h2 class="display-lg">Cómo trabajamos</h2>
+    </div>
+
+    <div class="pricing__grid">
+      {plans.map((plan) => (
+        <div class={`plan reveal ${plan.featured ? 'plan--featured' : ''}`}>
+          {plan.featured && <span class="plan__badge">Más elegido</span>}
+          <h3 class="plan__name">{plan.name}</h3>
+          <p class="plan__for">{plan.for}</p>
+
+          <div class="plan__price">
+            <span class="plan__amount">{plan.price}</span>
+            <span class="plan__note">{plan.priceNote}</span>
+          </div>
+
+          <ul class="plan__features">
+            {plan.features.map((f) => (
+              <li class="plan__feature">
+                <span class="plan__check" aria-hidden="true">✓</span>
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <p class="pricing__note reveal">Precios referenciales. Cada proyecto se cotiza según su alcance.</p>
+  </div>
+</section>
+
+<style>
+  .pricing__header {
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+  }
+
+  .pricing__header h2 { margin-top: 0.75rem; }
+
+  .pricing__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    max-width: 860px;
+  }
+
+  @media (min-width: 720px) {
+    .pricing__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .plan {
+    position: relative;
+    padding: 1.9rem;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .plan--featured { border-color: var(--accent); }
+
+  .plan__badge {
+    position: absolute;
+    top: -0.75rem;
+    left: 1.9rem;
+    padding: 0.3rem 0.75rem;
+    background: var(--accent);
+    color: #0a0a0b;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .plan__name {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .plan__for {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .plan__price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    margin: 1.5rem 0;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .plan__amount {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+  }
+
+  .plan__note {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .plan__features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .plan__feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.45;
+  }
+
+  .plan__check {
+    color: var(--accent);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .pricing__note {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+</style>

@@ -1,0 +1,449 @@
+---
+import ecommerce from '../../assets/ecommerce.png';
+import reservation from '../../assets/reservation.png';
+
+// Solo proyectos reales. Sin métricas ni clientes inventados.
+// image: null => placeholder hasta tener el mockup real.
+const projects = [
+  {
+    title: 'Sistema de reservas para barberías',
+    status: 'Producto propio · En desarrollo',
+    tech: ['Laravel'],
+    short: 'Plataforma web para gestionar servicios, barberos, horarios y reservas online.',
+    detail:
+      'Plataforma web para que cada barbería administre sus servicios, su equipo y su agenda. Los clientes reservan su turno desde el navegador, sin llamadas ni mensajes.',
+    image: reservation.src,
+    demo: '',
+  },
+  {
+    title: 'Sistema de inventario y ventas',
+    status: 'Producto propio',
+    tech: ['Laravel', 'Vue'],
+    short: 'Sistema web para gestionar productos, inventario, ventas y operaciones de un negocio.',
+    detail:
+      'Panel para controlar productos, stock, ventas y operaciones diarias de un negocio en un solo lugar, con la información siempre actualizada.',
+    image: ecommerce.src,
+    demo: '',
+  },
+  {
+    title: 'Facturación electrónica SRI',
+    status: 'Funcional · Integración',
+    tech: ['Laravel', 'SRI'],
+    short: 'Integración de facturación electrónica para sistemas empresariales en Ecuador.',
+    detail:
+      'Integración de facturación electrónica del SRI dentro de sistemas empresariales, para emitir comprobantes válidos directamente desde el software del negocio.',
+    image: null,
+    demo: '',
+  },
+  {
+    title: 'Sistema de garantías con QR',
+    status: 'Proyecto desarrollado',
+    tech: ['Laravel'],
+    short: 'Sistema para gestionar garantías y consultar información mediante códigos QR.',
+    detail:
+      'Sistema para registrar y administrar garantías. Cada producto lleva un código QR que permite consultar su información y estado de garantía al instante.',
+    image: null,
+    demo: '',
+  },
+];
+---
+
+<section class="projects section" id="projects">
+  <div class="container">
+    <div class="projects__header reveal">
+      <p class="eyebrow">Proyectos</p>
+      <h2 class="display-lg">Proyectos seleccionados</h2>
+      <p class="projects__lead">Software desarrollado para resolver necesidades concretas.</p>
+    </div>
+
+    <div class="projects__grid">
+      {projects.map((p, i) => (
+        <button
+          type="button"
+          class="case-card reveal"
+          data-project={i}
+          data-title={p.title}
+          data-status={p.status}
+          data-tech={p.tech.join(' · ')}
+          data-detail={p.detail}
+          data-image={p.image || ''}
+          data-demo={p.demo || ''}
+          aria-haspopup="dialog"
+        >
+          <div class={`case-card__media ${p.image ? '' : 'case-card__media--ph'}`}>
+            {p.image ? (
+              <img src={p.image} alt={p.title} loading="lazy" />
+            ) : (
+              <span class="case-card__ph-label">Mockup próximamente</span>
+            )}
+          </div>
+
+          <div class="case-card__body">
+            <span class="case-card__status">{p.status}</span>
+            <h3 class="case-card__title">{p.title}</h3>
+            <p class="case-card__desc">{p.short}</p>
+            <div class="case-card__foot">
+              <span class="case-card__tech">{p.tech.join(' · ')}</span>
+              <span class="case-card__more">Ver detalle →</span>
+            </div>
+          </div>
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="pmodal" id="pmodal" hidden>
+    <div class="pmodal__overlay" data-close></div>
+    <div class="pmodal__dialog" role="dialog" aria-modal="true" aria-labelledby="pmodalTitle">
+      <button class="pmodal__close" data-close aria-label="Cerrar">✕</button>
+
+      <div class="pmodal__media" id="pmodalMedia"></div>
+
+      <div class="pmodal__body">
+        <span class="pmodal__status" id="pmodalStatus"></span>
+        <h3 class="pmodal__title" id="pmodalTitle"></h3>
+        <p class="pmodal__detail" id="pmodalDetail"></p>
+        <div class="pmodal__tech" id="pmodalTech"></div>
+        <a class="pmodal__demo btn btn-secondary" id="pmodalDemo" target="_blank" rel="noopener noreferrer" hidden>Ver demo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (function () {
+    var modal = document.getElementById('pmodal');
+    if (!modal) return;
+    var media = document.getElementById('pmodalMedia');
+    var status = document.getElementById('pmodalStatus');
+    var title = document.getElementById('pmodalTitle');
+    var detail = document.getElementById('pmodalDetail');
+    var tech = document.getElementById('pmodalTech');
+    var demo = document.getElementById('pmodalDemo');
+    var lastFocus = null;
+
+    function open(card) {
+      lastFocus = card;
+      status.textContent = card.dataset.status || '';
+      title.textContent = card.dataset.title || '';
+      detail.textContent = card.dataset.detail || '';
+
+      tech.innerHTML = '';
+      (card.dataset.tech || '').split(' · ').filter(Boolean).forEach(function (t) {
+        var chip = document.createElement('span');
+        chip.className = 'pmodal__chip';
+        chip.textContent = t;
+        tech.appendChild(chip);
+      });
+
+      var img = card.dataset.image;
+      if (img) {
+        media.className = 'pmodal__media';
+        media.innerHTML = '<img src="' + img + '" alt="' + (card.dataset.title || '') + '" />';
+      } else {
+        media.className = 'pmodal__media pmodal__media--ph';
+        media.innerHTML = '<span>Demo en video · próximamente</span>';
+      }
+
+      var demoUrl = card.dataset.demo;
+      if (demoUrl) {
+        demo.href = demoUrl;
+        demo.style.display = 'inline-flex';
+      } else {
+        demo.style.display = 'none';
+      }
+
+      modal.hidden = false;
+      document.body.style.overflow = 'hidden';
+      var closeBtn = modal.querySelector('.pmodal__close');
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function close() {
+      modal.hidden = true;
+      document.body.style.overflow = '';
+      if (lastFocus) lastFocus.focus();
+    }
+
+    document.querySelectorAll('.case-card').forEach(function (card) {
+      card.addEventListener('click', function () { open(card); });
+    });
+
+    modal.querySelectorAll('[data-close]').forEach(function (el) {
+      el.addEventListener('click', close);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !modal.hidden) close();
+    });
+  })();
+</script>
+
+<style>
+  .projects__header {
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+    max-width: 640px;
+  }
+
+  .projects__header h2 { margin-block: 0.75rem 0.85rem; }
+
+  .projects__lead {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .projects__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(1.25rem, 3vw, 1.75rem);
+  }
+
+  @media (min-width: 640px) {
+    .projects__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 1000px) {
+    .projects__grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  /* Card */
+  .case-card {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 0;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    cursor: pointer;
+    font: inherit;
+    color: inherit;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+  }
+
+  .case-card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-3px);
+  }
+
+  .case-card:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  /* Mockup floating on a gradient panel (RysthDesign "Sitios ya publicados" style) */
+  .case-card__media {
+    aspect-ratio: 16 / 11;
+    padding: clamp(1.25rem, 3vw, 1.75rem) clamp(1.25rem, 3vw, 1.75rem) 0;
+    background: linear-gradient(155deg, #5b4fd6 0%, #7c6cff 45%, #40329c 100%);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .case-card__media img {
+    width: 100%;
+    display: block;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    transition: transform 0.4s ease;
+  }
+
+  .case-card:hover .case-card__media img { transform: translateY(-4px); }
+
+  .case-card__media--ph {
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+
+  .case-card__ph-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  .case-card__body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    flex: 1;
+  }
+
+  .case-card__status {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .case-card__title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+  }
+
+  .case-card__desc {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+  }
+
+  .case-card__foot {
+    margin-top: auto;
+    padding-top: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .case-card__tech {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .case-card__more {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+
+  .case-card:hover .case-card__more { color: var(--text-primary); }
+
+  /* Modal */
+  .pmodal {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+  }
+
+  .pmodal[hidden] { display: none; }
+
+  .pmodal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(4px);
+  }
+
+  .pmodal__dialog {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 640px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-strong);
+    border-radius: 16px;
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .pmodal__close {
+    position: absolute;
+    top: 0.9rem;
+    right: 0.9rem;
+    z-index: 2;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--border-strong);
+    background: rgba(10, 10, 11, 0.6);
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .pmodal__close:hover { background: rgba(10, 10, 11, 0.9); }
+
+  .pmodal__media {
+    aspect-ratio: 16 / 9;
+    background: #0d0d10;
+  }
+
+  .pmodal__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .pmodal__media--ph {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+      linear-gradient(135deg, rgba(124, 108, 255, 0.12), transparent 60%),
+      repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.02) 0 10px, transparent 10px 20px);
+  }
+
+  .pmodal__media--ph span {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .pmodal__body {
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .pmodal__status {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .pmodal__title {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+  }
+
+  .pmodal__detail {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+  }
+
+  .pmodal__tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .pmodal__chip {
+    padding: 0.3rem 0.7rem;
+    background: var(--accent-soft);
+    border: 1px solid var(--border-subtle);
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+  }
+
+  .pmodal__demo { align-self: flex-start; margin-top: 0.5rem; display: none; }
+</style>

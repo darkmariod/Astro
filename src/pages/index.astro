@@ -1,0 +1,131 @@
+---
+import '@fontsource/geist/400.css';
+import '@fontsource/geist/500.css';
+import '@fontsource/geist/600.css';
+import '@fontsource/geist/700.css';
+import '@fontsource/geist-mono/400.css';
+import '@fontsource/geist-mono/500.css';
+import '../styles/landing.css';
+
+import Nav from '../components/react/Nav.jsx';
+import Hero from '../components/landing/Hero.astro';
+import Projects from '../components/landing/Projects.astro';
+import About from '../components/landing/About.astro';
+import Tech from '../components/landing/Tech.astro';
+import Services from '../components/landing/Services.astro';
+import Pricing from '../components/landing/Pricing.astro';
+import Faq from '../components/landing/Faq.astro';
+import ContactForm from '../components/landing/ContactForm.astro';
+import Footer from '../components/landing/Footer.astro';
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta -->
+    <meta name="description" content="Monkey Computer - Desarrollo de software para negocios. Sistemas web, inventario y ventas, reservas, facturación electrónica SRI y software a medida con Laravel." />
+    <meta name="keywords" content="desarrollo de software, Laravel, PHP, sistemas web, inventario, reservas, facturación electrónica SRI, software a medida, Ecuador, Monkey Computer" />
+    <meta name="author" content="Monkey Computer" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Monkey Computer - Software para negocios reales" />
+    <meta property="og:description" content="Desarrollo de sistemas web para negocios con Laravel: inventario, reservas, facturación SRI y software a medida." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://monkey.computer.ec" />
+    <meta property="og:site_name" content="Monkey Computer" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Monkey Computer - Software para negocios reales" />
+    <meta name="twitter:description" content="Desarrollo de sistemas web para negocios con Laravel: inventario, reservas, facturación SRI y software a medida." />
+
+    <!-- Canonical + Hreflang -->
+    <link rel="canonical" href="https://monkey.computer.ec" />
+    <link rel="alternate" href="https://monkey.computer.ec/?lang=es" hreflang="es" />
+    <link rel="alternate" href="https://monkey.computer.ec/?lang=en" hreflang="en" />
+    <link rel="alternate" href="https://monkey.computer.ec" hreflang="x-default" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Monkey Computer",
+        "url": "https://monkey.computer.ec",
+        "logo": "https://monkey.computer.ec/favicon.svg",
+        "description": "Desarrollo de software para negocios con Laravel: sistemas web, inventario y ventas, reservas, facturación electrónica SRI y software a medida.",
+        "foundingDate": "2024",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+54-9-11-3600-0797",
+          "contactType": "sales",
+          "availableLanguage": ["Spanish", "English"]
+        },
+        "sameAs": [
+          "https://github.com/MonkeyComputer593",
+          "https://www.linkedin.com/company/monkey-computer/",
+          "https://www.instagram.com/monkey.computer.ec/"
+        ],
+        "offers": {
+          "@type": "AggregateOffer",
+          "description": "Servicios de desarrollo de software"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Monkey Computer",
+        "url": "https://monkey.computer.ec",
+        "inLanguage": ["es"],
+        "description": "Desarrollo de software para negocios con Laravel: sistemas web, inventario, reservas, facturación SRI y software a medida."
+      }
+    </script>
+
+    <title>Monkey Computer - Software para negocios reales</title>
+
+    <style is:global>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body class="landing-body">
+    <Nav client:load />
+    
+    <main id="main-content">
+      <Hero />
+      <Projects />
+      <About />
+      <Tech />
+      <Services />
+      <Pricing />
+      <Faq />
+      <ContactForm />
+    </main>
+    <Footer />
+
+    <button
+      id="scroll-top"
+      aria-label="Volver arriba"
+      data-i18n-aria="nav.scrollTopAria"
+      title="Volver arriba"
+      data-i18n-title="nav.scrollTopTitle"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+
+    <script src="../scripts/main.js"></script>
+  </body>
+</html>

@@ -1,22 +1,33 @@
 ---
 const WHATSAPP_URL =
   "https://wa.me/5491136000797?text=Hola,%20quiero%20conversar%20sobre%20un%20proyecto%20de%20software.";
+
+// Título separado en palabras para animar cada una en cascada.
+const line1 = ['Software', 'para'];
+const line2 = ['negocios', 'reales.'];
+let d = 0.18; // delay inicial de la primera palabra
+const step = 0.09;
 ---
 
 <section class="hero" id="home">
   <div class="container hero__inner">
-    <p class="hero__eyebrow reveal">Desarrollo de software ·</p>
+    <p class="hero__eyebrow">Desarrollo de software</p>
 
-    <h1 class="display-xl hero__title reveal">
-      Software para <span class="gradient-text">negocios reales.</span>
+    <h1 class="display-xl hero__title">
+      {line1.map((w) => { const delay = d; d += step; return (
+        <span class="word" style={`animation-delay:${delay}s`}>{w}</span>
+      ); })}
+      {line2.map((w) => { const delay = d; d += step; return (
+        <span class="word gradient-text" style={`animation-delay:${delay}s`}>{w}</span>
+      ); })}
     </h1>
 
-    <p class="hero__desc reveal">
+    <p class="hero__desc">
       Desarrollo sistemas web que digitalizan procesos, automatizan tareas
       y ayudan a los negocios a trabajar mejor.
     </p>
 
-    <div class="hero__actions reveal">
+    <div class="hero__actions">
       <a href="#projects" class="btn btn-primary btn-lg">Ver proyectos</a>
       <a href={WHATSAPP_URL} class="btn btn-secondary btn-lg" target="_blank" rel="noopener noreferrer">
         Trabajemos juntos
@@ -34,6 +45,11 @@ const WHATSAPP_URL =
     max-width: 900px;
   }
 
+  @keyframes heroRise {
+    from { opacity: 0; transform: translateY(0.6em); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
   .hero__eyebrow {
     font-family: var(--font-mono);
     font-size: 0.8rem;
@@ -42,6 +58,8 @@ const WHATSAPP_URL =
     text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: heroRise 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.05s forwards;
   }
 
   .hero__title {
@@ -49,17 +67,41 @@ const WHATSAPP_URL =
     max-width: 16ch;
   }
 
+  .hero__title .word {
+    display: inline-block;
+    opacity: 0;
+    animation: heroRise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* espacio entre palabras (los span son inline-block) */
+  .hero__title .word + .word { margin-left: 0.25em; }
+
   .hero__desc {
     font-size: clamp(1.05rem, 2.2vw, 1.3rem);
     line-height: 1.6;
     color: var(--text-secondary);
     max-width: 46ch;
     margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: heroRise 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
   }
 
   .hero__actions {
     display: flex;
     flex-wrap: wrap;
     gap: 0.85rem;
+    opacity: 0;
+    animation: heroRise 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
+  }
+
+  /* Accesibilidad: sin animación si el usuario lo pide */
+  @media (prefers-reduced-motion: reduce) {
+    .hero__eyebrow,
+    .hero__title .word,
+    .hero__desc,
+    .hero__actions {
+      animation: none;
+      opacity: 1;
+    }
   }
 </style>

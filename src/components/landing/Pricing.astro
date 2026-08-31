@@ -1,5 +1,11 @@
 ---
-// anual/delivery vacíos => no se muestran (ej: Tienda, pendiente de definir).
+import etsaatours from '../../assets/etsaatours.png';
+import natufitness from '../../assets/natufitness.png';
+
+// example: la web real que se muestra al hacer click en la tarjeta.
+//   name  -> nombre del sitio
+//   url   -> link visitable (podés editarlo/agregarlo cuando quieras)
+//   image -> captura. null = "Captura próximamente" hasta que la agregues.
 const plans = [
   {
     name: 'Landing Page',
@@ -15,11 +21,12 @@ const plans = [
       'Ficha de Google Business optimizada',
       'Carga en menos de 1 segundo, garantizado',
     ],
+    example: { name: 'Centeno Abogados', url: 'https://centenoabogados.com', image: null },
   },
   {
     name: 'Sitio Informativo',
     for: 'Para el negocio con varios servicios que necesita explicarlos.',
-    setup: '$450',
+    setup: '$325',
     anual: '$140',
     delivery: 'Entrega en 12 días · 2 rondas de cambios',
     featured: true,
@@ -31,6 +38,7 @@ const plans = [
       'Ficha de Google Business optimizada',
       '2 rondas de cambios',
     ],
+    example: { name: 'ETSAA Tours', url: 'https://etsaatours.com', image: etsaatours.src },
   },
   {
     name: 'Tienda en línea',
@@ -47,6 +55,23 @@ const plans = [
       'Ficha de Google Business optimizada',
       'Dominio, hosting y SSL incluidos',
     ],
+    example: { name: 'Natufitness', url: '', image: natufitness.src },
+  },
+  {
+    name: 'Desarrollo a medida',
+    for: 'Para el negocio que necesita un sistema propio.',
+    setup: 'A cotizar',
+    anual: '',
+    delivery: '',
+    featured: false,
+    features: [
+      'Reservas, inventario o ventas',
+      'Facturación electrónica SRI',
+      'Desarrollado en Laravel',
+      'Panel de administración propio',
+      'Se ajusta a tu proceso',
+    ],
+    example: null,
   },
 ];
 ---
@@ -60,14 +85,22 @@ const plans = [
 
     <div class="pricing__grid">
       {plans.map((plan) => (
-        <div class={`plan reveal ${plan.featured ? 'plan--featured' : ''}`}>
+        <div
+          class={`plan reveal ${plan.featured ? 'plan--featured' : ''} ${plan.example ? 'plan--clickable' : ''}`}
+          role={plan.example ? 'button' : undefined}
+          tabindex={plan.example ? '0' : undefined}
+          data-ex-name={plan.example ? plan.example.name : undefined}
+          data-ex-url={plan.example ? plan.example.url : undefined}
+          data-ex-image={plan.example ? (plan.example.image || '') : undefined}
+          aria-haspopup={plan.example ? 'dialog' : undefined}
+        >
           {plan.featured && <span class="plan__badge">Más elegido</span>}
           <h3 class="plan__name">{plan.name}</h3>
           <p class="plan__for">{plan.for}</p>
 
           <div class="plan__meta">
             <div class="plan__price">
-              <span class="plan__label">Setup</span>
+              <span class="plan__label">{plan.anual ? 'Setup' : ''}</span>
               <span class="plan__amount">{plan.setup}</span>
             </div>
             {plan.anual && (
@@ -87,13 +120,88 @@ const plans = [
               </li>
             ))}
           </ul>
+
+          {plan.example && <span class="plan__example">Ver ejemplo →</span>}
         </div>
       ))}
     </div>
 
     <p class="pricing__note reveal">Precios en USD. Cada proyecto puede ajustarse según lo que necesites.</p>
   </div>
+
+  <!-- Modal de ejemplo (web real) -->
+  <div class="exmodal" id="exmodal" hidden>
+    <div class="exmodal__overlay" data-exclose></div>
+    <div class="exmodal__dialog" role="dialog" aria-modal="true" aria-labelledby="exmodalTitle">
+      <button class="exmodal__close" data-exclose aria-label="Cerrar">✕</button>
+      <div class="exmodal__media" id="exmodalMedia"></div>
+      <div class="exmodal__body">
+        <span class="exmodal__eyebrow">Trabajo realizado</span>
+        <h3 class="exmodal__title" id="exmodalTitle"></h3>
+        <a class="exmodal__visit btn btn-primary" id="exmodalVisit" target="_blank" rel="noopener noreferrer">Visitar sitio →</a>
+      </div>
+    </div>
+  </div>
 </section>
+
+<script is:inline>
+  (function () {
+    var modal = document.getElementById('exmodal');
+    if (!modal) return;
+    var media = document.getElementById('exmodalMedia');
+    var title = document.getElementById('exmodalTitle');
+    var visit = document.getElementById('exmodalVisit');
+    var lastFocus = null;
+
+    function open(card) {
+      lastFocus = card;
+      title.textContent = card.dataset.exName || '';
+
+      var img = card.dataset.exImage;
+      if (img) {
+        media.className = 'exmodal__media';
+        media.innerHTML = '<img src="' + img + '" alt="' + (card.dataset.exName || '') + '" style="width:100%;height:auto;display:block" />';
+      } else {
+        media.className = 'exmodal__media exmodal__media--ph';
+        media.innerHTML = '<span>Captura próximamente</span>';
+      }
+
+      var url = card.dataset.exUrl;
+      if (url) {
+        visit.href = url;
+        visit.style.display = 'inline-flex';
+      } else {
+        visit.style.display = 'none';
+      }
+
+      modal.hidden = false;
+      document.body.style.overflow = 'hidden';
+      var closeBtn = modal.querySelector('.exmodal__close');
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function close() {
+      modal.hidden = true;
+      document.body.style.overflow = '';
+      if (lastFocus) lastFocus.focus();
+    }
+
+    document.querySelectorAll('.plan--clickable').forEach(function (card) {
+      card.addEventListener('click', function () { open(card); });
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(card); }
+      });
+    });
+
+    modal.querySelectorAll('[data-exclose]').forEach(function (el) {
+      el.addEventListener('click', close);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !modal.hidden) close();
+    });
+  })();
+</script>
 
 <style>
   .pricing__header {
@@ -107,14 +215,12 @@ const plans = [
     grid-template-columns: 1fr;
     gap: 1.25rem;
     align-items: start;
+    max-width: 780px;
+    margin-inline: auto;
   }
 
   @media (min-width: 640px) {
     .pricing__grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  @media (min-width: 980px) {
-    .pricing__grid { grid-template-columns: repeat(3, 1fr); }
   }
 
   .plan {
@@ -125,9 +231,23 @@ const plans = [
     border-radius: 16px;
     display: flex;
     flex-direction: column;
+    text-align: left;
+    transition: border-color 0.25s ease, transform 0.25s ease;
   }
 
   .plan--featured { border-color: var(--accent); }
+
+  .plan--clickable { cursor: pointer; }
+
+  .plan--clickable:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-3px);
+  }
+
+  .plan--clickable:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
 
   .plan__badge {
     position: absolute;
@@ -220,9 +340,120 @@ const plans = [
     flex-shrink: 0;
   }
 
+  .plan__example {
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-subtle);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
   .pricing__note {
     margin-top: 1.5rem;
     font-size: 0.85rem;
     color: var(--text-muted);
   }
+
+  /* Modal de ejemplo */
+  .exmodal {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+  }
+
+  .exmodal[hidden] { display: none; }
+
+  .exmodal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(4px);
+  }
+
+  .exmodal__dialog {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 520px;
+    max-height: 85vh;
+    overflow-y: auto;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-strong);
+    border-radius: 16px;
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .exmodal__close {
+    position: absolute;
+    top: 0.9rem;
+    right: 0.9rem;
+    z-index: 2;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--border-strong);
+    background: rgba(10, 10, 11, 0.6);
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+
+  .exmodal__close:hover { background: rgba(10, 10, 11, 0.9); }
+
+  .exmodal__media {
+    aspect-ratio: 16 / 10;
+    background: #0d0d10;
+    overflow: hidden;
+  }
+
+  .exmodal__media img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+
+  .exmodal__media--ph {
+    aspect-ratio: 16 / 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+      linear-gradient(135deg, rgba(124, 108, 255, 0.12), transparent 60%),
+      repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.02) 0 10px, transparent 10px 20px);
+  }
+
+  .exmodal__media--ph span {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .exmodal__body {
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    align-items: flex-start;
+  }
+
+  .exmodal__eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .exmodal__title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+  }
+
+  .exmodal__visit { margin-top: 0.5rem; }
 </style>

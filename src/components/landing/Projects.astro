@@ -4,6 +4,8 @@ import reservation from '../../assets/reservation.png';
 
 // Solo proyectos reales. Sin métricas ni clientes inventados.
 // image: null => placeholder hasta tener el mockup real.
+// video: pega el link de YouTube entre las comillas para que se muestre al abrir el proyecto.
+//        Ejemplo: video: 'https://www.youtube.com/watch?v=XXXXXXX'. Si está vacío, muestra la imagen.
 const projects = [
   {
     title: 'Reservas para barberías',
@@ -13,6 +15,7 @@ const projects = [
     detail:
       'Plataforma web para que cada barbería administre sus servicios, su equipo y su agenda. Los clientes reservan su turno desde el navegador, sin llamadas ni mensajes.',
     image: reservation.src,
+    video: '',
     demo: '',
   },
   {
@@ -23,6 +26,7 @@ const projects = [
     detail:
       'Panel para controlar productos, stock, ventas y operaciones diarias de un negocio en un solo lugar, con la información siempre actualizada.',
     image: ecommerce.src,
+    video: '',
     demo: '',
   },
   {
@@ -33,6 +37,7 @@ const projects = [
     detail:
       'Integración de facturación electrónica del SRI dentro de sistemas empresariales, para emitir comprobantes válidos directamente desde el software del negocio.',
     image: null,
+    video: '',
     demo: '',
   },
 ];
@@ -56,6 +61,7 @@ const projects = [
           data-tech={p.tech.join(' · ')}
           data-detail={p.detail}
           data-image={p.image || ''}
+          data-video={p.video || ''}
           data-demo={p.demo || ''}
           aria-haspopup="dialog"
         >
@@ -123,10 +129,18 @@ const projects = [
         tech.appendChild(chip);
       });
 
+      var video = card.dataset.video;
       var img = card.dataset.image;
-      if (img) {
+      if (video) {
+        var embed = video;
+        var yt = video.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([\w-]+)/);
+        if (yt) embed = 'https://www.youtube.com/embed/' + yt[1];
+        media.className = 'pmodal__media pmodal__media--video';
+        media.innerHTML = '<iframe src="' + embed + '" title="' + (card.dataset.title || '') +
+          '" style="width:100%;height:100%;border:0;display:block" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+      } else if (img) {
         media.className = 'pmodal__media';
-        media.innerHTML = '<img src="' + img + '" alt="' + (card.dataset.title || '') + '" />';
+        media.innerHTML = '<img src="' + img + '" alt="' + (card.dataset.title || '') + '" style="width:100%;height:auto;display:block" />';
       } else {
         media.className = 'pmodal__media pmodal__media--ph';
         media.innerHTML = '<span>Demo en video · próximamente</span>';
@@ -314,8 +328,8 @@ const projects = [
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 640px;
-    max-height: 90vh;
+    max-width: 520px;
+    max-height: 85vh;
     overflow-y: auto;
     background: var(--bg-elevated);
     border: 1px solid var(--border-strong);
@@ -342,13 +356,16 @@ const projects = [
   .pmodal__close:hover { background: rgba(10, 10, 11, 0.9); }
 
   .pmodal__media {
-    aspect-ratio: 16 / 9;
     background: #0d0d10;
   }
 
-  .pmodal__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pmodal__media img { width: 100%; height: auto; display: block; }
+
+  .pmodal__media--video { aspect-ratio: 16 / 9; }
+  .pmodal__media--video iframe { width: 100%; height: 100%; border: 0; display: block; }
 
   .pmodal__media--ph {
+    aspect-ratio: 16 / 10;
     display: flex;
     align-items: center;
     justify-content: center;

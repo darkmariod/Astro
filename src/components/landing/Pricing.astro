@@ -2,16 +2,12 @@
 import etsaatours from '../../assets/etsaatours.png';
 import natufitness from '../../assets/natufitness.png';
 
-// example: la web real que se muestra al hacer click en la tarjeta.
-//   name  -> nombre del sitio
-//   url   -> link visitable (podés editarlo/agregarlo cuando quieras)
-//   image -> captura. null = "Captura próximamente" hasta que la agregues.
 const plans = [
   {
     name: 'Landing Page',
     for: 'Para el negocio con un solo objetivo: que lo llamen.',
-    setup: '$250',
-    anual: '$120',
+    setup: '$185',
+    anual: '$50',
     delivery: 'Entrega en 7 días · 1 ronda de cambios',
     featured: false,
     features: [
@@ -26,16 +22,16 @@ const plans = [
   {
     name: 'Sitio Informativo',
     for: 'Para el negocio con varios servicios que necesita explicarlos.',
-    setup: '$325',
-    anual: '$140',
+    setup: '$250',
+    anual: '$50',
     delivery: 'Entrega en 12 días · 2 rondas de cambios',
     featured: true,
     features: [
       'Hasta 6 páginas',
-      'Catálogo de hasta 40 productos',
       'Blog que administras tú mismo',
       'SEO configurado página por página',
       'Ficha de Google Business optimizada',
+      'Botón de WhatsApp y formulario de contacto',
       '2 rondas de cambios',
     ],
     example: { name: 'ETSAA Tours', url: 'https://etsaatours.com', image: etsaatours.src },
@@ -44,7 +40,7 @@ const plans = [
     name: 'Tienda en línea',
     for: 'Para el negocio que quiere vender online.',
     setup: '$400',
-    anual: '$150',
+    anual: '$100',
     delivery: 'Entrega en 15 días · 3 rondas de cambios',
     featured: false,
     features: [
@@ -53,26 +49,10 @@ const plans = [
       'Panel para gestionar productos y pedidos',
       'SEO configurado',
       'Ficha de Google Business optimizada',
-      'Dominio, hosting y SSL incluidos',
     ],
     example: { name: 'Natufitness', url: '', image: natufitness.src },
   },
-  {
-    name: 'Desarrollo a medida',
-    for: 'Para el negocio que necesita un sistema propio.',
-    setup: 'A cotizar',
-    anual: '',
-    delivery: '',
-    featured: false,
-    features: [
-      'Reservas, inventario o ventas',
-      'Facturación electrónica SRI',
-      'Desarrollado en Laravel',
-      'Panel de administración propio',
-      'Se ajusta a tu proceso',
-    ],
-    example: null,
-  },
+
 ];
 ---
 

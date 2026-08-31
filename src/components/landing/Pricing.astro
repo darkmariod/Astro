@@ -160,7 +160,7 @@ const plans = [
       var img = card.dataset.exImage;
       if (img) {
         media.className = 'exmodal__media';
-        media.innerHTML = '<img src="' + img + '" alt="' + (card.dataset.exName || '') + '" />';
+        media.innerHTML = '<img src="' + img + '" alt="' + (card.dataset.exName || '') + '" style="width:100%;height:auto;display:block" />';
       } else {
         media.className = 'exmodal__media exmodal__media--ph';
         media.innerHTML = '<span>Captura próximamente</span>';

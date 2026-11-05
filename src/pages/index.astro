@@ -26,57 +26,61 @@ import Footer from '../components/landing/Footer.astro';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Primary Meta -->
-    <meta name="description" content="Monkey Computer - Desarrollo de software para negocios. Sistemas web, inventario y ventas, reservas, facturación electrónica SRI y software a medida con Laravel." />
-    <meta name="keywords" content="desarrollo de software, Laravel, PHP, sistemas web, inventario, reservas, facturación electrónica SRI, software a medida, Ecuador, Monkey Computer" />
+    <meta name="description" content="Software a medida en Ecuador: sistema contable con facturación electrónica SRI, reservas para barberías, tiendas online y páginas web que venden. Hecho con Laravel. Cotiza por WhatsApp." />
+    <meta name="keywords" content="desarrollo de software Ecuador, software a medida, sistema contable Ecuador, facturación electrónica SRI, sistema de reservas para barberías, tienda online Ecuador, página web Ecuador, Laravel, PHP, Monkey Computer" />
     <meta name="author" content="Monkey Computer" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="geo.region" content="EC" />
+    <meta name="geo.placename" content="Ecuador" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Monkey Computer - Software para negocios reales" />
-    <meta property="og:description" content="Desarrollo de sistemas web para negocios con Laravel: inventario, reservas, facturación SRI y software a medida." />
+    <meta property="og:title" content="Monkey Computer | Software a medida y páginas web en Ecuador" />
+    <meta property="og:description" content="Sistema contable con facturación SRI, reservas para barberías, tiendas online y software a medida. Cotiza por WhatsApp." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://monkey.computer.ec" />
+    <meta property="og:url" content="https://monkeycomputer.com" />
     <meta property="og:site_name" content="Monkey Computer" />
-    <meta property="og:locale" content="es_ES" />
-    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale" content="es_EC" />
+    <meta property="og:image" content="https://monkeycomputer.com/logo.png" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Monkey Computer - Software para negocios reales" />
-    <meta name="twitter:description" content="Desarrollo de sistemas web para negocios con Laravel: inventario, reservas, facturación SRI y software a medida." />
+    <meta name="twitter:title" content="Monkey Computer | Software a medida y páginas web en Ecuador" />
+    <meta name="twitter:description" content="Sistema contable con facturación SRI, reservas para barberías, tiendas online y software a medida. Cotiza por WhatsApp." />
+    <meta name="twitter:image" content="https://monkeycomputer.com/logo.png" />
 
-    <!-- Canonical + Hreflang -->
-    <link rel="canonical" href="https://monkey.computer.ec" />
-    <link rel="alternate" href="https://monkey.computer.ec/?lang=es" hreflang="es" />
-    <link rel="alternate" href="https://monkey.computer.ec/?lang=en" hreflang="en" />
-    <link rel="alternate" href="https://monkey.computer.ec" hreflang="x-default" />
+    <!-- Canonical -->
+    <link rel="canonical" href="https://monkeycomputer.com" />
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/logo.png" />
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
+        "@type": "ProfessionalService",
         "name": "Monkey Computer",
-        "url": "https://monkey.computer.ec",
-        "logo": "https://monkey.computer.ec/favicon.svg",
-        "description": "Desarrollo de software para negocios con Laravel: sistemas web, inventario y ventas, reservas, facturación electrónica SRI y software a medida.",
-        "foundingDate": "2024",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+54-9-11-3600-0797",
-          "contactType": "sales",
-          "availableLanguage": ["Spanish", "English"]
-        },
+        "url": "https://monkeycomputer.com",
+        "logo": "https://monkeycomputer.com/logo.png",
+        "image": "https://monkeycomputer.com/logo.png",
+        "description": "Desarrollo de software a medida en Ecuador: sistema contable con facturación electrónica SRI, sistemas de reservas para barberías, tiendas online y páginas web.",
+        "priceRange": "$$",
+        "areaServed": { "@type": "Country", "name": "Ecuador" },
+        "address": { "@type": "PostalAddress", "addressCountry": "EC" },
         "sameAs": [
           "https://github.com/MonkeyComputer593",
           "https://www.linkedin.com/company/monkey-computer/",
           "https://www.instagram.com/monkey.computer.ec/"
         ],
-        "offers": {
-          "@type": "AggregateOffer",
-          "description": "Servicios de desarrollo de software"
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Servicios de software",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sistema contable y facturación electrónica SRI" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sistema de reservas para barberías" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tienda en línea / e-commerce" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Páginas web y sitios informativos" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Software a medida con Laravel" } }
+          ]
         }
       }
     </script>
@@ -85,13 +89,13 @@ import Footer from '../components/landing/Footer.astro';
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "Monkey Computer",
-        "url": "https://monkey.computer.ec",
-        "inLanguage": ["es"],
-        "description": "Desarrollo de software para negocios con Laravel: sistemas web, inventario, reservas, facturación SRI y software a medida."
+        "url": "https://monkeycomputer.com",
+        "inLanguage": "es-EC",
+        "description": "Software a medida, sistema contable con facturación SRI, reservas para barberías, tiendas online y páginas web en Ecuador."
       }
     </script>
 
-    <title>Monkey Computer - Software para negocios reales</title>
+    <title>Monkey Computer | Software a medida y páginas web en Ecuador</title>
 
     <style is:global>
       html {

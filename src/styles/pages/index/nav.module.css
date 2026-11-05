@@ -35,8 +35,9 @@
 }
 
 .brand_mark {
-  width: 1.15rem;
-  height: 1.15rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  object-fit: contain;
 }
 
 /* --- Desktop links --- */

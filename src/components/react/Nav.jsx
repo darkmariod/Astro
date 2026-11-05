@@ -19,7 +19,7 @@ export default function Nav() {
     <header className={styles.nav_container}>
       <div className={styles.nav_inner}>
         <a href="#home" className={styles.brand} onClick={close} aria-label="Monkey Computer, inicio">
-          <img src="/favicon.svg" className={styles.brand_mark} alt="" aria-hidden="true" />
+          <img src="/logo.png" className={styles.brand_mark} alt="" aria-hidden="true" />
           <span>Monkey Computer</span>
         </a>
 

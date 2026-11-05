@@ -1,0 +1,173 @@
+---
+import reservation from '../../assets/reservation.png';
+
+const WA = 'https://wa.me/5491136000797?text=';
+
+// image: null => placeholder "Mockup próximamente" hasta tener la captura real.
+const verticals = [
+  {
+    eyebrow: 'Sistema contable',
+    title: 'Facturación electrónica y contabilidad',
+    desc: 'Para negocios que facturan al SRI y quieren inventario, ventas y contabilidad en un solo sistema.',
+    features: [
+      'Comprobantes autorizados ante el SRI',
+      'Inventario y kárdex en tiempo real',
+      'Panel de ventas y reportes',
+      'Contabilidad generada desde las ventas',
+    ],
+    image: null,
+    wa: WA + 'Hola,%20quiero%20una%20demo%20del%20sistema%20contable.',
+  },
+  {
+    eyebrow: 'Barberías',
+    title: 'Reservas online para barberías',
+    desc: 'Para barberías que quieren que sus clientes reserven solos, 24/7, sin llamadas ni mensajes.',
+    features: [
+      'Reservas 24/7 desde el navegador',
+      'Gestión de servicios, barberos y horarios',
+      'Panel de citas y clientes',
+      'Confirmaciones automáticas',
+    ],
+    image: reservation.src,
+    wa: WA + 'Hola,%20quiero%20una%20demo%20del%20sistema%20de%20reservas%20para%20barber%C3%ADa.',
+  },
+];
+---
+
+<section class="verticals section" id="productos">
+  <div class="container">
+    <div class="verticals__header reveal">
+      <p class="eyebrow">Productos</p>
+      <h2 class="display-lg">Software listo para tu rubro</h2>
+    </div>
+
+    <div class="verticals__list">
+      {verticals.map((v) => (
+        <article class="vertical reveal">
+          <div class="vertical__text">
+            <p class="vertical__eyebrow">{v.eyebrow}</p>
+            <h3 class="vertical__title">{v.title}</h3>
+            <p class="vertical__desc">{v.desc}</p>
+            <ul class="vertical__features">
+              {v.features.map((f) => (
+                <li><span class="vertical__check" aria-hidden="true">✓</span>{f}</li>
+              ))}
+            </ul>
+            <a href={v.wa} class="btn btn-primary" target="_blank" rel="noopener noreferrer">Pedir una demo</a>
+          </div>
+
+          <div class={`vertical__media ${v.image ? '' : 'vertical__media--ph'}`}>
+            {v.image ? (
+              <img src={v.image} alt={v.title} loading="lazy" />
+            ) : (
+              <span class="vertical__ph-label">Mockup próximamente</span>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .verticals__header {
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+  }
+
+  .verticals__header h2 { margin-top: 0.75rem; }
+
+  .verticals__list {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .vertical {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    align-items: center;
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+  }
+
+  @media (min-width: 860px) {
+    .vertical { grid-template-columns: 1fr 1fr; }
+  }
+
+  .vertical__eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+
+  .vertical__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    max-width: 18ch;
+  }
+
+  .vertical__desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    max-width: 44ch;
+  }
+
+  .vertical__features {
+    list-style: none;
+    margin: 0 0 1.75rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .vertical__features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.45;
+  }
+
+  .vertical__check { color: var(--accent); font-weight: 700; flex-shrink: 0; }
+
+  .vertical__media {
+    border-radius: 14px;
+    overflow: hidden;
+    background: #0d0d10;
+    border: 1px solid var(--border-subtle);
+  }
+
+  .vertical__media img { width: 100%; height: auto; display: block; }
+
+  .vertical__media--ph {
+    aspect-ratio: 16 / 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+      linear-gradient(135deg, rgba(124, 108, 255, 0.12), transparent 60%),
+      repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.02) 0 10px, transparent 10px 20px);
+  }
+
+  .vertical__ph-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+</style>

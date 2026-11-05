@@ -52,7 +52,22 @@ const plans = [
     ],
     example: { name: 'Natufitness', url: '', image: natufitness.src },
   },
-
+  {
+    name: 'Desarrollo a medida',
+    for: 'Para el negocio que necesita un sistema propio.',
+    setup: 'desde $300',
+    anual: '',
+    delivery: 'Bajo cotización',
+    featured: false,
+    features: [
+      'Reservas, inventario o ventas',
+      'Facturación electrónica SRI',
+      'Desarrollado en Laravel',
+      'Panel de administración propio',
+      'Se ajusta a tu proceso',
+    ],
+    example: null,
+  },
 ];
 ---
 
@@ -80,12 +95,12 @@ const plans = [
 
           <div class="plan__meta">
             <div class="plan__price">
-              <span class="plan__label">{plan.anual ? 'Setup' : ''}</span>
+              <span class="plan__label">{plan.anual ? 'Instalación' : ''}</span>
               <span class="plan__amount">{plan.setup}</span>
             </div>
             {plan.anual && (
               <div class="plan__price">
-                <span class="plan__label">Anual</span>
+                <span class="plan__label">Mensual</span>
                 <span class="plan__amount">{plan.anual}</span>
               </div>
             )}
@@ -104,6 +119,20 @@ const plans = [
           {plan.example && <span class="plan__example">Ver ejemplo →</span>}
         </div>
       ))}
+    </div>
+
+    <div class="addons reveal">
+      <p class="addons__title">Complementos opcionales</p>
+      <ul class="addons__list">
+        <li class="addon">
+          <span class="addon__name">Facturación electrónica SRI</span>
+          <span class="addon__price">a consultar</span>
+        </li>
+        <li class="addon">
+          <span class="addon__name">Pago con tarjeta en línea</span>
+          <span class="addon__price">a consultar</span>
+        </li>
+      </ul>
     </div>
 
     <p class="pricing__note reveal">Precios en USD. Cada proyecto puede ajustarse según lo que necesites.</p>
@@ -277,7 +306,8 @@ const plans = [
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--text-muted);
-    width: 3.2rem;
+    width: 5.5rem;
+    flex-shrink: 0;
   }
 
   .plan__amount {
@@ -333,6 +363,46 @@ const plans = [
     margin-top: 1.5rem;
     font-size: 0.85rem;
     color: var(--text-muted);
+  }
+
+  .addons {
+    max-width: 780px;
+    margin: 2rem auto 0;
+    padding: 1.5rem 1.75rem;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+  }
+
+  .addons__title {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .addons__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+
+  .addon {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .addon:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .addon__name { font-size: 0.95rem; color: var(--text-secondary); }
+
+  .addon__price {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    white-space: nowrap;
   }
 
   /* Modal de ejemplo */

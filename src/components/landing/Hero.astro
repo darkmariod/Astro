@@ -1,4 +1,8 @@
 ---
+import ecommerce from '../../assets/ecommerce.png';
+import reservation from '../../assets/reservation.png';
+import etsaatours from '../../assets/etsaatours.png';
+
 const WHATSAPP_URL =
   "https://wa.me/5491136000797?text=Hola,%20quiero%20conversar%20sobre%20un%20proyecto%20de%20software.";
 
@@ -7,43 +11,85 @@ const line1 = ['Software', 'para'];
 const line2 = ['negocios', 'reales.'];
 let d = 0.18; // delay inicial de la primera palabra
 const step = 0.09;
+
+// Stats del hero — EDITABLES: cambiá value/label por los tuyos.
+const stats = [
+  { value: '100%', label: 'Dominio a tu nombre' },
+  { value: 'Laravel', label: 'Hecho a medida' },
+  { value: 'SRI', label: 'Facturación integrada' },
+];
 ---
 
 <section class="hero" id="home">
-  <div class="container hero__inner">
-    <p class="hero__eyebrow">Desarrollo de software</p>
+  <div class="container hero__grid">
+    <div class="hero__left">
+      <p class="hero__eyebrow">Desarrollo de software</p>
 
-    <h1 class="display-xl hero__title">
-      {line1.map((w) => { const delay = d; d += step; return (
-        <span class="word" style={`animation-delay:${delay}s`}>{w}</span>
-      ); })}
-      {line2.map((w) => { const delay = d; d += step; return (
-        <span class="word gradient-text" style={`animation-delay:${delay}s`}>{w}</span>
-      ); })}
-    </h1>
+      <h1 class="display-xl hero__title">
+        {line1.map((w) => { const delay = d; d += step; return (
+          <span class="word" style={`animation-delay:${delay}s`}>{w}</span>
+        ); })}
+        {line2.map((w) => { const delay = d; d += step; return (
+          <span class="word gradient-text" style={`animation-delay:${delay}s`}>{w}</span>
+        ); })}
+      </h1>
 
-    <p class="hero__desc">
-      Desarrollo sistemas web que digitalizan procesos, automatizan tareas
-      y ayudan a los negocios a mejorar sus ventas.
-    </p>
+      <p class="hero__desc">
+        Desarrollo sistemas web que digitalizan procesos, automatizan tareas
+        y ayudan a los negocios a mejorar sus ventas.
+      </p>
 
-    <div class="hero__actions">
-      <a href="#projects" class="btn btn-primary btn-lg">Ver proyectos</a>
-      <a href={WHATSAPP_URL} class="btn btn-secondary btn-lg" target="_blank" rel="noopener noreferrer">
-        Trabajemos juntos
-      </a>
+      <div class="hero__actions">
+        <a href="#projects" class="btn btn-primary btn-lg">Ver proyectos</a>
+        <a href={WHATSAPP_URL} class="btn btn-secondary btn-lg" target="_blank" rel="noopener noreferrer">
+          Trabajemos juntos
+        </a>
+      </div>
+
+      <ul class="hero__stats">
+        {stats.map((s) => (
+          <li class="stat">
+            <span class="stat__value">{s.value}</span>
+            <span class="stat__label">{s.label}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="hero__showcase" aria-hidden="true">
+      <figure class="showcase__main">
+        <figcaption class="showcase__label">Sistema de inventario y ventas</figcaption>
+        <img src={ecommerce.src} alt="" loading="eager" />
+      </figure>
+      <div class="showcase__row">
+        <figure class="showcase__mini">
+          <img src={reservation.src} alt="" loading="lazy" />
+        </figure>
+        <figure class="showcase__mini">
+          <img src={etsaatours.src} alt="" loading="lazy" />
+        </figure>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
   .hero {
-    padding-block: clamp(4.5rem, 12vw, 9rem) clamp(3.5rem, 8vw, 6rem);
+    padding-block: clamp(3rem, 8vw, 6rem) clamp(3rem, 7vw, 5rem);
   }
 
-  .hero__inner {
-    max-width: 900px;
+  .hero__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(2.5rem, 5vw, 4rem);
+    align-items: center;
   }
+
+  @media (min-width: 980px) {
+    .hero__grid { grid-template-columns: 1.05fr 0.95fr; }
+  }
+
+  .hero__left { max-width: 620px; }
 
   @keyframes heroRise {
     from { opacity: 0; transform: translateY(0.6em); }
@@ -63,8 +109,8 @@ const step = 0.09;
   }
 
   .hero__title {
-    margin-bottom: 1.75rem;
-    max-width: 16ch;
+    margin-bottom: 1.5rem;
+    max-width: 14ch;
   }
 
   .hero__title .word {
@@ -73,15 +119,14 @@ const step = 0.09;
     animation: heroRise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
-  /* espacio entre palabras (los span son inline-block) */
   .hero__title .word + .word { margin-left: 0.25em; }
 
   .hero__desc {
-    font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
     line-height: 1.6;
     color: var(--text-secondary);
     max-width: 46ch;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     opacity: 0;
     animation: heroRise 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
   }
@@ -90,16 +135,95 @@ const step = 0.09;
     display: flex;
     flex-wrap: wrap;
     gap: 0.85rem;
+    margin-bottom: 2.5rem;
     opacity: 0;
     animation: heroRise 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
   }
 
-  /* Accesibilidad: sin animación si el usuario lo pide */
+  /* Stats */
+  .hero__stats {
+    list-style: none;
+    margin: 0;
+    padding: 1.75rem 0 0;
+    border-top: 1px solid var(--border-subtle);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    opacity: 0;
+    animation: heroRise 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.85s forwards;
+  }
+
+  .stat { display: flex; flex-direction: column; gap: 0.25rem; }
+
+  .stat__value {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+  }
+
+  .stat__label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  /* Showcase */
+  .hero__showcase {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    opacity: 0;
+    animation: heroRise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+  }
+
+  .showcase__main {
+    margin: 0;
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    overflow: hidden;
+    background: #0d0d10;
+  }
+
+  .showcase__label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .showcase__main img { width: 100%; height: auto; display: block; }
+
+  .showcase__row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .showcase__mini {
+    margin: 0;
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    background: #0d0d10;
+  }
+
+  .showcase__mini img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+
   @media (prefers-reduced-motion: reduce) {
     .hero__eyebrow,
     .hero__title .word,
     .hero__desc,
-    .hero__actions {
+    .hero__actions,
+    .hero__stats,
+    .hero__showcase {
       animation: none;
       opacity: 1;
     }
